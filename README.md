@@ -2,6 +2,7 @@
 
 [![Tests](https://github.com/osvalB/pyphotomol/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/osvalB/pyphotomol/actions/workflows/ci-cd.yml)
 [![codecov](https://codecov.io/gh/osvalB/pyphotomol/graph/badge.svg)](https://codecov.io/gh/osvalB/pyphotomol)
+[![Docs](https://img.shields.io/badge/docs-online-blue)](https://osvalb.github.io/pyphotomol)
 
 Welcome to PyPhotoMol, a python-package to analyse mass photometry data.
 
