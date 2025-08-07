@@ -1,0 +1,52 @@
+API Reference
+=============
+
+This page contains the complete API reference for PyPhotoMol.
+
+Main Classes
+------------
+
+.. automodule:: pyphotomol.main
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :no-index:
+
+Utility Functions
+-----------------
+
+Data Import
+~~~~~~~~~~~
+
+.. automodule:: pyphotomol.utils.data_import
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :no-index:
+
+Helper Functions
+~~~~~~~~~~~~~~~~
+
+.. automodule:: pyphotomol.utils.helpers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :no-index:
+
+Plotting Utilities
+~~~~~~~~~~~~~~~~~~
+
+.. automodule:: pyphotomol.utils.plotting
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :no-index:
+
+Color Palettes
+~~~~~~~~~~~~~~
+
+.. automodule:: pyphotomol.utils.palette
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :no-index:

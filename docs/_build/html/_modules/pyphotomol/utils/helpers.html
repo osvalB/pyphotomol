@@ -1,0 +1,1081 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pyphotomol.utils.helpers &#8212; PyPhotoMol 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/pyphotomol/utils/helpers';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">PyPhotoMol 0.1.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../modules.html">
+    pyphotomol
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/osvalB/pyPhotoMol" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../modules.html">
+    pyphotomol
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/osvalB/pyPhotoMol" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">pyphotomol.utils.helpers</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for pyphotomol.utils.helpers</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w">  </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_peaks</span> 
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">curve_fit</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;contrasts_to_mass&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;create_histogram&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;count_binding_events_from_masses&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;count_binding_events_from_contrasts&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;guess_peaks&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;multi_gauss&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;truncated_multi_gauss_with_baseline&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;fit_histogram&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;create_fit_table&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;r_squared&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;calibrate&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;evaluate_fitting&#39;</span>
+<span class="p">]</span>
+
+<div class="viewcode-block" id="contrasts_to_mass">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.utils.helpers.contrasts_to_mass">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">contrasts_to_mass</span><span class="p">(</span><span class="n">contrasts</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function to convert masses from contrasts using known calibration parameters.</span>
+
+<span class="sd">    Caution! slope and intercept are based on f(mass) = contrast !!!!</span>
+<span class="sd">    In other words, contrast = slope*mass + intercept</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    contrasts : np.ndarray</span>
+<span class="sd">        Contrasts to convert.</span>
+<span class="sd">    slope : float</span>
+<span class="sd">        Slope of the calibration line.</span>
+<span class="sd">    intercept : float</span>
+<span class="sd">        Intercept of the calibration line.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Converted masses in kDa.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">intercept_inverse</span> <span class="o">=</span> <span class="o">-</span><span class="n">intercept</span> <span class="o">/</span> <span class="n">slope</span>
+    <span class="n">slope_inverse</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">slope</span>
+
+    <span class="n">masses_kDa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">slope_inverse</span><span class="p">,</span> <span class="n">intercept_inverse</span><span class="p">]),</span> <span class="n">contrasts</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">masses_kDa</span></div>
+
+
+<div class="viewcode-block" id="create_histogram">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.utils.helpers.create_histogram">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_histogram</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2000</span><span class="p">],</span> <span class="n">bin_width</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates an histogram of the provided vector within a specified window and bin width.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    vector : np.ndarray</span>
+<span class="sd">        The data to create the histogram from.</span>
+<span class="sd">    window : list, default [0, 2000]</span>
+<span class="sd">        The range of values to include in the histogram [min, max].</span>
+<span class="sd">    bin_width : float, default 10</span>
+<span class="sd">        The width of each bin in the histogram.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    histogram_centers : np.ndarray</span>
+<span class="sd">        The x-coordinates of the histogram bins.</span>
+<span class="sd">    hist_counts : np.ndarray</span>
+<span class="sd">        The counts of values in each bin (Y-axis of the histogram).</span>
+<span class="sd">    hist_nbins : int</span>
+<span class="sd">        The number of bins in the histogram.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    For contrast data:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; centers, counts, nbins = create_histogram(contrasts, window=[-1, 0], bin_width=0.0004)</span>
+<span class="sd">    </span>
+<span class="sd">    For mass data:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; centers, counts, nbins = create_histogram(masses, window=[0, 2000], bin_width=10)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Determine number of bins based on bin_width</span>
+    <span class="n">nbins</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">window</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">window</span><span class="p">))</span> <span class="o">//</span> <span class="n">bin_width</span>
+    <span class="n">nbins</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">nbins</span><span class="p">)</span>
+
+    <span class="c1"># Create histogram</span>
+    <span class="n">hist_counts</span><span class="p">,</span> <span class="n">hist_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">nbins</span><span class="p">)</span>
+    <span class="n">histogram_centers</span> <span class="o">=</span> <span class="p">(</span><span class="n">hist_bins</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">hist_bins</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mf">2.0</span>
+    
+    <span class="c1"># Write parameters to instance</span>
+    <span class="n">bin_width</span>    <span class="o">=</span> <span class="n">bin_width</span>
+    <span class="n">hist_nbins</span>   <span class="o">=</span> <span class="n">nbins</span>
+
+    <span class="k">return</span> <span class="n">histogram_centers</span><span class="p">,</span> <span class="n">hist_counts</span><span class="p">,</span> <span class="n">hist_nbins</span></div>
+
+
+<div class="viewcode-block" id="count_binding_events_from_masses">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.utils.helpers.count_binding_events_from_masses">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">count_binding_events_from_masses</span><span class="p">(</span><span class="n">masses_kDa</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Count binding events based on the provided mass data.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    masses_kDa : np.ndarray</span>
+<span class="sd">        Array of masses in kDa.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    n_binding : int</span>
+<span class="sd">        Number of binding events.</span>
+<span class="sd">    n_unbinding : int</span>
+<span class="sd">        Number of unbinding events.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># Count binding events</span>
+    <span class="n">n_binding</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">masses_kDa</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    
+    <span class="c1"># Count unbinding events</span>
+    <span class="n">n_unbinding</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">masses_kDa</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">n_binding</span><span class="p">,</span> <span class="n">n_unbinding</span></div>
+
+
+<div class="viewcode-block" id="count_binding_events_from_contrasts">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.utils.helpers.count_binding_events_from_contrasts">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">count_binding_events_from_contrasts</span><span class="p">(</span><span class="n">contrasts</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Count binding events based on the provided contrast data.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    contrasts : np.ndarray</span>
+<span class="sd">        Array of contrasts.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    n_binding : int</span>
+<span class="sd">        Number of binding events (negative contrasts).</span>
+<span class="sd">    n_unbinding : int</span>
+<span class="sd">        Number of unbinding events (positive contrasts).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># Count binding events</span>
+    <span class="n">n_binding</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">contrasts</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+    
+    <span class="c1"># Count unbinding events</span>
+    <span class="n">n_unbinding</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">contrasts</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">n_binding</span><span class="p">,</span> <span class="n">n_unbinding</span></div>
+
+
+<div class="viewcode-block" id="guess_peaks">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.utils.helpers.guess_peaks">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">guess_peaks</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">histogram_centers</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">prominence</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">masses</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Try to find peaks in the histogram data.</span>
+<span class="sd">    </span>
+<span class="sd">    Automatically finds peaks in histogram data with adaptive parameters based on</span>
+<span class="sd">    the data range. For mass data, different distance thresholds are used for</span>
+<span class="sd">    different mass ranges to account for peak spacing variations.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : np.ndarray</span>
+<span class="sd">        The histogram counts data to find peaks in.</span>
+<span class="sd">    histogram_centers : np.ndarray</span>
+<span class="sd">        The centers of the histogram bins corresponding to x values.</span>
+<span class="sd">    height : int, default 14</span>
+<span class="sd">        Minimum height of peaks.</span>
+<span class="sd">    distance : int, default 4</span>
+<span class="sd">        Minimum distance between peaks (will be scaled for different mass ranges).</span>
+<span class="sd">    prominence : int, default 8</span>
+<span class="sd">        Minimum prominence of peaks.</span>
+<span class="sd">    masses : bool, default True</span>
+<span class="sd">        If True, find peaks in mass data; if False, find peaks in contrast data.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Histogram centers of the found peaks.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    For contrast data:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; peaks = guess_peaks(hist_counts, hist_centers, height=10, distance=4, prominence=4, masses=False)</span>
+<span class="sd">    </span>
+<span class="sd">    For mass data:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; peaks = guess_peaks(hist_counts, hist_centers, height=14, distance=4, prominence=8, masses=True)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Heuristics logic to find peaks in different ranges of the histogram  - can be improved...</span>
+    <span class="c1"># This is based on the assumption that the mass data has different characteristics in different ranges</span>
+    <span class="k">if</span> <span class="n">masses</span><span class="p">:</span>
+
+        <span class="n">sel1</span>     <span class="o">=</span> <span class="n">histogram_centers</span> <span class="o">&lt;</span> <span class="mi">650</span>
+        <span class="n">sel2</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">histogram_centers</span> <span class="o">&gt;=</span> <span class="mi">650</span><span class="p">,</span> <span class="n">histogram_centers</span>  <span class="o">&lt;</span> <span class="mi">1500</span><span class="p">)</span>
+        <span class="n">sel3</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">histogram_centers</span> <span class="o">&gt;=</span> <span class="mi">1500</span><span class="p">,</span> <span class="n">histogram_centers</span> <span class="o">&lt;</span> <span class="mi">10000</span><span class="p">)</span>
+        
+        <span class="n">pks1</span>     <span class="o">=</span> <span class="n">find_peaks</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">sel1</span><span class="p">],</span> <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span>   <span class="n">distance</span><span class="o">=</span><span class="n">distance</span><span class="p">,</span>   <span class="n">prominence</span><span class="o">=</span><span class="n">prominence</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">pks2</span>     <span class="o">=</span> <span class="n">find_peaks</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">sel2</span><span class="p">],</span> <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="n">distance</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="n">prominence</span><span class="o">=</span><span class="n">prominence</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">pks3</span>     <span class="o">=</span> <span class="n">find_peaks</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">sel3</span><span class="p">],</span> <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="n">distance</span><span class="o">*</span><span class="mi">8</span><span class="p">,</span> <span class="n">prominence</span><span class="o">=</span><span class="n">prominence</span><span class="o">*</span><span class="mi">2</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">pks</span> <span class="o">=</span> <span class="p">(</span> <span class="n">pks1</span><span class="p">,</span> <span class="n">pks2</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">sel1</span><span class="p">]),</span> <span class="n">pks3</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">sel1</span><span class="p">])</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">sel2</span><span class="p">])</span> <span class="p">)</span>
+        <span class="n">pks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">pks</span><span class="p">)</span>
+
+    <span class="c1"># Heuristic for contrasts - can be improved...</span>
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="n">sel1</span>     <span class="o">=</span> <span class="n">histogram_centers</span> <span class="o">&lt;</span>   <span class="o">-</span><span class="mf">0.1</span>
+        <span class="n">sel2</span>     <span class="o">=</span> <span class="n">histogram_centers</span> <span class="o">&gt;=</span>  <span class="o">-</span><span class="mf">0.1</span>
+        
+        <span class="n">pks1</span>     <span class="o">=</span> <span class="n">find_peaks</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">sel1</span><span class="p">],</span> <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span>   <span class="n">distance</span><span class="o">=</span><span class="n">distance</span><span class="o">*</span><span class="mi">20</span><span class="p">,</span>   <span class="n">prominence</span><span class="o">=</span><span class="n">prominence</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">pks2</span>     <span class="o">=</span> <span class="n">find_peaks</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">sel2</span><span class="p">],</span> <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="n">distance</span><span class="p">,</span> <span class="n">prominence</span><span class="o">=</span><span class="n">prominence</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">pks</span> <span class="o">=</span> <span class="p">(</span> <span class="n">pks1</span><span class="p">,</span> <span class="n">pks2</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">sel1</span><span class="p">]))</span>
+        <span class="n">pks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">pks</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">histogram_centers</span><span class="p">[</span><span class="n">pks</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="multi_gauss">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.utils.helpers.multi_gauss">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">multi_gauss</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">params</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Multiple gaussian function</span>
+<span class="sd">    Inputs x values and gaussian parameters</span>
+<span class="sd">    Outputs y values</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : np.ndarray</span>
+<span class="sd">        The x-coordinates where the Gaussian function is evaluated.</span>
+<span class="sd">    *params : tuple</span>
+<span class="sd">        Parameters for the Gaussian functions, where each set of parameters consists of:</span>
+<span class="sd">        - Center (mean) of the Gaussian</span>
+<span class="sd">        - Amplitude (height) of the Gaussian</span>
+<span class="sd">        - Standard deviation (width) of the Gaussian</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        The y-coordinates of the multiple-Gaussian function evaluated at x.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; x = np.linspace(0, 10, 100)</span>
+<span class="sd">    &gt;&gt;&gt; params = [5, 1, 0.5, 7, 0.5, 0.2]  # Two Gaussians</span>
+<span class="sd">    &gt;&gt;&gt; y = multi_gauss(x, *params)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">),</span> <span class="mi">3</span><span class="p">):</span>
+        <span class="n">ctr</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">amp</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">std</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
+
+        <span class="n">gaussian</span> <span class="o">=</span> <span class="n">amp</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">ctr</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">std</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
+
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">gaussian</span>
+
+    <span class="k">return</span> <span class="n">y</span></div>
+
+
+<div class="viewcode-block" id="truncated_multi_gauss_with_baseline">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.utils.helpers.truncated_multi_gauss_with_baseline">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">truncated_multi_gauss_with_baseline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">lower_limit_of_resolution</span><span class="p">,</span><span class="n">baseline</span><span class="p">,</span><span class="o">*</span><span class="n">params</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Multiple gaussian function with a baseline and a lower limit of resolution.</span>
+<span class="sd">    Inputs x values, gaussian parameters, lower limit of resolution, and baseline.</span>
+<span class="sd">    Outputs y values.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : np.ndarray</span>
+<span class="sd">        The x-coordinates where the Gaussian function is evaluated.</span>
+<span class="sd">    lower_limit_of_resolution : float</span>
+<span class="sd">        The lower limit of resolution below which the function is zero</span>
+<span class="sd">    baseline : float</span>
+<span class="sd">        The baseline value to be added to the Gaussian function.</span>
+<span class="sd">    *params : tuple</span>
+<span class="sd">        Parameters for the Gaussian functions, where each set of parameters consists of:</span>
+<span class="sd">        - Center (mean) of the Gaussian</span>
+<span class="sd">        - Amplitude (height) of the Gaussian</span>
+<span class="sd">        - Standard deviation (width) of the Gaussian</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        The y-coordinates of the multiple-Gaussian function evaluated at x,</span>
+<span class="sd">        truncated below the lower limit of resolution and with a baseline added.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1">#lower_limit_of_resolution&#39; is the lower limit of a mass that can be observed, i.e. 30 for refeyn model 1</span>
+    <span class="n">values_have_sense</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">greater</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">lower_limit_of_resolution</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">multi_gauss</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">params</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">*</span> <span class="n">values_have_sense</span>
+
+    <span class="k">return</span> <span class="n">y</span> <span class="o">+</span> <span class="n">baseline</span></div>
+
+
+<div class="viewcode-block" id="fit_histogram">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.utils.helpers.fit_histogram">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">fit_histogram</span><span class="p">(</span><span class="n">hist_counts</span><span class="p">,</span> 
+                  <span class="n">hist_centers</span><span class="p">,</span>
+                  <span class="n">guess_positions</span><span class="o">=</span><span class="p">[</span><span class="mi">66</span><span class="p">,</span><span class="mi">148</span><span class="p">,</span><span class="mi">480</span><span class="p">],</span> 
+                  <span class="n">mean_tolerance</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> 
+                  <span class="n">std_tolerance</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+                  <span class="n">threshold</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+                  <span class="n">baseline</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                  <span class="n">masses</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fit a histogram with multiple truncated gaussians.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    hist_counts : np.ndarray</span>
+<span class="sd">        The counts of values in each bin of the histogram.</span>
+<span class="sd">    hist_centers : np.ndarray</span>
+<span class="sd">        The centers of the histogram bins.</span>
+<span class="sd">    guess_positions : list, default [66,148,480]</span>
+<span class="sd">        Initial guesses for the positions of the peaks.</span>
+<span class="sd">    mean_tolerance : int, default 100</span>
+<span class="sd">        Tolerance for the peak positions.</span>
+<span class="sd">    std_tolerance : int, default 200</span>
+<span class="sd">        Maximum standard deviation for the peaks.</span>
+<span class="sd">    threshold : int, default 40 for masses in kDa units</span>
+<span class="sd">        For masses, minimum value that can be observed. </span>
+<span class="sd">        For contrasts, it is be the max value that can be observed. It should be a negative value.</span>
+<span class="sd">    baseline : float, default 0</span>
+<span class="sd">        Baseline value to be added to the fit.</span>
+<span class="sd">    masses : bool, default True</span>
+<span class="sd">        If True, the fit is for mass data; if False, it is for contrast data.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    popt : np.ndarray</span>
+<span class="sd">        Optimized parameters for the fit.</span>
+<span class="sd">    fit : np.ndarray</span>
+<span class="sd">        Fitted values for the histogram. The first column is the x-coordinates, </span>
+<span class="sd">        followed by the individual Gaussian fits and the total fit.</span>
+<span class="sd">    fit_error : np.ndarray</span>
+<span class="sd">        Errors of the fitted parameters.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    For contrast data:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; popt, fit, errors = fit_histogram(counts, centers, mean_tolerance=0.05, std_tolerance=0.1)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">fit</span>          <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="c1"># Get amplitude for each guess position</span>
+        <span class="n">guess_amp</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="n">guess_positions</span><span class="p">:</span>
+            <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">hist_centers</span> <span class="o">-</span> <span class="n">pos</span><span class="p">))</span>
+            <span class="n">guess_amp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hist_counts</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">masses</span><span class="p">:</span>
+
+            <span class="c1"># Raise an error if the std_tolerance is not greater than 5</span>
+            <span class="k">if</span> <span class="n">std_tolerance</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Standard deviation tolerance must be greater than 5 for mass data.&quot;</span><span class="p">)</span>
+
+            <span class="n">fit_guess</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">guess_amp</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">))))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="c1"># Raise an error if the std_tolerance is not greater than 0.0001</span>
+            <span class="k">if</span> <span class="n">std_tolerance</span> <span class="o">&lt;=</span> <span class="mf">0.0001</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Standard deviation tolerance must be greater than 0.0001 for contrast data.&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Convert guess positions to positive values for the fitting</span>
+            <span class="n">guess_positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">)</span>
+            <span class="n">fit_guess</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">guess_amp</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0001</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">))))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+        
+        <span class="n">lower_bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">)</span> <span class="o">-</span> <span class="n">mean_tolerance</span> <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">))))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+        <span class="n">upper_bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">)</span> <span class="o">+</span> <span class="n">mean_tolerance</span> <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">hist_counts</span><span class="p">)</span><span class="o">*</span><span class="mf">1.3</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">std_tolerance</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">))))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+        <span class="n">bounds</span>       <span class="o">=</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">lower_bounds</span><span class="p">),</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">upper_bounds</span><span class="p">))</span>
+    
+    <span class="k">if</span> <span class="n">masses</span><span class="p">:</span>
+
+        <span class="n">values_have_sense</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">greater</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">hist_centers</span><span class="p">),</span><span class="n">threshold</span><span class="p">)</span> <span class="c1"># We use np.abs to allow fitting negative masses also...</span>
+
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="c1"># Raise an error if threshold is positive</span>
+        <span class="k">if</span> <span class="n">threshold</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Threshold for contrasts can not be positive. &quot;</span>
+            <span class="s2">&quot;Set it to zero (no threshold) or to a negative value.&quot;</span><span class="p">)</span>
+
+        <span class="n">values_have_sense</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">less</span><span class="p">(</span><span class="n">hist_centers</span><span class="p">,</span><span class="n">threshold</span><span class="p">)</span>
+
+        <span class="c1"># Convert contrasts to positive values for the fitting</span>
+        <span class="n">hist_centers</span> <span class="o">=</span> <span class="n">hist_centers</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="n">threshold</span>    <span class="o">=</span> <span class="n">threshold</span>    <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+
+    <span class="c1"># Restrict data range for the fitting</span>
+    <span class="n">hist_counts</span> <span class="o">=</span> <span class="n">hist_counts</span> <span class="o">*</span> <span class="n">values_have_sense</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">fitting_helper_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">params</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">truncated_multi_gauss_with_baseline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">threshold</span><span class="p">,</span><span class="n">baseline</span><span class="p">,</span><span class="o">*</span><span class="n">params</span><span class="p">)</span> 
+
+    <span class="n">func</span> <span class="o">=</span> <span class="n">fitting_helper_func</span>
+
+    <span class="c1"># Do the fitting</span>
+    <span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">hist_centers</span><span class="p">,</span> <span class="n">hist_counts</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="n">fit_guess</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">)</span>  <span class="c1">#, method=&#39;dogbox&#39;, maxfev=1E5)</span>
+    <span class="c1"># Create fit and individual gaussians for plotting</span>
+    <span class="c1"># Finer grid</span>
+    <span class="n">x_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">hist_centers</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">hist_centers</span><span class="p">),</span> <span class="mi">800</span><span class="p">)</span>
+    <span class="n">single_gauss</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">popt</span><span class="p">),</span> <span class="mi">3</span><span class="p">):</span>
+        <span class="n">ctr</span> <span class="o">=</span> <span class="n">popt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">amp</span> <span class="o">=</span> <span class="n">popt</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">wid</span> <span class="o">=</span> <span class="n">popt</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">single_gauss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">x_grid</span><span class="p">,</span> <span class="n">ctr</span><span class="p">,</span> <span class="n">amp</span><span class="p">,</span> <span class="n">wid</span><span class="p">))</span>
+
+    <span class="c1"># Sum of all</span>
+    <span class="n">fit_sum</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">x_grid</span><span class="p">,</span> <span class="o">*</span><span class="n">popt</span><span class="p">)</span>
+
+    <span class="c1"># Create one array for all</span>
+    <span class="n">fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">x_grid</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">single_gauss</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">fit_sum</span><span class="p">))</span>
+    <span class="c1"># Errors</span>
+    <span class="n">popt_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">pcov</span><span class="p">))</span>
+
+    <span class="c1"># Convert to relative errors in percent</span>
+    <span class="n">popt_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">popt_error</span> <span class="o">/</span> <span class="n">popt</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+    <span class="c1"># Evaluate the fitting and raise an error if the fitting is not valid</span>
+    <span class="n">evaluation</span> <span class="o">=</span> <span class="n">evaluate_fitting</span><span class="p">(</span><span class="n">popt</span><span class="p">,</span> <span class="n">lower_bounds</span><span class="p">,</span> <span class="n">upper_bounds</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">evaluation</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Fitting is not valid, because the fitted parameters are not within the specified bounds. Please check the initial guesses, or tolerances.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># If we fited the contrasts, we need to convert the means to negative values</span>
+    <span class="c1"># and the fitted x-axis </span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">masses</span><span class="p">:</span>
+        <span class="n">popt</span><span class="p">[::</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">popt</span><span class="p">[::</span><span class="mi">3</span><span class="p">]</span> 
+        <span class="c1"># Convert the fit x-axis to negative values, leave the first column as is (x-coordinates)</span>
+        <span class="n">fit</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">fit</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">popt</span><span class="p">,</span> <span class="n">fit</span><span class="p">,</span> <span class="n">popt_error</span></div>
+
+
+<div class="viewcode-block" id="create_fit_table">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.utils.helpers.create_fit_table">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_fit_table</span><span class="p">(</span><span class="n">popt</span><span class="p">,</span><span class="n">popt_error</span><span class="p">,</span><span class="n">fit</span><span class="p">,</span>
+                     <span class="n">n_binding</span><span class="p">,</span><span class="n">n_unbinding</span><span class="p">,</span><span class="n">hist_centers</span><span class="p">,</span>
+                     <span class="n">masses</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">include_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate a pandas DataFrame that summarizes fit results</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    popt : np.ndarray</span>
+<span class="sd">        Optimized parameters from the fit.</span>
+<span class="sd">    popt_error : np.ndarray</span>
+<span class="sd">        Errors of the fitted parameters.</span>
+<span class="sd">    fit : np.ndarray</span>
+<span class="sd">        Fitted values for the histogram.</span>
+<span class="sd">    n_binding : int</span>
+<span class="sd">        Number of binding events.</span>
+<span class="sd">    n_unbinding : int</span>
+<span class="sd">        Number of unbinding events.</span>
+<span class="sd">    hist_centers : np.ndarray</span>
+<span class="sd">        The centers of the histogram bins.</span>
+<span class="sd">    masses : bool, default True</span>
+<span class="sd">        If True, the fit is for mass data; if False, it is for contrast data.</span>
+<span class="sd">    include_errors : bool, default True</span>
+<span class="sd">        If True, include errors in the fit table.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    fit_table : pd.DataFrame</span>
+<span class="sd">        DataFrame containing the fit results.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Create lists with fitting parameters</span>
+    <span class="c1"># These are later used to create a pandas DataFrame</span>
+    <span class="n">list_pos</span><span class="p">,</span> <span class="n">list_sigma</span><span class="p">,</span> <span class="n">list_ampl</span><span class="p">,</span> <span class="n">list_counts</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+
+    <span class="c1"># Create list for the fitted parameters errors</span>
+    <span class="n">list_pos_error</span><span class="p">,</span> <span class="n">list_sigma_error</span><span class="p">,</span> <span class="n">list_ampl_error</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+
+    <span class="c1"># Loop over entries in optimized parameters</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">popt</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">)):</span>
+
+        <span class="n">list_pos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">popt</span><span class="p">[</span><span class="mi">3</span><span class="o">*</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">list_ampl</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">popt</span><span class="p">[</span><span class="mi">3</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">list_sigma</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">popt</span><span class="p">[</span><span class="mi">3</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">])</span>
+
+        <span class="n">list_pos_error</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">popt_error</span><span class="p">[</span><span class="mi">3</span><span class="o">*</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">list_sigma_error</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">popt_error</span><span class="p">[</span><span class="mi">3</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">list_ampl_error</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">popt_error</span><span class="p">[</span><span class="mi">3</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="c1"># Calculate the area under the curve (AUC) for each Gaussian</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">fit</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">masses</span> <span class="k">else</span> <span class="n">fit</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Convert to negative values for contrasts</span>
+
+        <span class="n">auc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trapezoid</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">fit</span><span class="p">[:,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">hist_centers</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">list_counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">auc</span><span class="p">)</span>
+
+    <span class="c1"># Create Pandas Dataframe</span>
+    <span class="n">total_counts</span> <span class="o">=</span> <span class="n">n_binding</span> 
+
+    <span class="c1">## Add the counts from the unbinding data, if the user also fitted the unbinding data</span>
+    <span class="c1"># Only add unbinding counts if we are dealing with masses</span>
+    <span class="k">if</span> <span class="n">masses</span><span class="p">:</span>
+
+        <span class="n">has_negative_elements</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">element</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">list_pos</span><span class="p">)</span>
+
+        <span class="n">total_counts</span> <span class="o">=</span> <span class="n">total_counts</span> <span class="o">+</span> <span class="n">n_unbinding</span> <span class="o">*</span> <span class="n">has_negative_elements</span>
+
+    <span class="n">units</span> <span class="o">=</span> <span class="s1">&#39;kDa&#39;</span> <span class="k">if</span> <span class="n">masses</span> <span class="k">else</span> <span class="s1">&#39;contrasts&#39;</span>
+
+    <span class="n">fit_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Position / &#39;</span> <span class="o">+</span> <span class="n">units</span><span class="p">:</span> <span class="n">list_pos</span><span class="p">,</span>
+               <span class="s1">&#39;Sigma / &#39;</span> <span class="o">+</span> <span class="n">units</span><span class="p">:</span> <span class="n">list_sigma</span><span class="p">,</span>
+               <span class="s1">&#39;Counts&#39;</span> <span class="p">:</span> <span class="n">list_counts</span><span class="p">,</span>
+               <span class="s1">&#39;Counts / %&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">list_counts</span><span class="p">)</span><span class="o">/</span><span class="n">total_counts</span><span class="o">*</span><span class="mi">100</span><span class="p">),</span>
+               <span class="s1">&#39;Amplitudes&#39;</span> <span class="p">:</span> <span class="n">list_ampl</span>
+               <span class="p">}</span>
+            <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">include_errors</span><span class="p">:</span>
+        <span class="n">fit_table</span><span class="p">[</span><span class="s1">&#39;Position Error / %&#39;</span> <span class="p">]</span> <span class="o">=</span> <span class="n">list_pos_error</span>
+        <span class="n">fit_table</span><span class="p">[</span><span class="s1">&#39;Sigma Error / %&#39;</span> <span class="p">]</span> <span class="o">=</span> <span class="n">list_sigma_error</span>
+        <span class="n">fit_table</span><span class="p">[</span><span class="s1">&#39;Amplitude Error / %&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">list_ampl_error</span>
+
+    <span class="k">return</span> <span class="n">fit_table</span></div>
+
+
+<div class="viewcode-block" id="r_squared">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.utils.helpers.r_squared">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">r_squared</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">fit</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the R-squared value for the fit.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data : np.ndarray</span>
+<span class="sd">        The original data.</span>
+<span class="sd">    fit : np.ndarray</span>
+<span class="sd">        The fitted values.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        The R-squared value.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mean_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">ss_tot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">fit</span> <span class="o">-</span> <span class="n">mean_data</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">ss_res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">data</span> <span class="o">-</span> <span class="n">fit</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">ss_res</span><span class="o">/</span><span class="n">ss_tot</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="calibrate">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.utils.helpers.calibrate">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">calibrate</span><span class="p">(</span><span class="n">calib_floats</span><span class="p">,</span><span class="n">fit_table</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">    Calibration based on contrasts histogram</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    calib_floats : list</span>
+<span class="sd">        List of calibration standards in kDa (e.g. [66, 146, 480]).</span>
+<span class="sd">    fit_table : pd.DataFrame</span>
+<span class="sd">        DataFrame containing the fit results. Created by create_fit_table.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    calibration_dic : dict</span>
+<span class="sd">        Dictionary containing the calibration results:</span>
+<span class="sd">        - &#39;standards&#39;: Calibration standards used.</span>
+<span class="sd">        - &#39;exp_points&#39;: Expected points from the fit.</span>
+<span class="sd">        - &#39;fit_params&#39;: Parameters of the fit.</span>
+<span class="sd">        - &#39;fit_r2&#39;: R-squared value of the fit.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">calib_stand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">calib_floats</span><span class="p">)</span>
+
+    <span class="c1"># Calibration points from fitting</span>
+    <span class="n">calib_points</span> <span class="o">=</span> <span class="n">fit_table</span><span class="p">[</span><span class="s1">&#39;Position / contrasts&#39;</span><span class="p">]</span>
+
+    <span class="c1"># First order polynomial fit</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">calib_stand</span><span class="p">,</span> <span class="n">calib_points</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># x-axis are the masses (calib_stand), y-axis are the contrasts</span>
+    <span class="c1"># returns slope, intercept</span>
+    <span class="c1"># Calculate R2</span>
+    <span class="n">calc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">calib_stand</span><span class="p">)</span>
+    <span class="n">r2</span>   <span class="o">=</span> <span class="n">r_squared</span><span class="p">(</span><span class="n">calib_points</span><span class="p">,</span> <span class="n">calc</span><span class="p">)</span>
+
+    <span class="n">calibration_dic</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;standards&#39;</span><span class="p">:</span>  <span class="n">calib_stand</span><span class="p">,</span>
+        <span class="s1">&#39;exp_points&#39;</span><span class="p">:</span> <span class="n">calib_points</span><span class="p">,</span>
+        <span class="s1">&#39;fit_params&#39;</span><span class="p">:</span> <span class="n">params</span><span class="p">,</span>
+        <span class="s1">&#39;fit_r2&#39;</span><span class="p">:</span> <span class="n">r2</span><span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">calibration_dic</span></div>
+
+
+<div class="viewcode-block" id="evaluate_fitting">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.utils.helpers.evaluate_fitting">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">evaluate_fitting</span><span class="p">(</span><span class="n">fitted_values</span><span class="p">,</span>
+                     <span class="n">low_bounds</span><span class="p">,</span>
+                     <span class="n">high_bounds</span><span class="p">,</span>
+                     <span class="n">tolerance</span><span class="o">=</span><span class="mf">0.02</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Evaluate the quality of a constrained fitting by checking </span>
+<span class="sd">    if the fitted values are within the specified bounds.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fitted_values : np.ndarray</span>
+<span class="sd">        The values obtained from the fitting process.</span>
+<span class="sd">    low_bounds : np.ndarray</span>
+<span class="sd">        The lower bounds for the fitted values.</span>
+<span class="sd">    high_bounds : np.ndarray</span>
+<span class="sd">        The upper bounds for the fitted values.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    bool</span>
+<span class="sd">        True if all fitted values are within the specified bounds</span>
+<span class="sd">        False otherwise.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Check if all fitted means are within the specified tolerance of the initial guess</span>
+    <span class="n">diff_to_lower</span> <span class="o">=</span> <span class="n">fitted_values</span> <span class="o">-</span> <span class="n">low_bounds</span>
+    <span class="n">diff_to_upper</span> <span class="o">=</span> <span class="n">high_bounds</span>   <span class="o">-</span> <span class="n">fitted_values</span>
+
+    <span class="c1"># Find if the difference between the fitted and the boundaries is too small</span>
+
+    <span class="n">close_values1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">diff_to_lower</span> <span class="o">/</span> <span class="n">fitted_values</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tolerance</span>
+    <span class="n">close_values2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">diff_to_upper</span> <span class="o">/</span> <span class="n">high_bounds</span><span class="p">)</span>   <span class="o">&lt;</span> <span class="n">tolerance</span>
+
+    <span class="c1"># Check if any of the fitted values are within the bounds</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_not</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">close_values1</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">close_values2</span><span class="p">))</span></div>
+
+
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, osvalB.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

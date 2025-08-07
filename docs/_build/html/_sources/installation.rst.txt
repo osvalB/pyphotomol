@@ -1,0 +1,62 @@
+Installation
+============
+
+Requirements
+------------
+
+PyPhotoMol requires Python 3.7 or later and the following packages:
+
+* numpy
+* pandas
+* scipy
+* matplotlib
+* plotly
+* h5py
+* kaleido
+
+Install from Source - Usage only
+-------------------
+
+Clone the repository and install the required packages:
+
+.. code-block:: bash
+
+    git clone https://github.com/osvalB/pyPhotoMol.git
+    cd pyPhotoMol
+    uv sync 
+
+Verify Installation
+-------------------
+
+By importing the package:
+
+.. code-block:: python
+
+    import pyphotomol
+    print(pyphotomol.__version__)
+
+
+Install from Source - Development
+-----------------------------   
+Clone the repository and install in development mode:
+
+.. code-block:: bash
+
+    git clone https://github.com/osvalB/pyPhotoMol.git
+    cd pyPhotoMol
+    uv sync --extra dev
+
+Verify Installation
+------------------- 
+
+By running the tests:
+
+.. code-block:: bash
+
+    uv run pytest
+
+By creating the documentation:
+
+.. code-block:: bash
+
+    uv run build_docs.py

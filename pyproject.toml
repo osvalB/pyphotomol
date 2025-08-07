@@ -1,0 +1,78 @@
+[project]
+name = "pyphotomol"
+version = "0.1.0"
+description = "Python package to analyse mass photometry data"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "h5py>=3.14.0",
+    "kaleido>=1.0.0",
+    "matplotlib>=3.7.0",
+    "numpy>=2.0.2",
+    "pandas>=2.3.1",
+    "plotly>=6.2.0",
+    "scipy>=1.13.1",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+docs = [
+    "Sphinx>=7.0.0",
+    "pydata-sphinx-theme>=0.15.0",
+    "sphinx_design>=0.5.0",
+    "numpydoc>=1.6.0",
+    "sphinx_copybutton>=0.5.0",
+    "sphinx-tabs>=3.4.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "coverage-badge>=1.1.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "jupyter>=1.0.0",
+    "notebook>=6.0.0",
+    "ipykernel>=6.29.5",
+    "Sphinx>=7.0.0",
+    "pydata-sphinx-theme>=0.15.0",
+    "sphinx_design>=0.5.0",
+    "numpydoc>=1.6.0",
+    "sphinx_copybutton>=0.5.0",
+    "sphinx-tabs>=3.4.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--cov=src/pyphotomol",
+    "--cov-report=html",
+    "--cov-report=xml",
+    "--cov-report=term-missing",
+    "--verbose"
+]
+
+[tool.coverage.run]
+source = ["src/pyphotomol"]
+omit = ["*/tests/*", "*/test_*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+]
+
+[tool.sphinx]
+source-dir = "docs"
+build-dir = "docs/_build"
