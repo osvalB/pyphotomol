@@ -1,0 +1,1886 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pyphotomol.utils.plotting &#8212; PyPhotoMol 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/pyphotomol/utils/plotting';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">PyPhotoMol 0.1.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../modules.html">
+    pyphotomol
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/osvalB/pyPhotoMol" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quick Start Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../modules.html">
+    pyphotomol
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/osvalB/pyPhotoMol" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">pyphotomol.utils.plotting</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for pyphotomol.utils.plotting</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Plotting utilities for mass photometry data visualization.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w">  </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">plotly.subplots</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_subplots</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.helpers</span><span class="w"> </span><span class="kn">import</span> <span class="n">truncated_multi_gauss_with_baseline</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..main</span><span class="w"> </span><span class="kn">import</span> <span class="n">MPAnalyzer</span><span class="p">,</span> <span class="n">PyPhotoMol</span>
+
+<div class="viewcode-block" id="PlotConfig">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.PlotConfig">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PlotConfig</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;General plot configuration&quot;&quot;&quot;</span>
+    <span class="n">plot_width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span>
+    <span class="n">plot_height</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">400</span>
+    <span class="n">plot_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;png&quot;</span>
+    <span class="n">font_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">14</span>
+    <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">contrasts</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">cst_factor_for_contrast</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">x_range</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># [x_min, x_max] for setting x-axis limits</span></div>
+
+
+<div class="viewcode-block" id="AxisConfig">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.AxisConfig">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AxisConfig</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Axis styling configuration&quot;&quot;&quot;</span>
+    <span class="n">showgrid_x</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">showgrid_y</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">n_y_axis_ticks</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">axis_linewidth</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">axis_tickwidth</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">axis_gridwidth</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span></div>
+
+
+<div class="viewcode-block" id="LayoutConfig">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.LayoutConfig">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LayoutConfig</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Layout and spacing configuration&quot;&quot;&quot;</span>
+    <span class="n">stacked</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">show_subplot_titles</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">vertical_spacing</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span>
+    <span class="n">shared_yaxes</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">extra_padding_y_label</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span></div>
+
+
+<div class="viewcode-block" id="LegendConfig">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.LegendConfig">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LegendConfig</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Legend and labeling configuration&quot;&quot;&quot;</span>
+    <span class="n">add_masses_to_legend</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">add_percentage_to_legend</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">add_labels</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">add_percentages</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">show_legend_all</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">line_width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span></div>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;PlotConfig&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;AxisConfig&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;LayoutConfig&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;LegendConfig&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;config_fig&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;create_axis_config&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;add_histogram&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;add_labels_to_fig&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;add_values_in_legend&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;add_gaussian_traces&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;add_percentages_to_legend&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;add_gaussian_simulation_to_plot&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;plot_histograms_and_fits&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;plot_histogram&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;plot_calibration&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;DECIMAL_THRESHOLDS&#39;</span>
+<span class="p">]</span>
+
+<span class="n">DECIMAL_THRESHOLDS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>   <span class="c1"># if min_value &lt; 0.001, use 4 decimal places</span>
+    <span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>    <span class="c1"># if min_value &lt; 0.01, use 3 decimal places</span>
+    <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>     <span class="c1"># if min_value &lt; 0.1, use 2 decimal places</span>
+    <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># else use 0 decimal places</span>
+<span class="p">]</span>
+
+<div class="viewcode-block" id="config_fig">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.config_fig">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">config_fig</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> 
+               <span class="n">plot_width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> 
+               <span class="n">plot_height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> 
+               <span class="n">plot_type</span><span class="o">=</span><span class="s2">&quot;png&quot;</span><span class="p">,</span>
+               <span class="n">plot_title_for_download</span><span class="o">=</span><span class="s2">&quot;plot&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Configure plotly figure with download options and toolbar settings.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fig : go.Figure</span>
+<span class="sd">        Plotly figure object</span>
+<span class="sd">    plot_width : int, default 800</span>
+<span class="sd">        Width of the plot in pixels</span>
+<span class="sd">    plot_height : int, default 600</span>
+<span class="sd">        Height of the plot in pixels</span>
+<span class="sd">    plot_type : str, default &quot;png&quot;</span>
+<span class="sd">        Format for downloading the plot (e.g., &quot;png&quot;, &quot;jpeg&quot;)</span>
+<span class="sd">    plot_title_for_download : str, default &quot;plot&quot;</span>
+<span class="sd">        Title for the downloaded plot file</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    go.Figure</span>
+<span class="sd">        Configured plotly figure</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Append the file extension to the title for download</span>
+    <span class="n">plot_title_for_download</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;.</span><span class="si">{</span><span class="n">plot_type</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;toImageButtonOptions&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="n">plot_type</span><span class="p">,</span>
+            <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="n">plot_title_for_download</span><span class="p">,</span>
+            <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="n">plot_width</span><span class="p">,</span>
+            <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="n">plot_height</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;displaylogo&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s1">&#39;modeBarButtonsToRemove&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s1">&#39;sendDataToCloud&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;hoverClosestCartesian&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;hoverCompareCartesian&#39;</span><span class="p">,</span> 
+            <span class="s1">&#39;lasso2d&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;select2d&#39;</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+    
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+        <span class="n">width</span><span class="o">=</span><span class="n">plot_width</span><span class="p">,</span>
+        <span class="n">height</span><span class="o">=</span><span class="n">plot_height</span>
+    <span class="p">)</span>
+    
+    <span class="n">fig</span><span class="o">.</span><span class="n">_config</span> <span class="o">=</span> <span class="n">config</span>
+    
+    <span class="k">return</span> <span class="n">fig</span></div>
+
+
+
+<div class="viewcode-block" id="create_axis_config">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.create_axis_config">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_axis_config</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                      <span class="n">font_size</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>
+                      <span class="n">show_grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                      <span class="n">axis_linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                      <span class="n">axis_tickwidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                      <span class="n">axis_gridwidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                      <span class="n">nticks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a standardized axis configuration dictionary for Plotly figures.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    title : str or None</span>
+<span class="sd">        Title for the axis</span>
+<span class="sd">    font_size : int, default 14</span>
+<span class="sd">        Font size for axis title and tick labels</span>
+<span class="sd">    show_grid : bool, default True</span>
+<span class="sd">        Whether to show grid lines</span>
+<span class="sd">    axis_linewidth : int, default 1</span>
+<span class="sd">        Width of the axis line</span>
+<span class="sd">    axis_tickwidth : int, default 1</span>
+<span class="sd">        Width of the tick marks</span>
+<span class="sd">    axis_gridwidth : int, default 1</span>
+<span class="sd">        Width of the grid lines</span>
+<span class="sd">    nticks : int or None</span>
+<span class="sd">        Number of ticks on the axis (optional guideline)</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">        Axis configuration dictionary for Plotly</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">tickfont</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">font_size</span><span class="p">),</span>
+        <span class="n">showline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">linewidth</span><span class="o">=</span><span class="n">axis_linewidth</span><span class="p">,</span>
+        <span class="n">linecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+        <span class="n">ticks</span><span class="o">=</span><span class="s1">&#39;outside&#39;</span><span class="p">,</span>
+        <span class="n">tickwidth</span><span class="o">=</span><span class="n">axis_tickwidth</span><span class="p">,</span>
+        <span class="n">tickcolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+        <span class="n">showgrid</span><span class="o">=</span><span class="n">show_grid</span><span class="p">,</span>
+        <span class="n">gridwidth</span><span class="o">=</span><span class="n">axis_gridwidth</span><span class="p">,</span>
+        <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span>
+    <span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">title</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">config</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">text</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
+            <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">font_size</span><span class="p">)</span>
+        <span class="p">)</span>
+        
+    <span class="k">if</span> <span class="n">nticks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">config</span><span class="p">[</span><span class="s1">&#39;nticks&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nticks</span>
+        
+    <span class="k">return</span> <span class="n">config</span></div>
+
+
+
+<div class="viewcode-block" id="add_histogram">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.add_histogram">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_histogram</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> 
+                  <span class="n">values</span><span class="p">,</span> 
+                  <span class="n">bin_info</span><span class="p">,</span> 
+                  <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">hex_color</span><span class="o">=</span><span class="s2">&quot;#377EB8&quot;</span><span class="p">):</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add mass histogram trace to plotly figure.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fig : go.Figure</span>
+<span class="sd">        Plotly figure object</span>
+<span class="sd">    values : np.ndarray</span>
+<span class="sd">        Array of mass or contrast values</span>
+<span class="sd">    bin_info : dict</span>
+<span class="sd">        Dictionary containing histogram bin information</span>
+<span class="sd">    normalize : bool</span>
+<span class="sd">        Whether to normalize the histogram</span>
+<span class="sd">    hex_color : str</span>
+<span class="sd">        Hex color code for the histogram bars</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    go.Figure</span>
+<span class="sd">        Updated plotly figure with histogram trace</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">histnorm</span> <span class="o">=</span> <span class="s2">&quot;probability&quot;</span> <span class="k">if</span> <span class="n">normalize</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+    
+    <span class="n">xbins_dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="n">bin_info</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="n">bin_info</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">],</span> 
+        <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="n">bin_info</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+    
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+        <span class="n">go</span><span class="o">.</span><span class="n">Histogram</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">values</span><span class="p">,</span>
+            <span class="n">marker_color</span><span class="o">=</span><span class="n">hex_color</span><span class="p">,</span>
+            <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+            <span class="n">xbins</span><span class="o">=</span><span class="n">xbins_dict</span><span class="p">,</span>
+            <span class="n">histnorm</span><span class="o">=</span><span class="n">histnorm</span><span class="p">,</span>
+            <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">fig</span></div>
+
+
+
+
+<div class="viewcode-block" id="add_labels_to_fig">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.add_labels_to_fig">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_labels_to_fig</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span>
+                     <span class="n">fit_table</span><span class="p">,</span>
+                     <span class="n">contrasts</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                     <span class="n">scaling_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+                     <span class="n">font_size</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>
+                     <span class="n">sels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                     <span class="n">stacked</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                     <span class="n">max_y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                     <span class="n">show_values</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                     <span class="n">show_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                     <span class="n">cst_factor_for_contrast</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+                     <span class="n">subplot_row</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add peak labels to plotly figure.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fig : go.Figure</span>
+<span class="sd">        Plotly figure object</span>
+<span class="sd">    fit_table : pd.DataFrame</span>
+<span class="sd">        DataFrame containing fit results</span>
+<span class="sd">    contrasts : bool</span>
+<span class="sd">        Whether data represents contrasts</span>
+<span class="sd">    scaling_factor : float</span>
+<span class="sd">        Factor to scale y values</span>
+<span class="sd">    font_size : int</span>
+<span class="sd">        Font size for axes</span>
+<span class="sd">    sels : list or None</span>
+<span class="sd">        Boolean list for selecting which peaks to label</span>
+<span class="sd">    stacked : bool</span>
+<span class="sd">        Whether this is a stacked plot</span>
+<span class="sd">    max_y : float or None</span>
+<span class="sd">        Maximum y value for label positioning, required if the y-axis range is shared</span>
+<span class="sd">    show_values : bool</span>
+<span class="sd">        Whether to include mass / contrast values in labels</span>
+<span class="sd">    show_counts : bool</span>
+<span class="sd">        Whether to include count percentages in labels</span>
+<span class="sd">    cst_factor_for_contrast : float</span>
+<span class="sd">        Factor to convert contrasts for display</span>
+<span class="sd">    subplot_row : int or None</span>
+<span class="sd">        Row number for stacked subplots (1-indexed), None for single plot</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    go.Figure</span>
+<span class="sd">        Updated plotly figure with peak labels</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fitted_means</span> <span class="o">=</span> <span class="n">fit_table</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">fitted_counts_perc</span> <span class="o">=</span> <span class="n">fit_table</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="n">fitted_amp</span> <span class="o">=</span> <span class="n">fit_table</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">]</span>
+    
+    <span class="k">if</span> <span class="n">sels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">sels</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">fitted_means</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">contrasts</span><span class="p">:</span>
+        <span class="n">fitted_means</span> <span class="o">=</span> <span class="n">fitted_means</span> <span class="o">*</span> <span class="n">cst_factor_for_contrast</span>
+    
+    <span class="n">fitted_amp</span> <span class="o">=</span> <span class="n">fitted_amp</span> <span class="o">*</span> <span class="n">scaling_factor</span>
+    
+    <span class="c1"># Calculate y-shift for label positioning</span>
+    <span class="n">y_shift</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">fitted_amp</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.02</span>
+    
+    <span class="c1"># Initialize empty labels</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">fitted_means</span><span class="p">)</span>
+    
+    <span class="c1"># Build labels</span>
+    <span class="k">if</span> <span class="n">show_values</span><span class="p">:</span>
+
+        <span class="k">if</span> <span class="n">contrasts</span><span class="p">:</span>
+
+            <span class="c1"># Find the minimum value in fitted_means, with more decimal places</span>
+            <span class="n">min_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fitted_means</span><span class="p">))</span>
+
+            <span class="c1"># Find appropriate decimal places</span>
+            <span class="n">decimal_places</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">places</span> <span class="k">for</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">places</span> <span class="ow">in</span> <span class="n">DECIMAL_THRESHOLDS</span> <span class="k">if</span> <span class="n">min_value</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">)</span>
+
+            <span class="c1"># Format labels with determined decimal places</span>
+            <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span><span class="w"> </span><span class="n">decimal_places</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">mean</span> <span class="ow">in</span> <span class="n">fitted_means</span><span class="p">]</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># 0 decimal places for masses</span>
+            <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span><span class="si">}</span><span class="s2"> kDa&quot;</span> <span class="k">for</span> <span class="n">mean</span> <span class="ow">in</span> <span class="n">fitted_means</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">show_counts</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">show_values</span><span class="p">:</span>
+            <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">perc</span><span class="p">)</span><span class="si">}</span><span class="s2"> % counts )&quot;</span> 
+                     <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">perc</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">fitted_counts_perc</span><span class="p">)]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot; (</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">perc</span><span class="p">)</span><span class="si">}</span><span class="s2"> % counts )&quot;</span> 
+                     <span class="k">for</span> <span class="n">perc</span> <span class="ow">in</span> <span class="n">fitted_counts_perc</span><span class="p">]</span>
+    
+    <span class="n">fitted_means_array</span> <span class="o">=</span> <span class="n">fitted_means</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">fitted_amp_array</span> <span class="o">=</span> <span class="n">fitted_amp</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">sels_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sels</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    
+    <span class="n">selected_means</span> <span class="o">=</span> <span class="n">fitted_means_array</span><span class="p">[</span><span class="n">sels_array</span><span class="p">]</span>
+    <span class="n">selected_amplitudes</span> <span class="o">=</span> <span class="p">(</span><span class="n">fitted_amp_array</span> <span class="o">+</span> <span class="n">y_shift</span><span class="p">)[</span><span class="n">sels_array</span><span class="p">]</span>
+    <span class="n">selected_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labels</span><span class="p">)[</span><span class="n">sels_array</span><span class="p">]</span>
+    
+    <span class="c1"># Heuristic method to avoid overlapping labels</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">selected_means</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+
+        <span class="n">extra_y_shift</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="n">max_y</span> <span class="k">if</span> <span class="n">max_y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">0</span>
+
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1"># Verify if two labels are too close by comparing their x and y positions</span>
+        <span class="k">for</span> <span class="n">mean</span><span class="p">,</span> <span class="n">amplitude</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">selected_means</span><span class="p">,</span> <span class="n">selected_amplitudes</span><span class="p">):</span>
+            
+            <span class="n">other_means</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">selected_means</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+            <span class="n">other_amplitudes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">selected_amplitudes</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">max_y</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+                <span class="n">condition1</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">a</span><span class="o">-</span><span class="n">amplitude</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">amplitude</span><span class="p">]))</span> <span class="o">&lt;</span> <span class="mf">0.25</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">other_amplitudes</span><span class="p">]</span>
+                <span class="n">condition1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">condition1</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+            <span class="c1"># We check the different in respect to the total amplitude</span>
+            <span class="c1"># This is useful for stacked plots where the y-axis range is shared</span>
+            <span class="k">else</span><span class="p">:</span>
+
+                <span class="n">condition1</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">a</span><span class="o">-</span><span class="n">amplitude</span><span class="p">)</span><span class="o">/</span><span class="n">max_y</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.3</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">other_amplitudes</span><span class="p">]</span>
+                <span class="n">condition1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">condition1</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+
+            <span class="n">interval_to_check</span> <span class="o">=</span> <span class="p">[</span><span class="n">mean</span> <span class="o">/</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mf">1.6</span> <span class="o">*</span> <span class="n">mean</span><span class="p">]</span>
+
+            <span class="c1"># Second condition, x-position is between mean / 1.6 and 1.6 * mean</span>
+            <span class="n">condition2</span> <span class="o">=</span> <span class="p">(</span><span class="n">other_means</span> <span class="o">&gt;</span> <span class="n">interval_to_check</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">other_means</span> <span class="o">&lt;</span> <span class="n">interval_to_check</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+            <span class="c1"># If both conditions are met, just shift the y position of the current label to avoid overlap</span>
+            <span class="n">both_conditions</span> <span class="o">=</span> <span class="n">condition1</span> <span class="o">&amp;</span> <span class="n">condition2</span>
+
+            <span class="c1"># Insert False at the position index &#39;i&#39; to keep the same length as selected_means and selected_amplitudes</span>
+            <span class="n">both_conditions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">both_conditions</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+            <span class="c1"># Iterate over the both_conditions to find overlaps</span>
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">boolean</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">both_conditions</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">boolean</span><span class="p">:</span>
+
+                    <span class="n">i_or_j</span> <span class="o">=</span> <span class="n">i</span> <span class="k">if</span> <span class="n">selected_amplitudes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">selected_amplitudes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">else</span> <span class="n">j</span>
+
+                    <span class="n">selected_amplitudes</span><span class="p">[</span><span class="n">i_or_j</span><span class="p">]</span> <span class="o">+=</span> <span class="mf">0.06</span> <span class="o">*</span> <span class="n">selected_amplitudes</span><span class="p">[</span><span class="n">i_or_j</span><span class="p">]</span> <span class="o">+</span> <span class="n">extra_y_shift</span>
+
+                    <span class="n">j_mean_is_lower</span> <span class="o">=</span> <span class="n">selected_means</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">selected_means</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+                    <span class="n">selected_means</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-=</span> <span class="p">(</span><span class="mf">0.05</span> <span class="o">*</span> <span class="n">selected_means</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">*</span> <span class="n">j_mean_is_lower</span>
+                    <span class="n">selected_means</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="mf">0.05</span> <span class="o">*</span> <span class="n">selected_means</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="n">j_mean_is_lower</span>
+                    
+                    <span class="n">selected_means</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="mf">0.05</span> <span class="o">*</span> <span class="n">selected_means</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="ow">not</span> <span class="n">j_mean_is_lower</span><span class="p">)</span>
+                    <span class="n">selected_means</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-=</span> <span class="p">(</span><span class="mf">0.05</span> <span class="o">*</span> <span class="n">selected_means</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="ow">not</span> <span class="n">j_mean_is_lower</span><span class="p">)</span>
+
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="c1"># Add text annotations to figure</span>
+    <span class="k">for</span> <span class="n">mean</span><span class="p">,</span> <span class="n">amplitude</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">selected_means</span><span class="p">,</span> <span class="n">selected_amplitudes</span><span class="p">,</span> <span class="n">selected_labels</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">stacked</span> <span class="ow">and</span> <span class="n">subplot_row</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># For stacked plots, add annotation with row/col specification</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">add_annotation</span><span class="p">(</span>
+                <span class="n">x</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span>
+                <span class="n">y</span><span class="o">=</span><span class="n">amplitude</span><span class="p">,</span>
+                <span class="n">text</span><span class="o">=</span><span class="n">label</span><span class="p">,</span>
+                <span class="n">showarrow</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                    <span class="n">family</span><span class="o">=</span><span class="s2">&quot;Roboto&quot;</span><span class="p">,</span>
+                    <span class="n">size</span><span class="o">=</span><span class="n">font_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span>
+                <span class="p">),</span>
+                <span class="n">xanchor</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                <span class="n">yanchor</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+                <span class="n">row</span><span class="o">=</span><span class="n">subplot_row</span><span class="p">,</span>
+                <span class="n">col</span><span class="o">=</span><span class="mi">1</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># For single plots, add annotation normally</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">add_annotation</span><span class="p">(</span>
+                <span class="n">x</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span>
+                <span class="n">y</span><span class="o">=</span><span class="n">amplitude</span><span class="p">,</span>
+                <span class="n">text</span><span class="o">=</span><span class="n">label</span><span class="p">,</span>
+                <span class="n">showarrow</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                    <span class="n">family</span><span class="o">=</span><span class="s2">&quot;Roboto&quot;</span><span class="p">,</span>
+                    <span class="n">size</span><span class="o">=</span><span class="n">font_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span>
+                <span class="p">),</span>
+                <span class="n">xanchor</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                <span class="n">yanchor</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span>
+            <span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">fig</span></div>
+
+
+
+<div class="viewcode-block" id="add_values_in_legend">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.add_values_in_legend">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_values_in_legend</span><span class="p">(</span><span class="n">legends</span><span class="p">,</span> 
+                        <span class="n">fit_table</span><span class="p">,</span> 
+                        <span class="n">contrasts</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                        <span class="n">cst_factor_for_contrast</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add mass / contrast values to legend labels.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    legends : list</span>
+<span class="sd">        List of legend labels</span>
+<span class="sd">    fit_table : pd.DataFrame</span>
+<span class="sd">        DataFrame with fit table data</span>
+<span class="sd">    contrasts : bool</span>
+<span class="sd">        Whether data represents contrasts</span>
+<span class="sd">    cst_factor_for_contrast : float</span>
+<span class="sd">        Factor to convert contrasts for display</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list</span>
+<span class="sd">        Updated legend labels with mass values</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fitted_means</span> <span class="o">=</span> <span class="n">fit_table</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+    
+    <span class="k">if</span> <span class="n">contrasts</span><span class="p">:</span>
+        <span class="n">fitted_means</span> <span class="o">=</span> <span class="n">fitted_means</span> <span class="o">*</span> <span class="n">cst_factor_for_contrast</span>
+    
+    <span class="n">updated_legends</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">legend</span><span class="p">,</span> <span class="n">mean</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">legends</span><span class="p">,</span> <span class="n">fitted_means</span><span class="p">):</span>
+       
+        <span class="k">if</span> <span class="n">contrasts</span><span class="p">:</span>
+            <span class="c1"># Choose the number of decimal places according to the value</span>
+            <span class="n">min_abs_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fitted_means</span><span class="p">))</span>
+            
+            <span class="c1"># Find appropriate decimal places</span>
+            <span class="n">decimal_places</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">places</span> <span class="k">for</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">places</span> <span class="ow">in</span> <span class="n">DECIMAL_THRESHOLDS</span> <span class="k">if</span> <span class="n">min_abs_mean</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">)</span>
+            <span class="c1"># Format the legend with determined decimal places</span>
+            <span class="n">updated_legends</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">legend</span><span class="si">}</span><span class="s2"> : </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span><span class="w"> </span><span class="n">decimal_places</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="n">updated_legends</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">legend</span><span class="si">}</span><span class="s2"> : </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span><span class="si">}</span><span class="s2"> kDa&quot;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">updated_legends</span></div>
+
+
+
+<div class="viewcode-block" id="add_gaussian_traces">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.add_gaussian_traces">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_gaussian_traces</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span>
+                       <span class="n">arr_fitted_values</span><span class="p">,</span>
+                       <span class="n">fitted_params_table</span><span class="p">,</span>
+                       <span class="n">legends</span><span class="p">,</span>
+                       <span class="n">color_palette</span><span class="p">,</span>
+                       <span class="n">sels</span><span class="p">,</span>
+                       <span class="n">baseline</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                       <span class="n">scaling_factor</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+                       <span class="n">show_values_in_legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                       <span class="n">show_perc_in_legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                       <span class="n">contrasts</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                       <span class="n">cst_factor_for_contrast</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+                       <span class="n">line_width</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                       <span class="n">show_legend_vec</span><span class="o">=</span><span class="p">[]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add individual Gaussian traces to plotly figure.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fig : go.Figure</span>
+<span class="sd">        Plotly figure object</span>
+<span class="sd">    arr_fitted_values : np.ndarray</span>
+<span class="sd">        Array of fitted values (x, individual Gaussians, sum)</span>
+<span class="sd">    fitted_params_table : pd.DataFrame</span>
+<span class="sd">        DataFrame with fit table results</span>
+<span class="sd">    legends : list</span>
+<span class="sd">        List of legend labels - Same length as columns in arr_fitted_values </span>
+<span class="sd">    color_palette : list</span>
+<span class="sd">        List of hex color codes</span>
+<span class="sd">    sels : list</span>
+<span class="sd">        Boolean list for selecting which traces to show</span>
+<span class="sd">    baseline : float</span>
+<span class="sd">        Baseline value for filtering</span>
+<span class="sd">    scaling_factor : float</span>
+<span class="sd">        Factor to scale y values</span>
+<span class="sd">    show_values_in_legend : bool</span>
+<span class="sd">        Whether to add masses / contrast values to legend labels</span>
+<span class="sd">    show_perc_in_legend : bool</span>
+<span class="sd">        Whether to add percentages to legend labels</span>
+<span class="sd">    contrasts : bool</span>
+<span class="sd">        Whether data represents contrasts</span>
+<span class="sd">    add_labels : bool</span>
+<span class="sd">        Whether to add peak labels</span>
+<span class="sd">    add_percentages : bool</span>
+<span class="sd">        Whether to add percentage labels</span>
+<span class="sd">    stacked : bool</span>
+<span class="sd">        Whether this is a stacked plot</span>
+<span class="sd">    cst_factor_for_contrast : float</span>
+<span class="sd">        Factor to convert contrasts for display</span>
+<span class="sd">    subplot_row : int or None</span>
+<span class="sd">        Row number for stacked subplots (1-indexed), None for single plot</span>
+<span class="sd">    line_width : int, default 3</span>
+<span class="sd">        Width of the Gaussian trace lines</span>
+<span class="sd">    show_legend_vec : list, default []</span>
+<span class="sd">        Boolean list for showing Gaussian traces in legend</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    go.Figure</span>
+<span class="sd">        Updated plotly figure with Gaussian traces</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Convert to numpy array if not already</span>
+    <span class="n">arr_fitted_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">arr_fitted_values</span><span class="p">)</span>
+    
+    <span class="c1"># Convert to all True if show_legend_vec is empty</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">show_legend_vec</span><span class="p">:</span>
+        <span class="n">show_legend_vec</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">sels</span><span class="p">)</span>
+
+    <span class="c1"># Convert contrasts if needed</span>
+    <span class="k">if</span> <span class="n">contrasts</span><span class="p">:</span>
+        <span class="n">arr_fitted_values</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr_fitted_values</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">cst_factor_for_contrast</span>
+    
+    <span class="c1"># Handle Gaussian sum trace if more than 3 columns (x, individual gaussians, sum)</span>
+    <span class="k">if</span> <span class="n">arr_fitted_values</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="c1"># Add Gaussian sum trace if selected</span>
+        <span class="k">if</span> <span class="n">sels</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="c1"># Extract x and sum columns (first and last)</span>
+            <span class="n">x_values</span> <span class="o">=</span> <span class="n">arr_fitted_values</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="n">y_values</span> <span class="o">=</span> <span class="n">arr_fitted_values</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            
+            <span class="c1"># Filter and scale</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_values</span> <span class="o">&gt;</span> <span class="n">baseline</span> <span class="o">+</span> <span class="mf">0.05</span><span class="p">)</span>
+            <span class="n">filtered_x</span> <span class="o">=</span> <span class="n">x_values</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+            <span class="n">filtered_y</span> <span class="o">=</span> <span class="n">y_values</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">*</span> <span class="n">scaling_factor</span>
+            
+            <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+                <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+                    <span class="n">x</span><span class="o">=</span><span class="n">filtered_x</span><span class="p">,</span>
+                    <span class="n">y</span><span class="o">=</span><span class="n">filtered_y</span><span class="p">,</span>
+                    <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span>
+                    <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color_palette</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="n">line_width</span><span class="p">),</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">legends</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                    <span class="n">showlegend</span><span class="o">=</span><span class="n">show_legend_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
+                <span class="p">)</span>
+            <span class="p">)</span>
+        
+        <span class="c1"># Remove first elements for individual Gaussians</span>
+        <span class="n">sels</span> <span class="o">=</span> <span class="n">sels</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+        
+        <span class="n">proceed</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">sels</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        
+        <span class="k">if</span> <span class="n">proceed</span><span class="p">:</span>
+            <span class="n">legends</span> <span class="o">=</span> <span class="n">legends</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+            <span class="n">color_palette</span> <span class="o">=</span> <span class="n">color_palette</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+            <span class="n">show_legend_vec</span> <span class="o">=</span> <span class="n">show_legend_vec</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">fig</span>
+    
+    <span class="c1"># Update legends with masses and percentages</span>
+    <span class="k">if</span> <span class="n">show_values_in_legend</span><span class="p">:</span>
+        <span class="n">legends</span> <span class="o">=</span> <span class="n">add_values_in_legend</span><span class="p">(</span><span class="n">legends</span><span class="p">,</span> <span class="n">fitted_params_table</span><span class="p">,</span> <span class="n">contrasts</span><span class="p">,</span> <span class="n">cst_factor_for_contrast</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">show_perc_in_legend</span><span class="p">:</span>
+        <span class="n">legends</span> <span class="o">=</span> <span class="n">add_percentages_to_legend</span><span class="p">(</span><span class="n">legends</span><span class="p">,</span> <span class="n">fitted_params_table</span><span class="p">)</span>
+    
+    <span class="c1"># Process individual Gaussian traces</span>
+    <span class="c1"># Extract individual Gaussians (exclude first column x and last column sum)</span>
+    <span class="n">x_values</span> <span class="o">=</span> <span class="n">arr_fitted_values</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">gaussian_columns</span> <span class="o">=</span> <span class="n">arr_fitted_values</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="c1"># Create DataFrame for easier melting</span>
+    <span class="n">gaussian_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">gaussian_columns</span><span class="p">)</span>
+    <span class="n">gaussian_data</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">x_values</span><span class="p">)</span>
+    
+    <span class="c1"># Set column names</span>
+    <span class="n">gaussian_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">legends</span><span class="p">[:</span><span class="n">gaussian_columns</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="n">gaussian_data</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">gaussian_cols</span>
+    
+    <span class="c1"># Melt the dataframe</span>
+    <span class="n">melted_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">gaussian_data</span><span class="p">,</span> <span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;variable&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># Filter data</span>
+    <span class="n">melted_data</span> <span class="o">=</span> <span class="n">melted_data</span><span class="p">[</span><span class="n">melted_data</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">baseline</span> <span class="o">+</span> <span class="mf">0.05</span><span class="p">]</span>
+    <span class="n">melted_data</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">melted_data</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># Add individual Gaussian traces</span>
+    <span class="n">counter_color_palette</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">melted_data</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">counter_color_palette</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">sels</span><span class="p">)</span> <span class="ow">and</span> <span class="n">sels</span><span class="p">[</span><span class="n">counter_color_palette</span><span class="p">]:</span>
+            <span class="n">hex_color</span> <span class="o">=</span> <span class="n">color_palette</span><span class="p">[</span><span class="n">counter_color_palette</span><span class="p">]</span>
+            <span class="n">temp_df</span> <span class="o">=</span> <span class="n">melted_data</span><span class="p">[</span><span class="n">melted_data</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">scaling_factor</span>
+            
+            <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+                <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+                    <span class="n">x</span><span class="o">=</span><span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span>
+                    <span class="n">y</span><span class="o">=</span><span class="n">temp_df</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">],</span>
+                    <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span>
+                    <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">hex_color</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">line_width</span><span class="p">),</span>
+                    <span class="n">name</span><span class="o">=</span><span class="n">var</span><span class="p">,</span>
+                    <span class="n">showlegend</span><span class="o">=</span><span class="n">show_legend_vec</span><span class="p">[</span><span class="n">counter_color_palette</span><span class="p">]</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        
+        <span class="n">counter_color_palette</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="k">return</span> <span class="n">fig</span></div>
+
+
+
+<div class="viewcode-block" id="add_percentages_to_legend">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.add_percentages_to_legend">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_percentages_to_legend</span><span class="p">(</span><span class="n">legends</span><span class="p">,</span> <span class="n">fit_table</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add percentage values to legend labels.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    legends : list</span>
+<span class="sd">        List of legend labels</span>
+<span class="sd">    fit_table : pd.DataFrame</span>
+<span class="sd">        DataFrame with fit table data</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list</span>
+<span class="sd">        Updated legend labels with percentage values</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fitted_counts_perc</span> <span class="o">=</span> <span class="n">fit_table</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span>
+    
+    <span class="n">updated_legends</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">legend</span><span class="p">,</span> <span class="n">perc</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">legends</span><span class="p">,</span> <span class="n">fitted_counts_perc</span><span class="p">):</span>
+        <span class="n">updated_legends</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">legend</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">perc</span><span class="p">)</span><span class="si">}</span><span class="s2"> % counts )&quot;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">updated_legends</span></div>
+
+
+
+<div class="viewcode-block" id="add_gaussian_simulation_to_plot">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.add_gaussian_simulation_to_plot">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_gaussian_simulation_to_plot</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span>
+                          <span class="n">mean</span><span class="p">,</span>
+                          <span class="n">std</span><span class="p">,</span>
+                          <span class="n">amplitude</span><span class="p">,</span>
+                          <span class="n">left_bound</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add simulated truncated Gaussian trace to plotly figure.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fig : go.Figure</span>
+<span class="sd">        Plotly figure object</span>
+<span class="sd">    mean : float</span>
+<span class="sd">        Mean of the Gaussian distribution</span>
+<span class="sd">    std : float</span>
+<span class="sd">        Standard deviation of the Gaussian distribution</span>
+<span class="sd">    amplitude : float</span>
+<span class="sd">        Amplitude of the Gaussian distribution</span>
+<span class="sd">    left_bound : float</span>
+<span class="sd">        Left boundary for truncation</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    go.Figure</span>
+<span class="sd">        Updated plotly figure with simulation trace</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Create x sequence from max(left_bound, mean-std*2.5) to mean+std*2.5</span>
+    <span class="n">x_start</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">left_bound</span><span class="p">,</span> <span class="n">mean</span> <span class="o">-</span> <span class="n">std</span> <span class="o">*</span> <span class="mf">2.5</span><span class="p">)</span>
+    <span class="n">x_end</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">+</span> <span class="n">std</span> <span class="o">*</span> <span class="mf">2.5</span>
+    <span class="n">x_seq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x_start</span><span class="p">,</span> <span class="n">x_end</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    
+    <span class="c1"># Calculate truncated Gaussian values</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">truncated_multi_gauss_with_baseline</span><span class="p">(</span><span class="n">x_seq</span><span class="p">,</span> <span class="n">left_bound</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">amplitude</span><span class="p">)</span>
+    
+    <span class="c1"># Add trace to figure</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+        <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">x_seq</span><span class="p">,</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+            <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span>
+            <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+                <span class="n">width</span><span class="o">=</span><span class="mi">3</span>
+            <span class="p">),</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Simulation&#39;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">fig</span></div>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">extract_max_y</span><span class="p">(</span><span class="n">analyzer</span><span class="p">,</span>
+                  <span class="n">plot_config</span><span class="p">:</span> <span class="n">PlotConfig</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extract the maximum Y value from all models in the analyzer for histogram scaling.</span>
+<span class="sd">    This function iterates through all models in the analyzer, retrieves the mass or contrast values,</span>
+<span class="sd">    filters them based on the histogram window, and calculates the maximum Y value for scaling purposes.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    analyzer : MPAnalyzer</span>
+<span class="sd">        MPAnalyzer instance containing multiple PyPhotoMol models</span>
+<span class="sd">    plot_config : PlotConfig, optional</span>
+<span class="sd">        Plot configuration object that specifies whether to use contrasts or masses,</span>
+<span class="sd">        and whether to normalize the histogram counts.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        Maximum Y value for histogram scaling</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">plot_config</span> <span class="o">=</span> <span class="n">plot_config</span> <span class="ow">or</span> <span class="n">PlotConfig</span><span class="p">()</span>
+
+    <span class="n">photomol_models</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">analyzer</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+    <span class="n">max_y</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="c1"># Process each model</span>
+    <span class="k">for</span> <span class="n">photomol</span> <span class="ow">in</span> <span class="n">photomol_models</span><span class="p">:</span>
+
+        <span class="c1"># Raise an error if no masses are available and the user wants to plot them</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">contrasts</span> <span class="ow">and</span> <span class="p">(</span><span class="n">photomol</span><span class="o">.</span><span class="n">masses</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">photomol</span><span class="o">.</span><span class="n">masses</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No masses available for model </span><span class="si">{</span><span class="n">photomol</span><span class="o">.</span><span class="n">file</span><span class="si">}</span><span class="s2">. &quot;</span>
+                            <span class="s2">&quot;Please ensure the model has been processed correctly.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Raise an error if no contrasts are available and the user wants to plot them</span>
+        <span class="k">if</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">contrasts</span> <span class="ow">and</span> <span class="p">(</span><span class="n">photomol</span><span class="o">.</span><span class="n">contrasts</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">photomol</span><span class="o">.</span><span class="n">contrasts</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No contrasts available for model </span><span class="si">{</span><span class="n">photomol</span><span class="o">.</span><span class="n">file</span><span class="si">}</span><span class="s2">. &quot;</span>
+                            <span class="s2">&quot;Please ensure the model has been processed correctly.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Get mass/contrast values from model and filter by histogram window</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">photomol</span><span class="o">.</span><span class="n">contrasts</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">if</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">contrasts</span> <span class="k">else</span> <span class="n">photomol</span><span class="o">.</span><span class="n">masses</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        
+        <span class="c1"># Filter values based on histogram window</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">values</span> <span class="o">&gt;=</span> <span class="n">photomol</span><span class="o">.</span><span class="n">hist_window</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">values</span> <span class="o">&lt;=</span> <span class="n">photomol</span><span class="o">.</span><span class="n">hist_window</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+        
+        <span class="c1"># Calculate scaling factor</span>
+        <span class="n">scaling_factor</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="k">if</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">normalize</span> <span class="k">else</span> <span class="mf">1.0</span>
+        
+        <span class="c1"># Extract the max value from photomol.hist_counts - useful for scaling the Y range</span>
+        <span class="n">max_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">((</span><span class="n">max_y</span><span class="p">,</span> <span class="n">photomol</span><span class="o">.</span><span class="n">hist_counts</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">*</span> <span class="n">scaling_factor</span><span class="p">))</span>
+
+    <span class="c1"># Convert to float for consistency</span>
+    <span class="n">max_y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">max_y</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">max_y</span>
+
+<div class="viewcode-block" id="plot_histograms_and_fits">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.plot_histograms_and_fits">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_histograms_and_fits</span><span class="p">(</span><span class="n">analyzer</span><span class="p">,</span>
+                             <span class="n">legends_df</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                             <span class="n">colors_hist</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                             <span class="n">plot_config</span><span class="p">:</span> <span class="n">PlotConfig</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                             <span class="n">axis_config</span><span class="p">:</span> <span class="n">AxisConfig</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                             <span class="n">layout_config</span><span class="p">:</span> <span class="n">LayoutConfig</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                             <span class="n">legend_config</span><span class="p">:</span> <span class="n">LegendConfig</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a comprehensive plot of PhotoMol fit data with histograms and Gaussian traces.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    analyzer : pyphotomol.MPAnalyzer or pyphotomol.PyPhotoMol</span>
+<span class="sd">        MPAnalyzer instance containing multiple PyPhotoMol models - or a single PyPhotoMol instance</span>
+<span class="sd">    legends_df : pd.DataFrame, optional</span>
+<span class="sd">        DataFrame containing legends, colors, and selections with columns [&#39;legends&#39;, &#39;color&#39;, &#39;select&#39;]</span>
+<span class="sd">        This dataframe affects the fitted curves only, not the histograms.</span>
+<span class="sd">    colors_hist : list, str, or pd.DataFrame, optional</span>
+<span class="sd">        List of colors for histograms (one per model)</span>
+<span class="sd">        If a string, it will be used for all histograms.</span>
+<span class="sd">        If a DataFrame, it should have a column &#39;color&#39; with hex color codes.</span>
+<span class="sd">    plot_config : PlotConfig, optional</span>
+<span class="sd">        General plot configuration (dimensions, format, contrasts, etc.)</span>
+<span class="sd">    axis_config : AxisConfig, optional</span>
+<span class="sd">        Axis styling configuration (grid, line widths, etc.)</span>
+<span class="sd">    layout_config : LayoutConfig, optional</span>
+<span class="sd">        Layout configuration (stacked, spacing, etc.)</span>
+<span class="sd">    legend_config : LegendConfig, optional</span>
+<span class="sd">        Legend and labeling configuration</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    go.Figure</span>
+<span class="sd">        Configured plotly figure object</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Simple plot with default settings:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; fig = plot_histograms_and_fits(analyzer, colors_hist=[&#39;blue&#39;, &#39;red&#39;])</span>
+<span class="sd">    &gt;&gt;&gt; fig.show()</span>
+<span class="sd">    </span>
+<span class="sd">    Customized plot with configuration objects:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; plot_config = PlotConfig(plot_width=800, contrasts=True, x_range=[0, 500])</span>
+<span class="sd">    &gt;&gt;&gt; layout_config = LayoutConfig(stacked=True, vertical_spacing=0.05)</span>
+<span class="sd">    &gt;&gt;&gt; fig = plot_histograms_and_fits(analyzer, plot_config=plot_config, </span>
+<span class="sd">    ...                               layout_config=layout_config)</span>
+<span class="sd">    &gt;&gt;&gt; fig.show()</span>
+<span class="sd">    </span>
+<span class="sd">    Plot with custom x-axis limits:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; plot_config = PlotConfig(x_range=[100, 800])  # Zoom to 100-800 kDa range</span>
+<span class="sd">    &gt;&gt;&gt; fig = plot_histograms_and_fits(analyzer, plot_config=plot_config)</span>
+<span class="sd">    &gt;&gt;&gt; fig.show()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># Set defaults for configuration objects</span>
+    <span class="n">plot_config</span> <span class="o">=</span> <span class="n">plot_config</span> <span class="ow">or</span> <span class="n">PlotConfig</span><span class="p">()</span>
+    <span class="n">axis_config</span> <span class="o">=</span> <span class="n">axis_config</span> <span class="ow">or</span> <span class="n">AxisConfig</span><span class="p">()</span>
+    <span class="n">layout_config</span> <span class="o">=</span> <span class="n">layout_config</span> <span class="ow">or</span> <span class="n">LayoutConfig</span><span class="p">()</span>
+    <span class="n">legend_config</span> <span class="o">=</span> <span class="n">legend_config</span> <span class="ow">or</span> <span class="n">LegendConfig</span><span class="p">()</span>
+    
+    <span class="c1"># check if analyzer is an instance of MPAnalyzer</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">analyzer</span><span class="p">,</span> <span class="n">MPAnalyzer</span><span class="p">):</span>
+        <span class="c1"># check if it is a PhotoMol instance</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">analyzer</span><span class="p">,</span> <span class="n">PyPhotoMol</span><span class="p">):</span>
+            <span class="c1"># Convert single PhotoMol instance to MPAnalyzer with one model</span>
+            <span class="n">analyzer_temp</span> <span class="o">=</span> <span class="n">MPAnalyzer</span><span class="p">()</span>
+            <span class="n">analyzer_temp</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="n">analyzer</span><span class="o">.</span><span class="n">file</span><span class="p">]</span> <span class="o">=</span> <span class="n">analyzer</span>
+            <span class="n">analyzer</span> <span class="o">=</span> <span class="n">analyzer_temp</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;analyzer must be an instance of MPAnalyzer or PyPhotoMol&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Extract data from legends_df, if it is not None</span>
+    <span class="k">if</span> <span class="n">legends_df</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">legends_all</span> <span class="o">=</span> <span class="n">legends_df</span><span class="p">[</span><span class="s1">&#39;legends&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">color_palette_all</span> <span class="o">=</span> <span class="n">legends_df</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">sels_all</span> <span class="o">=</span> <span class="n">legends_df</span><span class="p">[</span><span class="s1">&#39;select&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+    <span class="c1"># If colors_hist is a dataframe and it has a column called &#39;color&#39;,</span>
+    <span class="c1"># then extract the colors from that column</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">colors_hist</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;color&#39;</span> <span class="ow">in</span> <span class="n">colors_hist</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">colors_hist</span> <span class="o">=</span> <span class="n">colors_hist</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+    <span class="c1"># If colors_hist is a string, use that colour for all histograms</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">colors_hist</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">colors_hist</span> <span class="o">=</span> <span class="p">[</span><span class="n">colors_hist</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">analyzer</span><span class="o">.</span><span class="n">models</span><span class="p">)</span>
+
+    <span class="n">photomol_models</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">analyzer</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="n">subplot_titles</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">analyzer</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="k">if</span> <span class="n">layout_config</span><span class="o">.</span><span class="n">show_subplot_titles</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="c1"># Set axis labels based on data type</span>
+    <span class="n">y_label</span> <span class="o">=</span> <span class="s2">&quot;Normalised counts&quot;</span> <span class="k">if</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">normalize</span> <span class="k">else</span> <span class="s2">&quot;Counts&quot;</span>
+
+    <span class="c1"># Set the title to be used for the x-axis. Mass or contrasts</span>
+    <span class="c1"># If the cst factor is 1, we do not need to mention it    </span>
+    <span class="k">if</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">cst_factor_for_contrast</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">x_title</span> <span class="o">=</span> <span class="s2">&quot;Ratiometric contrast&quot;</span> <span class="k">if</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">contrasts</span> <span class="k">else</span> <span class="s2">&quot;Mass (kDa)&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">x_title</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Ratiometric contrast * </span><span class="si">{</span><span class="n">plot_config</span><span class="o">.</span><span class="n">cst_factor_for_contrast</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">contrasts</span> <span class="k">else</span> <span class="s2">&quot;Mass (kDa)&quot;</span>
+
+    <span class="c1"># Configure axes using helper function</span>
+    <span class="n">y_axis</span> <span class="o">=</span> <span class="n">create_axis_config</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">=</span><span class="n">y_label</span><span class="p">,</span>
+        <span class="n">font_size</span><span class="o">=</span><span class="n">plot_config</span><span class="o">.</span><span class="n">font_size</span><span class="p">,</span>
+        <span class="n">show_grid</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">showgrid_y</span><span class="p">,</span>
+        <span class="n">axis_linewidth</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">axis_linewidth</span><span class="p">,</span>
+        <span class="n">axis_tickwidth</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">axis_tickwidth</span><span class="p">,</span>
+        <span class="n">axis_gridwidth</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">axis_gridwidth</span><span class="p">,</span>
+        <span class="n">nticks</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">n_y_axis_ticks</span>
+    <span class="p">)</span>
+    
+    <span class="n">x_axis</span> <span class="o">=</span> <span class="n">create_axis_config</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">=</span><span class="n">x_title</span><span class="p">,</span>
+        <span class="n">font_size</span><span class="o">=</span><span class="n">plot_config</span><span class="o">.</span><span class="n">font_size</span><span class="p">,</span>
+        <span class="n">show_grid</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">showgrid_x</span><span class="p">,</span>
+        <span class="n">axis_linewidth</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">axis_linewidth</span><span class="p">,</span>
+        <span class="n">axis_tickwidth</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">axis_tickwidth</span><span class="p">,</span>
+        <span class="n">axis_gridwidth</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">axis_gridwidth</span>
+    <span class="p">)</span>
+    
+    <span class="c1"># Apply x-axis range if specified</span>
+    <span class="k">if</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">x_range</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">x_axis</span><span class="p">[</span><span class="s1">&#39;range&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">x_range</span>
+            
+    <span class="c1"># Extract the maximum y-value of the plots</span>
+    <span class="n">max_y</span> <span class="o">=</span> <span class="n">extract_max_y</span><span class="p">(</span><span class="n">analyzer</span><span class="p">,</span> <span class="n">plot_config</span><span class="p">)</span>
+
+    <span class="c1"># Initialize figure(s)</span>
+    <span class="k">if</span> <span class="n">layout_config</span><span class="o">.</span><span class="n">stacked</span><span class="p">:</span>
+        <span class="n">figs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># Collect label information for stacked plots</span>
+        <span class="n">label_data</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+    
+    <span class="n">id_start</span>  <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">model_cnt</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="c1"># Process each model</span>
+    <span class="k">for</span> <span class="n">photomol</span> <span class="ow">in</span> <span class="n">photomol_models</span><span class="p">:</span>
+        <span class="n">model_cnt</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+        <span class="c1"># Create individual figure for stacked plots</span>
+        <span class="k">if</span> <span class="n">layout_config</span><span class="o">.</span><span class="n">stacked</span><span class="p">:</span>
+            <span class="n">current_fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+            <span class="n">figs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_fig</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">current_fig</span> <span class="o">=</span> <span class="n">fig</span>
+
+        <span class="c1"># Get mass/contrast values from model and filter by histogram window</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">photomol</span><span class="o">.</span><span class="n">contrasts</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">if</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">contrasts</span> <span class="k">else</span> <span class="n">photomol</span><span class="o">.</span><span class="n">masses</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        
+        <span class="c1"># Filter values based on histogram window</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">values</span> <span class="o">&gt;=</span> <span class="n">photomol</span><span class="o">.</span><span class="n">hist_window</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">values</span> <span class="o">&lt;=</span> <span class="n">photomol</span><span class="o">.</span><span class="n">hist_window</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+
+        <span class="c1"># Apply contrast factor if needed</span>
+        <span class="k">if</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">contrasts</span><span class="p">:</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="n">values</span> <span class="o">*</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">cst_factor_for_contrast</span>
+        
+        <span class="c1"># Calculate scaling factor</span>
+        <span class="n">scaling_factor</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="k">if</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">normalize</span> <span class="k">else</span> <span class="mf">1.0</span>
+        <span class="n">baseline</span> <span class="o">=</span> <span class="n">photomol</span><span class="o">.</span><span class="n">baseline</span> <span class="o">*</span> <span class="n">scaling_factor</span>  <span class="c1"># Use individual photomol baseline</span>
+        
+        <span class="c1"># Get bin information and add histogram</span>
+        <span class="n">bin_info</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="n">photomol</span><span class="o">.</span><span class="n">hist_window</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="s1">&#39;end&#39;</span><span class="p">:</span> <span class="n">photomol</span><span class="o">.</span><span class="n">hist_window</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="n">photomol</span><span class="o">.</span><span class="n">bin_width</span>
+        <span class="p">}</span>
+        
+        <span class="c1"># Apply contrast factor to bin_info if needed</span>
+        <span class="k">if</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">contrasts</span><span class="p">:</span>
+            <span class="n">bin_info</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bin_info</span><span class="p">[</span><span class="s1">&#39;start&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">cst_factor_for_contrast</span>
+            <span class="n">bin_info</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bin_info</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">cst_factor_for_contrast</span>
+            <span class="n">bin_info</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bin_info</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">cst_factor_for_contrast</span>
+        
+        <span class="c1"># Default to light blue if no colors_hist provided</span>
+        <span class="n">color_hist</span> <span class="o">=</span> <span class="s2">&quot;#377EB8&quot;</span> <span class="k">if</span> <span class="n">colors_hist</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">colors_hist</span><span class="p">[</span><span class="n">model_cnt</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        
+        <span class="n">current_fig</span> <span class="o">=</span> <span class="n">add_histogram</span><span class="p">(</span>
+            <span class="n">current_fig</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">bin_info</span><span class="p">,</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">normalize</span><span class="p">,</span> <span class="n">color_hist</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Skip if no fit data available</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">photomol</span><span class="p">,</span> <span class="s1">&#39;fitted_data&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">photomol</span><span class="o">.</span><span class="n">fitted_data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">continue</span>
+        
+        <span class="c1"># Process fit data</span>
+        <span class="n">fitted_data</span> <span class="o">=</span> <span class="n">photomol</span><span class="o">.</span><span class="n">fitted_data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        
+        <span class="c1"># Determine trace indices for this model</span>
+        <span class="c1"># Calculate how many traces this model contributes</span>
+        <span class="k">if</span> <span class="n">fitted_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="c1"># Only one gaussian</span>
+            <span class="n">num_traces</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">id_end</span> <span class="o">=</span> <span class="n">id_start</span> <span class="o">+</span> <span class="n">num_traces</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># x + individual gaussians + sum</span>
+            <span class="n">num_traces</span> <span class="o">=</span> <span class="n">fitted_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span>  <span class="c1"># Exclude x and sum</span>
+            <span class="n">id_end</span> <span class="o">=</span> <span class="n">id_start</span> <span class="o">+</span> <span class="n">num_traces</span>  <span class="c1"># Include sum trace</span>
+        
+        <span class="c1"># If we do not have the legends_df,</span>
+        <span class="c1">#  set all to True and use light black color as default for the individual gaussians and red for the sum</span>
+        <span class="c1"># The legend for the gaussian sum is the first element in the legends_all</span>
+        <span class="k">if</span> <span class="n">legends_df</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="n">color_palette</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;#B0B0B0&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">num_traces</span><span class="p">)</span>  <span class="c1"># light gray for individual Gaussians</span>
+            <span class="n">legends</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;Gaussian </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_traces</span><span class="p">)]</span>
+            
+            <span class="k">if</span> <span class="n">fitted_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">color_palette</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;#FF7F0E&#39;</span><span class="p">)</span>  <span class="c1"># light orange for the Gaussian sum trace</span>
+                <span class="n">legends</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Gaussian Sum&#39;</span><span class="p">)</span>  <span class="c1"># First legend is for the sum trace</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">legend_config</span><span class="o">.</span><span class="n">show_legend_all</span><span class="p">:</span>
+                <span class="n">legend_config</span><span class="o">.</span><span class="n">show_legend_all</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">legends</span><span class="p">)</span>
+
+            <span class="n">sels</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">legends</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="c1"># Extract relevant colors, legends, and selections</span>
+            <span class="n">color_palette</span> <span class="o">=</span> <span class="n">color_palette_all</span><span class="p">[</span><span class="n">id_start</span><span class="p">:</span><span class="n">id_end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">legends</span> <span class="o">=</span> <span class="n">legends_all</span><span class="p">[</span><span class="n">id_start</span><span class="p">:</span><span class="n">id_end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">sels</span> <span class="o">=</span> <span class="n">sels_all</span><span class="p">[</span><span class="n">id_start</span><span class="p">:</span><span class="n">id_end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+        
+        <span class="c1"># Ensure show_legend_all is properly initialized</span>
+        <span class="k">if</span> <span class="n">legend_config</span><span class="o">.</span><span class="n">show_legend_all</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">legend_config</span><span class="o">.</span><span class="n">show_legend_all</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">legends_all</span><span class="p">)</span>
+            
+        <span class="n">show_legend_vec</span> <span class="o">=</span> <span class="n">legend_config</span><span class="o">.</span><span class="n">show_legend_all</span><span class="p">[</span><span class="n">id_start</span><span class="p">:</span><span class="n">id_end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># Update starting index for next model</span>
+        <span class="n">id_start</span> <span class="o">=</span> <span class="n">id_end</span> <span class="o">+</span> <span class="mi">1</span>
+        
+        <span class="c1"># Skip if no traces are selected</span>
+        <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">sels</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+        
+        <span class="c1"># Store original sels for label collection (before modification in add_gaussian_traces)</span>
+        <span class="n">original_sels</span> <span class="o">=</span> <span class="n">sels</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        
+        <span class="c1"># Add Gaussian traces</span>
+        <span class="n">current_fig</span> <span class="o">=</span> <span class="n">add_gaussian_traces</span><span class="p">(</span>
+            <span class="n">current_fig</span><span class="p">,</span>
+            <span class="n">fitted_data</span><span class="p">,</span>
+            <span class="n">photomol</span><span class="o">.</span><span class="n">fit_table</span><span class="p">,</span>
+            <span class="n">legends</span><span class="p">,</span>
+            <span class="n">color_palette</span><span class="p">,</span>
+            <span class="n">sels</span><span class="p">,</span>
+            <span class="n">baseline</span><span class="o">=</span><span class="n">baseline</span><span class="p">,</span>
+            <span class="n">scaling_factor</span><span class="o">=</span><span class="n">scaling_factor</span><span class="p">,</span>
+            <span class="n">show_values_in_legend</span><span class="o">=</span><span class="n">legend_config</span><span class="o">.</span><span class="n">add_masses_to_legend</span><span class="p">,</span>
+            <span class="n">show_perc_in_legend</span><span class="o">=</span><span class="n">legend_config</span><span class="o">.</span><span class="n">add_percentage_to_legend</span><span class="p">,</span>
+            <span class="n">contrasts</span><span class="o">=</span><span class="n">plot_config</span><span class="o">.</span><span class="n">contrasts</span><span class="p">,</span>
+            <span class="n">cst_factor_for_contrast</span><span class="o">=</span><span class="n">plot_config</span><span class="o">.</span><span class="n">cst_factor_for_contrast</span><span class="p">,</span>
+            <span class="n">line_width</span><span class="o">=</span><span class="n">legend_config</span><span class="o">.</span><span class="n">line_width</span><span class="p">,</span>
+            <span class="n">show_legend_vec</span><span class="o">=</span><span class="n">show_legend_vec</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Determine correct sels for labels based on fitted data structure</span>
+        <span class="k">if</span> <span class="n">fitted_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="c1"># Multiple Gaussians: skip the sum trace (first element) for labels</span>
+            <span class="n">label_sels</span> <span class="o">=</span> <span class="n">original_sels</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">original_sels</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="p">[]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Single Gaussian: use all selections</span>
+            <span class="n">label_sels</span> <span class="o">=</span> <span class="n">original_sels</span>
+
+        <span class="c1"># If the figure is not stacked (subplots style), add the labels here</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">layout_config</span><span class="o">.</span><span class="n">stacked</span> <span class="ow">and</span> <span class="p">(</span><span class="n">legend_config</span><span class="o">.</span><span class="n">add_labels</span> <span class="ow">or</span> <span class="n">legend_config</span><span class="o">.</span><span class="n">add_percentages</span><span class="p">):</span>
+            <span class="n">current_fig</span> <span class="o">=</span> <span class="n">add_labels_to_fig</span><span class="p">(</span>
+                <span class="n">current_fig</span><span class="p">,</span>
+                <span class="n">photomol</span><span class="o">.</span><span class="n">fit_table</span><span class="p">,</span>
+                <span class="n">contrasts</span><span class="o">=</span><span class="n">plot_config</span><span class="o">.</span><span class="n">contrasts</span><span class="p">,</span>
+                <span class="n">scaling_factor</span><span class="o">=</span><span class="n">scaling_factor</span><span class="p">,</span>
+                <span class="n">font_size</span><span class="o">=</span><span class="n">plot_config</span><span class="o">.</span><span class="n">font_size</span><span class="p">,</span>
+                <span class="n">sels</span><span class="o">=</span><span class="n">label_sels</span><span class="p">,</span>  <span class="c1"># Use original sels for labels</span>
+                <span class="n">stacked</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">max_y</span><span class="o">=</span><span class="n">max_y</span><span class="p">,</span>
+                <span class="n">show_values</span><span class="o">=</span><span class="n">legend_config</span><span class="o">.</span><span class="n">add_labels</span><span class="p">,</span>
+                <span class="n">show_counts</span><span class="o">=</span><span class="n">legend_config</span><span class="o">.</span><span class="n">add_percentages</span><span class="p">,</span>
+                <span class="n">cst_factor_for_contrast</span><span class="o">=</span><span class="n">plot_config</span><span class="o">.</span><span class="n">cst_factor_for_contrast</span>
+            <span class="p">)</span>
+
+        <span class="c1"># If the figure is stacked, collect label information for later use</span>
+        <span class="k">if</span> <span class="n">layout_config</span><span class="o">.</span><span class="n">stacked</span> <span class="ow">and</span> <span class="p">(</span><span class="n">legend_config</span><span class="o">.</span><span class="n">add_labels</span> <span class="ow">or</span> <span class="n">legend_config</span><span class="o">.</span><span class="n">add_percentages</span><span class="p">):</span>
+            
+            <span class="n">label_data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">&#39;fit_table&#39;</span><span class="p">:</span> <span class="n">photomol</span><span class="o">.</span><span class="n">fit_table</span><span class="p">,</span>
+                <span class="s1">&#39;contrasts&#39;</span><span class="p">:</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">contrasts</span><span class="p">,</span>
+                <span class="s1">&#39;scaling_factor&#39;</span><span class="p">:</span> <span class="n">scaling_factor</span><span class="p">,</span>
+                <span class="s1">&#39;font_size&#39;</span><span class="p">:</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">font_size</span><span class="p">,</span>
+                <span class="s1">&#39;sels&#39;</span><span class="p">:</span> <span class="n">label_sels</span><span class="p">,</span>  <span class="c1"># Use adjusted sels for labels</span>
+                <span class="s1">&#39;show_values&#39;</span><span class="p">:</span> <span class="n">legend_config</span><span class="o">.</span><span class="n">add_labels</span><span class="p">,</span>
+                <span class="s1">&#39;show_counts&#39;</span><span class="p">:</span> <span class="n">legend_config</span><span class="o">.</span><span class="n">add_percentages</span><span class="p">,</span>
+                <span class="s1">&#39;cst_factor_for_contrast&#39;</span><span class="p">:</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">cst_factor_for_contrast</span><span class="p">,</span>
+                <span class="s1">&#39;subplot_row&#39;</span><span class="p">:</span> <span class="n">model_cnt</span>
+            <span class="p">})</span>
+    
+    <span class="c1"># Finalize figure configuration</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">layout_config</span><span class="o">.</span><span class="n">stacked</span><span class="p">:</span>
+        <span class="c1"># Single plot with overlay</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+            <span class="n">barmode</span><span class="o">=</span><span class="s2">&quot;overlay&quot;</span><span class="p">,</span>
+            <span class="n">xaxis</span><span class="o">=</span><span class="n">x_axis</span><span class="p">,</span>
+            <span class="n">yaxis</span><span class="o">=</span><span class="n">y_axis</span><span class="p">,</span>
+            <span class="n">font_family</span><span class="o">=</span><span class="s2">&quot;Roboto&quot;</span><span class="p">,</span>
+            <span class="n">legend</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">plot_config</span><span class="o">.</span><span class="n">font_size</span><span class="p">)),</span>
+            <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+            <span class="n">paper_bgcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span>
+        <span class="p">)</span>
+        <span class="n">final_fig</span> <span class="o">=</span> <span class="n">fig</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Create subplot with all individual figures</span>
+        <span class="n">num_models</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">photomol_models</span><span class="p">)</span>
+        
+        <span class="n">final_fig</span> <span class="o">=</span> <span class="n">make_subplots</span><span class="p">(</span>
+            <span class="n">rows</span><span class="o">=</span><span class="n">num_models</span><span class="p">,</span>
+            <span class="n">cols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">subplot_titles</span><span class="o">=</span><span class="n">subplot_titles</span><span class="p">,</span>
+            <span class="n">shared_xaxes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">shared_yaxes</span><span class="o">=</span><span class="s1">&#39;all&#39;</span> <span class="k">if</span> <span class="n">layout_config</span><span class="o">.</span><span class="n">shared_yaxes</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="n">vertical_spacing</span><span class="o">=</span><span class="n">layout_config</span><span class="o">.</span><span class="n">vertical_spacing</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Update the font size of the subplot titles</span>
+        <span class="n">final_fig</span><span class="o">.</span><span class="n">update_annotations</span><span class="p">(</span><span class="n">font_size</span><span class="o">=</span><span class="n">plot_config</span><span class="o">.</span><span class="n">font_size</span><span class="p">)</span>
+
+        <span class="c1"># Update the x-axis only once, because they are shared</span>
+        <span class="n">final_fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="o">**</span><span class="n">x_axis</span><span class="p">)</span>
+
+        <span class="c1"># If y-axis are shared, set the y-axis range globally</span>
+        <span class="k">if</span> <span class="n">layout_config</span><span class="o">.</span><span class="n">shared_yaxes</span> <span class="ow">and</span> <span class="n">max_y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">y_axis</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># No title for shared y-axis - we will add it later as an annotation</span>
+            <span class="n">final_fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="o">**</span><span class="n">y_axis</span><span class="p">)</span>
+            <span class="n">final_fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_y</span> <span class="o">*</span> <span class="mf">1.3</span><span class="p">])</span>
+            <span class="n">final_fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">matches</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Add all traces from individual figures to subplot</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">subplot_fig</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">figs</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">trace</span> <span class="ow">in</span> <span class="n">subplot_fig</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+                <span class="n">final_fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">trace</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        
+        <span class="c1"># Update subplot layout with white background and axis styling</span>
+        <span class="n">final_fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+            <span class="n">font_family</span><span class="o">=</span><span class="s2">&quot;Roboto&quot;</span><span class="p">,</span>
+            <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+            <span class="n">paper_bgcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+            <span class="n">legend</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">plot_config</span><span class="o">.</span><span class="n">font_size</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+        <span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_models</span><span class="p">):</span>
+      
+            <span class="c1"># Remove the title if i is different from num_models -1</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">num_models</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">final_fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">title_text</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">showticklabels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+            <span class="c1"># If y-axis are not shared configure them individually</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">layout_config</span><span class="o">.</span><span class="n">shared_yaxes</span><span class="p">:</span>
+
+                <span class="c1"># Configure y-axis using helper function</span>
+                <span class="n">y_config</span> <span class="o">=</span> <span class="n">create_axis_config</span><span class="p">(</span>
+                    <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="c1"># No title - it will be added later as an annotation</span>
+                    <span class="n">font_size</span><span class="o">=</span><span class="n">plot_config</span><span class="o">.</span><span class="n">font_size</span><span class="p">,</span>
+                    <span class="n">show_grid</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">showgrid_y</span><span class="p">,</span>
+                    <span class="n">axis_linewidth</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">axis_linewidth</span><span class="p">,</span>
+                    <span class="n">axis_tickwidth</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">axis_tickwidth</span><span class="p">,</span>
+                    <span class="n">axis_gridwidth</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">axis_gridwidth</span><span class="p">,</span>
+                    <span class="n">nticks</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">n_y_axis_ticks</span> 
+                <span class="p">)</span>
+                <span class="n">y_config</span><span class="p">[</span><span class="s1">&#39;automargin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+                
+                <span class="n">final_fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="o">**</span><span class="n">y_config</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        
+        <span class="c1"># Add labels to stacked plots</span>
+        <span class="k">for</span> <span class="n">label_info</span> <span class="ow">in</span> <span class="n">label_data</span><span class="p">:</span>
+            <span class="n">final_fig</span> <span class="o">=</span> <span class="n">add_labels_to_fig</span><span class="p">(</span>
+                <span class="n">final_fig</span><span class="p">,</span>
+                <span class="n">label_info</span><span class="p">[</span><span class="s1">&#39;fit_table&#39;</span><span class="p">],</span>
+                <span class="n">contrasts</span><span class="o">=</span><span class="n">label_info</span><span class="p">[</span><span class="s1">&#39;contrasts&#39;</span><span class="p">],</span>
+                <span class="n">scaling_factor</span><span class="o">=</span><span class="n">label_info</span><span class="p">[</span><span class="s1">&#39;scaling_factor&#39;</span><span class="p">],</span>
+                <span class="n">font_size</span><span class="o">=</span><span class="n">label_info</span><span class="p">[</span><span class="s1">&#39;font_size&#39;</span><span class="p">],</span>
+                <span class="n">sels</span><span class="o">=</span><span class="n">label_info</span><span class="p">[</span><span class="s1">&#39;sels&#39;</span><span class="p">],</span>
+                <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">max_y</span><span class="o">=</span><span class="n">max_y</span> <span class="k">if</span> <span class="n">layout_config</span><span class="o">.</span><span class="n">shared_yaxes</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">show_values</span><span class="o">=</span><span class="n">label_info</span><span class="p">[</span><span class="s1">&#39;show_values&#39;</span><span class="p">],</span>
+                <span class="n">show_counts</span><span class="o">=</span><span class="n">label_info</span><span class="p">[</span><span class="s1">&#39;show_counts&#39;</span><span class="p">],</span>
+                <span class="n">cst_factor_for_contrast</span><span class="o">=</span><span class="n">label_info</span><span class="p">[</span><span class="s1">&#39;cst_factor_for_contrast&#39;</span><span class="p">],</span>
+                <span class="n">subplot_row</span><span class="o">=</span><span class="n">label_info</span><span class="p">[</span><span class="s1">&#39;subplot_row&#39;</span><span class="p">]</span>
+            <span class="p">)</span>
+
+        <span class="n">tick_str_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">max_y</span><span class="o">*</span><span class="mf">1.3</span><span class="p">)))</span>
+        <span class="c1"># Estimate width per character (roughly 7-8px for axis font size ~12-14)</span>
+        <span class="n">padding_px</span> <span class="o">=</span> <span class="mi">35</span>  <span class="c1"># additional spacing</span>
+
+        <span class="n">char_width_px</span> <span class="o">=</span> <span class="p">(</span><span class="n">plot_config</span><span class="o">.</span><span class="n">font_size</span> <span class="o">/</span> <span class="mi">12</span><span class="p">)</span> <span class="o">*</span> <span class="mi">8</span>
+
+        <span class="c1"># Calculate left margin and annotation position</span>
+        <span class="n">left_margin</span> <span class="o">=</span> <span class="n">tick_str_len</span> <span class="o">*</span> <span class="n">char_width_px</span> <span class="o">+</span> <span class="n">padding_px</span>
+        <span class="n">x_offset</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="n">left_margin</span> <span class="o">/</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">plot_width</span><span class="p">)</span>  <span class="c1"># scale to figure width (600 px default)</span>
+
+        <span class="c1"># Add centered y-axis title for stacked plots</span>
+        <span class="n">final_fig</span><span class="o">.</span><span class="n">add_annotation</span><span class="p">(</span>
+            <span class="n">text</span><span class="o">=</span><span class="n">y_label</span><span class="p">,</span>
+            <span class="n">xref</span><span class="o">=</span><span class="s2">&quot;paper&quot;</span><span class="p">,</span> <span class="n">yref</span><span class="o">=</span><span class="s2">&quot;paper&quot;</span><span class="p">,</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">x_offset</span><span class="o">-</span><span class="n">layout_config</span><span class="o">.</span><span class="n">extra_padding_y_label</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+            <span class="n">showarrow</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">textangle</span><span class="o">=-</span><span class="mi">90</span><span class="p">,</span>
+            <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">plot_config</span><span class="o">.</span><span class="n">font_size</span><span class="p">),</span>
+            <span class="n">xanchor</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+            <span class="n">yanchor</span><span class="o">=</span><span class="s2">&quot;middle&quot;</span>
+        <span class="p">)</span>
+        
+    <span class="c1"># Apply final configuration</span>
+    <span class="n">plot_title</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;MP_plot-</span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">final_fig</span> <span class="o">=</span> <span class="n">config_fig</span><span class="p">(</span>
+        <span class="n">final_fig</span><span class="p">,</span>
+        <span class="n">plot_config</span><span class="o">.</span><span class="n">plot_width</span><span class="p">,</span>
+        <span class="n">plot_config</span><span class="o">.</span><span class="n">plot_height</span><span class="p">,</span>
+        <span class="n">plot_config</span><span class="o">.</span><span class="n">plot_type</span><span class="p">,</span>
+        <span class="n">plot_title</span>
+    <span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">final_fig</span></div>
+
+
+
+<div class="viewcode-block" id="plot_calibration">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.plot_calibration">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_calibration</span><span class="p">(</span><span class="n">mass</span><span class="p">,</span> 
+                     <span class="n">contrast</span><span class="p">,</span> 
+                     <span class="n">slope</span><span class="p">,</span> 
+                     <span class="n">intercept</span><span class="p">,</span>
+                     <span class="n">plot_config</span><span class="p">:</span> <span class="n">PlotConfig</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                     <span class="n">axis_config</span><span class="p">:</span> <span class="n">AxisConfig</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a scatter plot of mass vs contrast with calibration line.</span>
+<span class="sd">    </span>
+<span class="sd">    This function creates a visualization showing the relationship between</span>
+<span class="sd">    mass and ratiometric contrast, with a fitted calibration line overlaid.</span>
+<span class="sd">    This is useful for visualizing calibration quality and outliers.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mass : array-like</span>
+<span class="sd">        Array of mass values in kDa</span>
+<span class="sd">    contrast : array-like  </span>
+<span class="sd">        Array of corresponding ratiometric contrast values</span>
+<span class="sd">    slope : float</span>
+<span class="sd">        Slope of the calibration line (contrast = slope * mass + intercept)</span>
+<span class="sd">    intercept : float</span>
+<span class="sd">        Intercept of the calibration line</span>
+<span class="sd">    plot_config : PlotConfig, optional</span>
+<span class="sd">        General plot configuration (dimensions, format, axis size, etc.)</span>
+<span class="sd">    axis_config : AxisConfig, optional</span>
+<span class="sd">        Axis styling configuration (grid, line widths, etc.)</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    go.Figure</span>
+<span class="sd">        Plotly figure object containing the mass vs contrast calibration plot</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Plot mass vs contrast calibration:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from pyphotomol.utils.plotting import plot_calibration, PlotConfig, AxisConfig</span>
+<span class="sd">    &gt;&gt;&gt; </span>
+<span class="sd">    &gt;&gt;&gt; # Simulated calibration data</span>
+<span class="sd">    &gt;&gt;&gt; mass = np.array([66, 146, 480])</span>
+<span class="sd">    &gt;&gt;&gt; contrast = np.array([-0.1, -0.2, -0.5])</span>
+<span class="sd">    &gt;&gt;&gt; slope = -0.001</span>
+<span class="sd">    &gt;&gt;&gt; intercept = 0.02</span>
+<span class="sd">    &gt;&gt;&gt; </span>
+<span class="sd">    &gt;&gt;&gt; # Simple plot with defaults</span>
+<span class="sd">    &gt;&gt;&gt; fig = plot_calibration(mass, contrast, slope, intercept)</span>
+<span class="sd">    &gt;&gt;&gt; fig.show()</span>
+<span class="sd">    &gt;&gt;&gt; </span>
+<span class="sd">    &gt;&gt;&gt; # Customized plot</span>
+<span class="sd">    &gt;&gt;&gt; plot_config = PlotConfig(plot_width=600, plot_height=400, font_size=12)</span>
+<span class="sd">    &gt;&gt;&gt; axis_config = AxisConfig(showgrid_x=False, n_y_axis_ticks=6)</span>
+<span class="sd">    &gt;&gt;&gt; fig = plot_calibration(mass, contrast, slope, intercept, </span>
+<span class="sd">    ...                       plot_config=plot_config, axis_config=axis_config)</span>
+<span class="sd">    &gt;&gt;&gt; fig.show()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># Set defaults</span>
+    <span class="n">plot_config</span> <span class="o">=</span> <span class="n">plot_config</span> <span class="ow">or</span> <span class="n">PlotConfig</span><span class="p">(</span><span class="n">plot_width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">plot_height</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+    <span class="n">axis_config</span> <span class="o">=</span> <span class="n">axis_config</span> <span class="ow">or</span> <span class="n">AxisConfig</span><span class="p">(</span><span class="n">n_y_axis_ticks</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    
+    <span class="c1"># Create figure</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+    
+    <span class="c1"># Create DataFrame for data points</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;mass&#39;</span><span class="p">:</span> <span class="n">mass</span><span class="p">,</span> <span class="s1">&#39;contrast&#39;</span><span class="p">:</span> <span class="n">contrast</span><span class="p">})</span>
+    
+    <span class="c1"># Add scatter plot for data points</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+        <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;mass&#39;</span><span class="p">],</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;contrast&#39;</span><span class="p">],</span>
+            <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span>
+            <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#377EB8&#39;</span><span class="p">,</span>
+                <span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+                <span class="n">opacity</span><span class="o">=</span><span class="mf">0.7</span>
+            <span class="p">),</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Data Points&#39;</span><span class="p">,</span>
+            <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    
+    <span class="c1"># Calculate calibration line endpoints</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">mass</span><span class="p">)</span>
+    <span class="n">y1</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">*</span> <span class="n">slope</span> <span class="o">+</span> <span class="n">intercept</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">mass</span><span class="p">)</span>
+    <span class="n">y2</span> <span class="o">=</span> <span class="n">x2</span> <span class="o">*</span> <span class="n">slope</span> <span class="o">+</span> <span class="n">intercept</span>
+    
+    <span class="c1"># Create DataFrame for prediction line</span>
+    <span class="n">df_pred</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">],</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">]})</span>
+    
+    <span class="c1"># Add calibration line</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+        <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">df_pred</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">df_pred</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span>
+            <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span>
+            <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#ffa500&#39;</span><span class="p">,</span>
+                <span class="n">width</span><span class="o">=</span><span class="mi">3</span>
+            <span class="p">),</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Calibration Line&#39;</span><span class="p">,</span>
+            <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    
+    <span class="c1"># Configure axes using helper function</span>
+    <span class="n">x_config</span> <span class="o">=</span> <span class="n">create_axis_config</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Mass (kDa)&#39;</span><span class="p">,</span>
+        <span class="n">font_size</span><span class="o">=</span><span class="n">plot_config</span><span class="o">.</span><span class="n">font_size</span><span class="p">,</span>
+        <span class="n">show_grid</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">showgrid_x</span><span class="p">,</span>
+        <span class="n">axis_linewidth</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">axis_linewidth</span><span class="p">,</span>
+        <span class="n">axis_tickwidth</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">axis_tickwidth</span><span class="p">,</span>
+        <span class="n">axis_gridwidth</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">axis_gridwidth</span>
+    <span class="p">)</span>
+    
+    <span class="n">y_config</span> <span class="o">=</span> <span class="n">create_axis_config</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Ratiometric contrast&#39;</span><span class="p">,</span>
+        <span class="n">font_size</span><span class="o">=</span><span class="n">plot_config</span><span class="o">.</span><span class="n">font_size</span><span class="p">,</span>
+        <span class="n">show_grid</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">showgrid_y</span><span class="p">,</span>
+        <span class="n">axis_linewidth</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">axis_linewidth</span><span class="p">,</span>
+        <span class="n">axis_tickwidth</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">axis_tickwidth</span><span class="p">,</span>
+        <span class="n">axis_gridwidth</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">axis_gridwidth</span><span class="p">,</span>
+        <span class="n">nticks</span><span class="o">=</span><span class="n">axis_config</span><span class="o">.</span><span class="n">n_y_axis_ticks</span>
+    <span class="p">)</span>
+    
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+        <span class="n">xaxis</span><span class="o">=</span><span class="n">x_config</span><span class="p">,</span>
+        <span class="n">yaxis</span><span class="o">=</span><span class="n">y_config</span><span class="p">,</span>
+        <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s2">&quot;Roboto&quot;</span><span class="p">),</span>
+        <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="n">paper_bgcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span>
+    <span class="p">)</span>
+    
+    <span class="c1"># Apply configuration</span>
+    <span class="n">plot_title</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;calibrationMassVsContrast-</span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">config_fig</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">plot_width</span><span class="p">,</span> <span class="n">plot_config</span><span class="o">.</span><span class="n">plot_height</span><span class="p">,</span> 
+                     <span class="n">plot_config</span><span class="o">.</span><span class="n">plot_type</span><span class="p">,</span> <span class="n">plot_title</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">fig</span></div>
+
+
+
+<div class="viewcode-block" id="plot_histogram">
+<a class="viewcode-back" href="../../../pyphotomol.utils.html#pyphotomol.plot_histogram">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_histogram</span><span class="p">(</span><span class="n">analyzer</span><span class="p">,</span>
+                   <span class="n">colors_hist</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                   <span class="n">plot_config</span><span class="p">:</span> <span class="n">PlotConfig</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                   <span class="n">axis_config</span><span class="p">:</span> <span class="n">AxisConfig</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                   <span class="n">layout_config</span><span class="p">:</span> <span class="n">LayoutConfig</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a plot with only histograms from PhotoMol data (wrapper around plot_histograms_and_fits).</span>
+<span class="sd">    </span>
+<span class="sd">    This function is a simplified wrapper that creates histogram-only plots without</span>
+<span class="sd">    requiring fitted data or legend configuration.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    analyzer : pyphotomol.MPAnalyzer or pyphotomol.PyPhotoMol</span>
+<span class="sd">        MPAnalyzer instance containing multiple PyPhotoMol models or a single PyPhotoMol instance</span>
+<span class="sd">    colors_hist : list, optional</span>
+<span class="sd">        List of colors for histograms (one per model)</span>
+<span class="sd">    plot_config : PlotConfig, optional</span>
+<span class="sd">        General plot configuration (dimensions, format, contrasts, etc.)</span>
+<span class="sd">    axis_config : AxisConfig, optional</span>
+<span class="sd">        Axis styling configuration (grid, line widths, etc.)</span>
+<span class="sd">    layout_config : LayoutConfig, optional</span>
+<span class="sd">        Layout configuration (stacked, spacing, etc.)</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    go.Figure</span>
+<span class="sd">        Configured plotly figure object with histograms only</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Create a simple histogram plot:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; fig = plot_histogram(analyzer, [&#39;#FF5733&#39;, &#39;#33C3FF&#39;])</span>
+<span class="sd">    &gt;&gt;&gt; fig.show()</span>
+<span class="sd">    </span>
+<span class="sd">    Create stacked normalized histograms:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; plot_config = PlotConfig(normalize=True)</span>
+<span class="sd">    &gt;&gt;&gt; layout_config = LayoutConfig(stacked=True)</span>
+<span class="sd">    &gt;&gt;&gt; fig = plot_histogram(analyzer, [&#39;blue&#39;, &#39;red&#39;], </span>
+<span class="sd">    ...                      plot_config=plot_config, layout_config=layout_config)</span>
+<span class="sd">    &gt;&gt;&gt; fig.show()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># Set defaults</span>
+    <span class="n">plot_config</span> <span class="o">=</span> <span class="n">plot_config</span> <span class="ow">or</span> <span class="n">PlotConfig</span><span class="p">()</span>
+    <span class="n">axis_config</span> <span class="o">=</span> <span class="n">axis_config</span> <span class="ow">or</span> <span class="n">AxisConfig</span><span class="p">()</span>
+    <span class="n">layout_config</span> <span class="o">=</span> <span class="n">layout_config</span> <span class="ow">or</span> <span class="n">LayoutConfig</span><span class="p">()</span>
+    
+    <span class="c1"># Create a legend config that disables all fit-related features</span>
+    <span class="n">legend_config</span> <span class="o">=</span> <span class="n">LegendConfig</span><span class="p">(</span>
+        <span class="n">add_masses_to_legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">add_percentage_to_legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">add_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">add_percentages</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+    
+    <span class="c1"># Call plot_histograms_and_fits with legends_df=None to get histograms only</span>
+    <span class="k">return</span> <span class="n">plot_histograms_and_fits</span><span class="p">(</span>
+        <span class="n">analyzer</span><span class="o">=</span><span class="n">analyzer</span><span class="p">,</span>
+        <span class="n">legends_df</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="c1"># No fitted traces, histograms only</span>
+        <span class="n">colors_hist</span><span class="o">=</span><span class="n">colors_hist</span><span class="p">,</span>
+        <span class="n">plot_config</span><span class="o">=</span><span class="n">plot_config</span><span class="p">,</span>
+        <span class="n">axis_config</span><span class="o">=</span><span class="n">axis_config</span><span class="p">,</span>
+        <span class="n">layout_config</span><span class="o">=</span><span class="n">layout_config</span><span class="p">,</span>
+        <span class="n">legend_config</span><span class="o">=</span><span class="n">legend_config</span>
+    <span class="p">)</span></div>
+
+
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, osvalB.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

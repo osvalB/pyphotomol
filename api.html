@@ -1,0 +1,2063 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>API Reference &#8212; PyPhotoMol 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=01f34227"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">PyPhotoMol 0.1.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="modules.html">
+    pyphotomol
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/osvalB/pyPhotoMol" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quickstart.html">
+    Quick Start Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="modules.html">
+    pyphotomol
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/osvalB/pyPhotoMol" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">API Reference</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">#</a></h1>
+<p>This page contains the complete API reference for PyPhotoMol.</p>
+<section id="main-classes">
+<h2>Main Classes<a class="headerlink" href="#main-classes" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.main.</span></span><span class="sig-name descname"><span class="pre">log_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/main.html#log_method"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Decorator to automatically handle errors and logging.</p>
+<p>This decorator will:
+1. Handle exceptions by logging them to the logbook
+2. Re-raise exceptions after logging
+Note: The actual success logging is handled by each method individually</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.main.</span></span><span class="sig-name descname"><span class="pre">log_batch_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/main.html#log_batch_method"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Decorator to automatically handle errors and logging for MPAnalyzer methods.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyphotomol.main.</span></span><span class="sig-name descname"><span class="pre">PyPhotoMol</span></span><a class="reference internal" href="_modules/pyphotomol/main.html#PyPhotoMol"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Main class for analyzing mass photometry data.</p>
+<p>The PyPhotoMol class provides a comprehensive suite of tools for importing,
+analyzing, and visualizing mass photometry data. It supports data import from
+HDF5 and CSV files, histogram creation and analysis, peak detection, Gaussian
+fitting, and mass-contrast calibration.</p>
+<p>All operations are automatically logged to a comprehensive logbook that tracks
+parameters, results, and any errors encountered during analysis.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">contrasts</span></span></dt>
+<dd><p>Array of contrast values from imported data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">masses</span></span></dt>
+<dd><p>Array of mass values (in kDa) from imported data or converted from contrasts</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">histogram_centers</span></span></dt>
+<dd><p>Bin centers for created histograms</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">hist_counts</span></span></dt>
+<dd><p>Count values for histogram bins</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">hist_nbins</span></span></dt>
+<dd><p>Number of bins in the histogram</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">hist_window</span></span></dt>
+<dd><p>[min, max] window used for histogram creation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">bin_width</span></span></dt>
+<dd><p>Width of histogram bins</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">hist_data_type</span></span></dt>
+<dd><p>Type of data used for histogram (‘masses’ or ‘contrasts’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">peaks_guess</span></span></dt>
+<dd><p>Positions of detected peaks in the histogram</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">nbinding</span></span></dt>
+<dd><p>Number of binding events detected</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">nunbinding</span></span></dt>
+<dd><p>Number of unbinding events detected</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">fitted_params</span></span></dt>
+<dd><p>Parameters from Multi-Gaussian fitting</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">fitted_data</span></span></dt>
+<dd><p>Fitted curve data points</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">fitted_params_errors</span></span></dt>
+<dd><p>Error estimates for fitted parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">masses_fitted</span></span></dt>
+<dd><p>Mass values corresponding to fitted peaks</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">baseline</span></span></dt>
+<dd><p>Baseline value used for fitting operations (default: 0)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">fit_table</span></span></dt>
+<dd><p>Summary table of fitting results</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">calibration_dic</span></span></dt>
+<dd><p>Dictionary containing mass-contrast calibration parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">logbook</span></span></dt>
+<dd><p>List of all operations performed, with timestamps and parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Examples</p>
+<p>Basic workflow for mass photometry analysis:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">PyPhotoMol</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">import_file</span><span class="p">(</span><span class="s1">&#39;data.h5&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">count_binding_events</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">create_histogram</span><span class="p">(</span><span class="n">use_masses</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span> <span class="n">bin_width</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">guess_peaks</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">fit_histogram</span><span class="p">(</span><span class="n">peaks_guess</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">peaks_guess</span><span class="p">,</span> <span class="n">mean_tolerance</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">std_tolerance</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">print_logbook_summary</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/main.html#PyPhotoMol.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Initialize a new PyPhotoMol instance.</p>
+<p>Creates an empty instance with all data properties set to None
+and initializes an empty logbook for operation tracking.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_logbook</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">as_dataframe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_to_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/main.html#PyPhotoMol.get_logbook"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Retrieve the logbook of all operations performed on this instance.</p>
+<p>The logbook contains a complete history of all method calls, including
+parameters used, results obtained, timestamps, and any errors encountered.
+This provides full traceability of the analysis workflow.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>as_dataframe</strong> (<em>bool</em><em>, </em><em>default True</em>) – If True, return logbook as a pandas DataFrame for easy analysis.
+If False, return as a list of dictionaries.</p></li>
+<li><p><strong>save_to_file</strong> (<em>str</em><em>, </em><em>optional</em>) – If provided, save the logbook to this file path as JSON format.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Logbook entries containing operation history. DataFrame columns include:
+- timestamp: ISO format timestamp of when operation was performed
+- method: Name of the method that was called
+- parameters: Dictionary of parameters passed to the method
+- result_summary: Summary of results produced (for successful operations)
+- notes: Additional notes about the operation
+- success: Boolean indicating if operation completed successfully
+- error: Error message (only present for failed operations)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame or list</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Get logbook as DataFrame for analysis:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">PyPhotoMol</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">import_file</span><span class="p">(</span><span class="s1">&#39;data.h5&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">logbook_df</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_logbook</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">logbook_df</span><span class="p">[[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">,</span> <span class="s1">&#39;method&#39;</span><span class="p">,</span> <span class="s1">&#39;success&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>Save logbook to file:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">get_logbook</span><span class="p">(</span><span class="n">save_to_file</span><span class="o">=</span><span class="s1">&#39;analysis_log.json&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Get raw logbook data:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">raw_logbook</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_logbook</span><span class="p">(</span><span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">clear_logbook</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/main.html#PyPhotoMol.clear_logbook"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Clear all logbook entries.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">print_logbook_summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/main.html#PyPhotoMol.print_logbook_summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Print a summary of the logbook.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">import_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/main.html#PyPhotoMol.import_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Import mass photometry data from HDF5 or CSV files.</p>
+<p>This method loads contrast and mass data from supported file formats.
+NaN values are automatically removed from the imported data. The import
+operation is automatically logged with file information and data statistics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file_path</strong> (<em>str</em>) – Path to the data file. Supported formats are:
+- ‘.h5’ : HDF5 files with standard mass photometry structure
+- ‘.csv’ : CSV files with contrast and mass columns</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – If the file format is not supported (not .h5 or .csv)</p></li>
+<li><p><strong>FileNotFoundError</strong> – If the specified file does not exist</p></li>
+<li><p><strong>KeyError</strong> – If required data columns are missing from the file</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>After import, the following attributes are populated:
+- self.contrasts : Array of contrast values with NaN removed
+- self.masses : Array of mass values with NaN removed (if available)</p>
+<p>The logbook will record:
+- File path and type
+- Number of data points imported
+- Range of contrast and mass values</p>
+<p class="rubric">Examples</p>
+<p>Import HDF5 data:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">PyPhotoMol</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">import_file</span><span class="p">(</span><span class="s1">&#39;experiment_data.h5&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Imported </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">contrasts</span><span class="p">)</span><span class="si">}</span><span class="s2"> contrast measurements&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Import CSV data:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">import_file</span><span class="p">(</span><span class="s1">&#39;processed_data.csv&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mass range: </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">masses</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">masses</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> kDa&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">count_binding_events</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/main.html#PyPhotoMol.count_binding_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Count binding and unbinding events from the mass data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">create_histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_masses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">2000]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/main.html#PyPhotoMol.create_histogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Create a histogram from imported contrast or mass data.</p>
+<p>This method generates a histogram from the imported data, which is essential
+for subsequent peak detection and fitting operations. The histogram parameters
+can be customized for different types of analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>use_masses</strong> (<em>bool</em><em>, </em><em>default True</em>) – If True, create histogram from mass data (requires masses to be available).
+If False, create histogram from contrast data.</p></li>
+<li><p><strong>window</strong> (<em>list</em><em> of </em><em>two floats</em><em>, </em><em>default</em><em> [</em><em>0</em><em>, </em><em>2000</em><em>]</em>) – Range for the histogram as [min, max]. Units depend on data type:
+- For masses: typically [0, 2000] kDa
+- For contrasts: typically [-1, 0] (e.g., [-0.8, -0.2])</p></li>
+<li><p><strong>bin_width</strong> (<em>float</em><em>, </em><em>default 10</em>) – Width of histogram bins. Units depend on data type:
+- For masses: typically 10-50 kDa
+- For contrasts: typically 0.0004-0.001</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>AttributeError</strong> – If no data has been imported yet</p></li>
+<li><p><strong>ValueError</strong> – If use_masses=True but no mass data is available</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>After histogram creation, the following attributes are populated:
+- self.histogram_centers : Bin center positions
+- self.hist_counts : Count values for each bin
+- self.hist_nbins : Number of bins created
+- self.hist_window : Window used for histogram
+- self.bin_width : Bin width used
+- self.hist_data_type : Data type used (‘masses’ or ‘contrasts’)</p>
+<p class="rubric">Examples</p>
+<p>Create mass histogram for protein analysis:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">create_histogram</span><span class="p">(</span><span class="n">use_masses</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span> <span class="n">bin_width</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Create contrast histogram for calibration:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">create_histogram</span><span class="p">(</span><span class="n">use_masses</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">],</span> <span class="n">bin_width</span><span class="o">=</span><span class="mf">0.0004</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>High-resolution histogram for detailed analysis:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">create_histogram</span><span class="p">(</span><span class="n">use_masses</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="n">bin_width</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">guess_peaks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prominence</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/main.html#PyPhotoMol.guess_peaks"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Guess peaks in the histogram data.</p>
+<p>The different arguments will be adjusted according to the region of the histogram.
+For example, the given distance will be used for mass data between 0 and 650 kDa,
+between 650 and 1500 kDa, the distance will be multiplied by a factor of 3,
+and for data above 1500 kDa, the distance will be multiplied by a factor of 8.
+See the <cite>guess_peaks</cite> function in <cite>utils.helpers</cite> for more details.</p>
+<dl class="simple">
+<dt>Example of min_height, min_distance and prominence for contrasts:</dt><dd><p>min_height=10, min_distance=4, prominence=4</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_height</strong> (<em>int</em><em>, </em><em>default 10</em>) – Minimum height of the peaks.</p></li>
+<li><p><strong>min_distance</strong> (<em>int</em><em>, </em><em>default 4</em>) – Minimum distance between peaks.</p></li>
+<li><p><strong>prominence</strong> (<em>int</em><em>, </em><em>default 4</em>) – Minimum prominence of the peaks.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">contrasts_to_masses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slope</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intercept</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/main.html#PyPhotoMol.contrasts_to_masses"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Convert contrasts to masses using a linear transformation.
+We assume a calibratio was done using
+f(mass) = slope * contrast + intercept</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>slope</strong> (<em>float</em><em>, </em><em>default 1.0</em>) – Slope of the linear transformation.</p></li>
+<li><p><strong>intercept</strong> (<em>float</em><em>, </em><em>default 0.0</em>) – Intercept of the linear transformation.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">fit_histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">peaks_guess</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean_tolerance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std_tolerance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/main.html#PyPhotoMol.fit_histogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Fit the histogram data to the guessed peaks.
+We use a multi-Gaussian fit to the histogram data.</p>
+<p>The data type (masses or contrasts) is automatically detected from the histogram
+that was previously created using create_histogram().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>peaks_guess</strong> (<em>list</em>) – List of guessed peaks.</p></li>
+<li><p><strong>mean_tolerance</strong> (<em>float</em>) – Tolerance for the mean of the Gaussian fit.</p></li>
+<li><p><strong>std_tolerance</strong> (<em>float</em>) – Tolerance for the standard deviation of the Gaussian fit.</p></li>
+<li><p><strong>threshold</strong> (<em>float</em><em>, </em><em>optional</em>) – For masses: minimum value that can be observed (in kDa units). Default is 40.
+For contrasts: maximum value that can be observed (should be negative). Default is -0.0024.
+If None, defaults are applied based on detected data type.</p></li>
+<li><p><strong>baseline</strong> (<em>float</em><em>, </em><em>default 0.0</em>) – Baseline value to be subtracted from the fit.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Fit histogram after creating it:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">create_histogram</span><span class="p">(</span><span class="n">use_masses</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2000</span><span class="p">],</span> <span class="n">bin_width</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">guess_peaks</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">fit_histogram</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">peaks_guess</span><span class="p">,</span> <span class="n">mean_tolerance</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">std_tolerance</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">create_fit_table</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/main.html#PyPhotoMol.create_fit_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Create a fit table from the fitted parameters</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">calibrate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calibration_standards</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/main.html#PyPhotoMol.calibrate"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Obtain a calibration of the type f(mass) = slope * contrast + intercept</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>calibration_standards</strong> (<em>list</em>) – List with the known masses</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyphotomol.main.</span></span><span class="sig-name descname"><span class="pre">MPAnalyzer</span></span><a class="reference internal" href="_modules/pyphotomol/main.html#MPAnalyzer"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to handle multiple PyPhotoMol instances.
+This is useful for batch processing of multiple files.</p>
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/main.html#MPAnalyzer.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_batch_logbook</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">as_dataframe</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_to_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/main.html#MPAnalyzer.get_batch_logbook"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Retrieve the batch logbook of all operations performed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>as_dataframe</strong> (<em>bool</em><em>, </em><em>default True</em>) – If True, return as pandas DataFrame, else as list of dicts</p></li>
+<li><p><strong>save_to_file</strong> (<em>str</em><em>, </em><em>optional</em>) – Optional file path to save logbook as JSON</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Batch logbook entries</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame or list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_all_logbooks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">save_to_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/main.html#MPAnalyzer.get_all_logbooks"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Get combined logbooks from all models plus batch operations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>save_to_file</strong> (<em>str</em><em>, </em><em>optional</em>) – Optional file path to save combined logbook as JSON</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Combined logbooks with batch and individual model logs</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">import_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/main.html#MPAnalyzer.import_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Load multiple files into PyPhotoMol instances.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>files</strong> (<em>list</em>) – List of file paths to load.</p></li>
+<li><p><strong>names</strong> (<em>list</em><em>, </em><em>optional</em>) – List of names for the PyPhotoMol instances.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">apply_to_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method_name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/main.html#MPAnalyzer.apply_to_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Apply a method to all or selected PyPhotoMol instances.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method_name</strong> (<em>str</em>) – Name of the method to apply to instances</p></li>
+<li><p><strong>*args</strong> (<em>tuple</em>) – Positional arguments to pass to the method</p></li>
+<li><p><strong>names</strong> (<em>list</em><em> or </em><em>str</em><em>, </em><em>optional</em>) – Names of specific models to apply method to.
+If None (default), applies to all models.</p></li>
+<li><p><strong>**kwargs</strong> (<em>dict</em>) – Keyword arguments to pass to the method</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Count binding events for all models:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pms</span><span class="o">.</span><span class="n">apply_to_all</span><span class="p">(</span><span class="s1">&#39;count_binding_events&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Create histograms for specific models only:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pms</span><span class="o">.</span><span class="n">apply_to_all</span><span class="p">(</span><span class="s1">&#39;create_histogram&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;model1&#39;</span><span class="p">,</span> <span class="s1">&#39;model2&#39;</span><span class="p">],</span>
+<span class="gp">... </span>                 <span class="n">use_masses</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2000</span><span class="p">],</span> <span class="n">bin_width</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Guess peaks for a single model:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pms</span><span class="o">.</span><span class="n">apply_to_all</span><span class="p">(</span><span class="s1">&#39;guess_peaks&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">&#39;model1&#39;</span><span class="p">,</span>
+<span class="gp">... </span>                 <span class="n">min_height</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">min_distance</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">prominence</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/main.html#MPAnalyzer.get_properties"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Get properties from all PyPhotoMol instances.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>variable</strong> (<em>str</em>) – The property to get from each instance.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of the specified property from each instance.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Get masses from all models:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">masses_list</span> <span class="o">=</span> <span class="n">pms</span><span class="o">.</span><span class="n">get_properties</span><span class="p">(</span><span class="s1">&#39;masses&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Get fit tables from all models:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fit_tables</span> <span class="o">=</span> <span class="n">pms</span><span class="o">.</span><span class="n">get_properties</span><span class="p">(</span><span class="s1">&#39;fit_table&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">create_plotting_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">repeat_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/main.html#MPAnalyzer.create_plotting_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Create configuration dataframes for plotting multiple PhotoMol models.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>repeat_colors</strong> (<em>bool</em><em>, </em><em>default True</em>) – If True, repeat the same color scheme for each model’s peaks.
+If False, use sequential colors across all peaks from all models.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p><strong>tuple</strong> –</p>
+<ul class="simple">
+<li><p>legends_df: DataFrame with legends, colors, and selection flags for Gaussian traces</p></li>
+<li><p>colors_hist_df: DataFrame with histogram colors for each model</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(legends_df, colors_hist_df, legends_all, color_palette_all, sels_all, colors_hist)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">master_calibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calibration_standards</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/main.html#MPAnalyzer.master_calibration"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Perform master calibration using known masses.
+It uses information from the fit table of each model to create a master calibration.
+:param calibration_standards: List of known masses for calibration.
+:type calibration_standards: list</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="utility-functions">
+<h2>Utility Functions<a class="headerlink" href="#utility-functions" title="Link to this heading">#</a></h2>
+<section id="data-import">
+<h3>Data Import<a class="headerlink" href="#data-import" title="Link to this heading">#</a></h3>
+<p>Data import utilities for mass photometry analysis.</p>
+<p>This module provides functions to import data from various file formats commonly
+used in mass photometry experiments, including HDF5 files from Refeyn instruments
+and CSV files with custom data formats.</p>
+<section id="functions">
+<h4>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h4>
+<p>import_file_h5 : Import data from Refeyn HDF5 files
+import_csv : Import data from CSV files
+import_movie_h5 : Import movie data from HDF5 files</p>
+<p>The import functions automatically handle different data structures and perform
+basic preprocessing like NaN removal and calibration conversions.</p>
+</section>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.data_import.</span></span><span class="sig-name descname"><span class="pre">import_file_h5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/data_import.html#import_file_h5"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Import mass photometry data from HDF5 files generated by Refeyn instruments.</p>
+<p>This function reads contrast and mass data from standard Refeyn HDF5 file formats.
+It automatically handles different data structures and performs calibration
+conversions when necessary. NaN values are filtered out automatically.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – Path to the HDF5 file to import</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>contrasts</strong> (<em>np.ndarray</em>) – Array of contrast values with NaN values removed</p></li>
+<li><p><strong>masses_kDa</strong> (<em>np.ndarray or None</em>) – Array of mass values in kDa units, or None if not available.
+If masses are not directly available but calibration data exists,
+they will be computed from contrasts using the calibration parameters.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The function searches for data in the following order:
+1. Direct ‘contrasts’ and ‘masses_kDa’ datasets
+2. ‘calibrated_values’ with calibration parameters
+3. ‘per_movie_events’ for movie-based data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>FileNotFoundError</strong> – If the specified file does not exist</p></li>
+<li><p><strong>KeyError</strong> – If required datasets are not found in the HDF5 file</p></li>
+<li><p><strong>ValueError</strong> – If the file format is not recognized or data is corrupted</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Import standard Refeyn data:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">contrasts</span><span class="p">,</span> <span class="n">masses</span> <span class="o">=</span> <span class="n">import_file_h5</span><span class="p">(</span><span class="s1">&#39;experiment.h5&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">contrasts</span><span class="p">)</span><span class="si">}</span><span class="s2"> events&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">masses</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mass range: </span><span class="si">{</span><span class="n">masses</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">masses</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> kDa&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.data_import.</span></span><span class="sig-name descname"><span class="pre">import_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/data_import.html#import_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Import data from a CSV file generated by a Refeyn instrument.</p>
+<p>The CSV file should contain columns ‘contrasts’ and optionally ‘masses_kDa’.
+NaN values are automatically filtered out from the imported data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – Path to the CSV file to import</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>contrasts</strong> (<em>np.ndarray</em>) – Array of contrast values with NaN values removed</p></li>
+<li><p><strong>masses_kDa</strong> (<em>np.ndarray or None</em>) – Array of mass values in kDa, or None if not available in the CSV file</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>FileNotFoundError</strong> – If the specified file does not exist</p></li>
+<li><p><strong>KeyError</strong> – If the required ‘contrasts’ column is not found in the CSV file</p></li>
+<li><p><strong>ValueError</strong> – If the file format is not recognized or data is corrupted</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Import CSV data with contrasts only:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">contrasts</span><span class="p">,</span> <span class="n">masses</span> <span class="o">=</span> <span class="n">import_csv</span><span class="p">(</span><span class="s1">&#39;contrasts_only.csv&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">contrasts</span><span class="p">)</span><span class="si">}</span><span class="s2"> contrast measurements&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Masses available: </span><span class="si">{</span><span class="n">masses</span><span class="w"> </span><span class="ow">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="kc">None</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Import CSV data with both contrasts and masses:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">contrasts</span><span class="p">,</span> <span class="n">masses</span> <span class="o">=</span> <span class="n">import_csv</span><span class="p">(</span><span class="s1">&#39;full_data.csv&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">masses</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mass range: </span><span class="si">{</span><span class="n">masses</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">masses</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> kDa&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="helper-functions">
+<h3>Helper Functions<a class="headerlink" href="#helper-functions" title="Link to this heading">#</a></h3>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">contrasts_to_mass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contrasts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slope</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intercept</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/helpers.html#contrasts_to_mass"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Function to convert masses from contrasts using known calibration parameters.</p>
+<p>Caution! slope and intercept are based on f(mass) = contrast !!!!
+In other words, contrast = slope*mass + intercept</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>contrasts</strong> (<em>np.ndarray</em>) – Contrasts to convert.</p></li>
+<li><p><strong>slope</strong> (<em>float</em>) – Slope of the calibration line.</p></li>
+<li><p><strong>intercept</strong> (<em>float</em>) – Intercept of the calibration line.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Converted masses in kDa.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">create_histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">2000]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/helpers.html#create_histogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Creates an histogram of the provided vector within a specified window and bin width.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vector</strong> (<em>np.ndarray</em>) – The data to create the histogram from.</p></li>
+<li><p><strong>window</strong> (<em>list</em><em>, </em><em>default</em><em> [</em><em>0</em><em>, </em><em>2000</em><em>]</em>) – The range of values to include in the histogram [min, max].</p></li>
+<li><p><strong>bin_width</strong> (<em>float</em><em>, </em><em>default 10</em>) – The width of each bin in the histogram.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>histogram_centers</strong> (<em>np.ndarray</em>) – The x-coordinates of the histogram bins.</p></li>
+<li><p><strong>hist_counts</strong> (<em>np.ndarray</em>) – The counts of values in each bin (Y-axis of the histogram).</p></li>
+<li><p><strong>hist_nbins</strong> (<em>int</em>) – The number of bins in the histogram.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>For contrast data:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">centers</span><span class="p">,</span> <span class="n">counts</span><span class="p">,</span> <span class="n">nbins</span> <span class="o">=</span> <span class="n">create_histogram</span><span class="p">(</span><span class="n">contrasts</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">bin_width</span><span class="o">=</span><span class="mf">0.0004</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For mass data:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">centers</span><span class="p">,</span> <span class="n">counts</span><span class="p">,</span> <span class="n">nbins</span> <span class="o">=</span> <span class="n">create_histogram</span><span class="p">(</span><span class="n">masses</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2000</span><span class="p">],</span> <span class="n">bin_width</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">count_binding_events_from_masses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">masses_kDa</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/helpers.html#count_binding_events_from_masses"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Count binding events based on the provided mass data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>masses_kDa</strong> (<em>np.ndarray</em>) – Array of masses in kDa.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>n_binding</strong> (<em>int</em>) – Number of binding events.</p></li>
+<li><p><strong>n_unbinding</strong> (<em>int</em>) – Number of unbinding events.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">count_binding_events_from_contrasts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contrasts</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/helpers.html#count_binding_events_from_contrasts"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Count binding events based on the provided contrast data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>contrasts</strong> (<em>np.ndarray</em>) – Array of contrasts.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>n_binding</strong> (<em>int</em>) – Number of binding events (negative contrasts).</p></li>
+<li><p><strong>n_unbinding</strong> (<em>int</em>) – Number of unbinding events (positive contrasts).</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">guess_peaks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">histogram_centers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prominence</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/helpers.html#guess_peaks"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Try to find peaks in the histogram data.</p>
+<p>Automatically finds peaks in histogram data with adaptive parameters based on
+the data range. For mass data, different distance thresholds are used for
+different mass ranges to account for peak spacing variations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>np.ndarray</em>) – The histogram counts data to find peaks in.</p></li>
+<li><p><strong>histogram_centers</strong> (<em>np.ndarray</em>) – The centers of the histogram bins corresponding to x values.</p></li>
+<li><p><strong>height</strong> (<em>int</em><em>, </em><em>default 14</em>) – Minimum height of peaks.</p></li>
+<li><p><strong>distance</strong> (<em>int</em><em>, </em><em>default 4</em>) – Minimum distance between peaks (will be scaled for different mass ranges).</p></li>
+<li><p><strong>prominence</strong> (<em>int</em><em>, </em><em>default 8</em>) – Minimum prominence of peaks.</p></li>
+<li><p><strong>masses</strong> (<em>bool</em><em>, </em><em>default True</em>) – If True, find peaks in mass data; if False, find peaks in contrast data.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Histogram centers of the found peaks.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>For contrast data:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">peaks</span> <span class="o">=</span> <span class="n">guess_peaks</span><span class="p">(</span><span class="n">hist_counts</span><span class="p">,</span> <span class="n">hist_centers</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">prominence</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">masses</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For mass data:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">peaks</span> <span class="o">=</span> <span class="n">guess_peaks</span><span class="p">(</span><span class="n">hist_counts</span><span class="p">,</span> <span class="n">hist_centers</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">prominence</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">masses</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">multi_gauss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/helpers.html#multi_gauss"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Multiple gaussian function
+Inputs x values and gaussian parameters
+Outputs y values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>np.ndarray</em>) – The x-coordinates where the Gaussian function is evaluated.</p></li>
+<li><p><strong>*params</strong> (<em>tuple</em>) – Parameters for the Gaussian functions, where each set of parameters consists of:
+- Center (mean) of the Gaussian
+- Amplitude (height) of the Gaussian
+- Standard deviation (width) of the Gaussian</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The y-coordinates of the multiple-Gaussian function evaluated at x.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">params</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]</span>  <span class="c1"># Two Gaussians</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">multi_gauss</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">truncated_multi_gauss_with_baseline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower_limit_of_resolution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/helpers.html#truncated_multi_gauss_with_baseline"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Multiple gaussian function with a baseline and a lower limit of resolution.
+Inputs x values, gaussian parameters, lower limit of resolution, and baseline.
+Outputs y values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>np.ndarray</em>) – The x-coordinates where the Gaussian function is evaluated.</p></li>
+<li><p><strong>lower_limit_of_resolution</strong> (<em>float</em>) – The lower limit of resolution below which the function is zero</p></li>
+<li><p><strong>baseline</strong> (<em>float</em>) – The baseline value to be added to the Gaussian function.</p></li>
+<li><p><strong>*params</strong> (<em>tuple</em>) – Parameters for the Gaussian functions, where each set of parameters consists of:
+- Center (mean) of the Gaussian
+- Amplitude (height) of the Gaussian
+- Standard deviation (width) of the Gaussian</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The y-coordinates of the multiple-Gaussian function evaluated at x,
+truncated below the lower limit of resolution and with a baseline added.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">fit_histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hist_counts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hist_centers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">guess_positions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[66,</span> <span class="pre">148,</span> <span class="pre">480]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean_tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std_tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">40</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/helpers.html#fit_histogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Fit a histogram with multiple truncated gaussians.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hist_counts</strong> (<em>np.ndarray</em>) – The counts of values in each bin of the histogram.</p></li>
+<li><p><strong>hist_centers</strong> (<em>np.ndarray</em>) – The centers of the histogram bins.</p></li>
+<li><p><strong>guess_positions</strong> (<em>list</em><em>, </em><em>default</em><em> [</em><em>66</em><em>,</em><em>148</em><em>,</em><em>480</em><em>]</em>) – Initial guesses for the positions of the peaks.</p></li>
+<li><p><strong>mean_tolerance</strong> (<em>int</em><em>, </em><em>default 100</em>) – Tolerance for the peak positions.</p></li>
+<li><p><strong>std_tolerance</strong> (<em>int</em><em>, </em><em>default 200</em>) – Maximum standard deviation for the peaks.</p></li>
+<li><p><strong>threshold</strong> (<em>int</em><em>, </em><em>default 40 for masses in kDa units</em>) – For masses, minimum value that can be observed.
+For contrasts, it is be the max value that can be observed. It should be a negative value.</p></li>
+<li><p><strong>baseline</strong> (<em>float</em><em>, </em><em>default 0</em>) – Baseline value to be added to the fit.</p></li>
+<li><p><strong>masses</strong> (<em>bool</em><em>, </em><em>default True</em>) – If True, the fit is for mass data; if False, it is for contrast data.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>popt</strong> (<em>np.ndarray</em>) – Optimized parameters for the fit.</p></li>
+<li><p><strong>fit</strong> (<em>np.ndarray</em>) – Fitted values for the histogram. The first column is the x-coordinates,
+followed by the individual Gaussian fits and the total fit.</p></li>
+<li><p><strong>fit_error</strong> (<em>np.ndarray</em>) – Errors of the fitted parameters.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>For contrast data:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">popt</span><span class="p">,</span> <span class="n">fit</span><span class="p">,</span> <span class="n">errors</span> <span class="o">=</span> <span class="n">fit_histogram</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">centers</span><span class="p">,</span> <span class="n">mean_tolerance</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">std_tolerance</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">create_fit_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">popt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">popt_error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_binding</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_unbinding</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hist_centers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/helpers.html#create_fit_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Generate a pandas DataFrame that summarizes fit results</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>popt</strong> (<em>np.ndarray</em>) – Optimized parameters from the fit.</p></li>
+<li><p><strong>popt_error</strong> (<em>np.ndarray</em>) – Errors of the fitted parameters.</p></li>
+<li><p><strong>fit</strong> (<em>np.ndarray</em>) – Fitted values for the histogram.</p></li>
+<li><p><strong>n_binding</strong> (<em>int</em>) – Number of binding events.</p></li>
+<li><p><strong>n_unbinding</strong> (<em>int</em>) – Number of unbinding events.</p></li>
+<li><p><strong>hist_centers</strong> (<em>np.ndarray</em>) – The centers of the histogram bins.</p></li>
+<li><p><strong>masses</strong> (<em>bool</em><em>, </em><em>default True</em>) – If True, the fit is for mass data; if False, it is for contrast data.</p></li>
+<li><p><strong>include_errors</strong> (<em>bool</em><em>, </em><em>default True</em>) – If True, include errors in the fit table.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>fit_table</strong> – DataFrame containing the fit results.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">r_squared</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/helpers.html#r_squared"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Compute the R-squared value for the fit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>np.ndarray</em>) – The original data.</p></li>
+<li><p><strong>fit</strong> (<em>np.ndarray</em>) – The fitted values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The R-squared value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">calibrate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calib_floats</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_table</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/helpers.html#calibrate"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Calibration based on contrasts histogram</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>calib_floats</strong> (<em>list</em>) – List of calibration standards in kDa (e.g. [66, 146, 480]).</p></li>
+<li><p><strong>fit_table</strong> (<em>pd.DataFrame</em>) – DataFrame containing the fit results. Created by create_fit_table.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>calibration_dic</strong> – Dictionary containing the calibration results:
+- ‘standards’: Calibration standards used.
+- ‘exp_points’: Expected points from the fit.
+- ‘fit_params’: Parameters of the fit.
+- ‘fit_r2’: R-squared value of the fit.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.helpers.</span></span><span class="sig-name descname"><span class="pre">evaluate_fitting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fitted_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_bounds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">high_bounds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.02</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/helpers.html#evaluate_fitting"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Evaluate the quality of a constrained fitting by checking
+if the fitted values are within the specified bounds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fitted_values</strong> (<em>np.ndarray</em>) – The values obtained from the fitting process.</p></li>
+<li><p><strong>low_bounds</strong> (<em>np.ndarray</em>) – The lower bounds for the fitted values.</p></li>
+<li><p><strong>high_bounds</strong> (<em>np.ndarray</em>) – The upper bounds for the fitted values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if all fitted values are within the specified bounds
+False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="plotting-utilities">
+<h3>Plotting Utilities<a class="headerlink" href="#plotting-utilities" title="Link to this heading">#</a></h3>
+<p>Plotting utilities for mass photometry data visualization.</p>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">PlotConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">400</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'png'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrasts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cst_factor_for_contrast</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/plotting.html#PlotConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>General plot configuration</p>
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">plot_width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1000</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">plot_height</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">400</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">plot_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'png'</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">font_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">14</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">normalize</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">contrasts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">cst_factor_for_contrast</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">x_range</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">400</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'png'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrasts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cst_factor_for_contrast</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">AxisConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">showgrid_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showgrid_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_y_axis_ticks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_linewidth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_tickwidth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_gridwidth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/plotting.html#AxisConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Axis styling configuration</p>
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">showgrid_x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">showgrid_y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">n_y_axis_ticks</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">axis_linewidth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">axis_tickwidth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">axis_gridwidth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">showgrid_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showgrid_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_y_axis_ticks</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_linewidth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_tickwidth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_gridwidth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">LayoutConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stacked</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_subplot_titles</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertical_spacing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shared_yaxes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_padding_y_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/plotting.html#LayoutConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Layout and spacing configuration</p>
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">stacked</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">show_subplot_titles</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">vertical_spacing</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.1</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">shared_yaxes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">extra_padding_y_label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stacked</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_subplot_titles</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertical_spacing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shared_yaxes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_padding_y_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">LegendConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">add_masses_to_legend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_percentage_to_legend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_percentages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_legend_all</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/plotting.html#LegendConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Legend and labeling configuration</p>
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">add_masses_to_legend</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">add_percentage_to_legend</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">add_labels</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">add_percentages</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">show_legend_all</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">line_width</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">add_masses_to_legend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_percentage_to_legend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_percentages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_legend_all</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">config_fig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'png'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_title_for_download</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'plot'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/plotting.html#config_fig"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Configure plotly figure with download options and toolbar settings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fig</strong> (<em>go.Figure</em>) – Plotly figure object</p></li>
+<li><p><strong>plot_width</strong> (<em>int</em><em>, </em><em>default 800</em>) – Width of the plot in pixels</p></li>
+<li><p><strong>plot_height</strong> (<em>int</em><em>, </em><em>default 600</em>) – Height of the plot in pixels</p></li>
+<li><p><strong>plot_type</strong> (<em>str</em><em>, </em><em>default &quot;png&quot;</em>) – Format for downloading the plot (e.g., “png”, “jpeg”)</p></li>
+<li><p><strong>plot_title_for_download</strong> (<em>str</em><em>, </em><em>default &quot;plot&quot;</em>) – Title for the downloaded plot file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Configured plotly figure</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>go.Figure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">create_axis_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_tickwidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_gridwidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nticks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/plotting.html#create_axis_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Create a standardized axis configuration dictionary for Plotly figures.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> (<em>str</em><em> or </em><em>None</em>) – Title for the axis</p></li>
+<li><p><strong>font_size</strong> (<em>int</em><em>, </em><em>default 14</em>) – Font size for axis title and tick labels</p></li>
+<li><p><strong>show_grid</strong> (<em>bool</em><em>, </em><em>default True</em>) – Whether to show grid lines</p></li>
+<li><p><strong>axis_linewidth</strong> (<em>int</em><em>, </em><em>default 1</em>) – Width of the axis line</p></li>
+<li><p><strong>axis_tickwidth</strong> (<em>int</em><em>, </em><em>default 1</em>) – Width of the tick marks</p></li>
+<li><p><strong>axis_gridwidth</strong> (<em>int</em><em>, </em><em>default 1</em>) – Width of the grid lines</p></li>
+<li><p><strong>nticks</strong> (<em>int</em><em> or </em><em>None</em>) – Number of ticks on the axis (optional guideline)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Axis configuration dictionary for Plotly</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">add_histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hex_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'#377EB8'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/plotting.html#add_histogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Add mass histogram trace to plotly figure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fig</strong> (<em>go.Figure</em>) – Plotly figure object</p></li>
+<li><p><strong>values</strong> (<em>np.ndarray</em>) – Array of mass or contrast values</p></li>
+<li><p><strong>bin_info</strong> (<em>dict</em>) – Dictionary containing histogram bin information</p></li>
+<li><p><strong>normalize</strong> (<em>bool</em>) – Whether to normalize the histogram</p></li>
+<li><p><strong>hex_color</strong> (<em>str</em>) – Hex color code for the histogram bars</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Updated plotly figure with histogram trace</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>go.Figure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">add_labels_to_fig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrasts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaling_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stacked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_counts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cst_factor_for_contrast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subplot_row</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/plotting.html#add_labels_to_fig"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Add peak labels to plotly figure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fig</strong> (<em>go.Figure</em>) – Plotly figure object</p></li>
+<li><p><strong>fit_table</strong> (<em>pd.DataFrame</em>) – DataFrame containing fit results</p></li>
+<li><p><strong>contrasts</strong> (<em>bool</em>) – Whether data represents contrasts</p></li>
+<li><p><strong>scaling_factor</strong> (<em>float</em>) – Factor to scale y values</p></li>
+<li><p><strong>font_size</strong> (<em>int</em>) – Font size for axes</p></li>
+<li><p><strong>sels</strong> (<em>list</em><em> or </em><em>None</em>) – Boolean list for selecting which peaks to label</p></li>
+<li><p><strong>stacked</strong> (<em>bool</em>) – Whether this is a stacked plot</p></li>
+<li><p><strong>max_y</strong> (<em>float</em><em> or </em><em>None</em>) – Maximum y value for label positioning, required if the y-axis range is shared</p></li>
+<li><p><strong>show_values</strong> (<em>bool</em>) – Whether to include mass / contrast values in labels</p></li>
+<li><p><strong>show_counts</strong> (<em>bool</em>) – Whether to include count percentages in labels</p></li>
+<li><p><strong>cst_factor_for_contrast</strong> (<em>float</em>) – Factor to convert contrasts for display</p></li>
+<li><p><strong>subplot_row</strong> (<em>int</em><em> or </em><em>None</em>) – Row number for stacked subplots (1-indexed), None for single plot</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Updated plotly figure with peak labels</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>go.Figure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">add_values_in_legend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">legends</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrasts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cst_factor_for_contrast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/plotting.html#add_values_in_legend"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Add mass / contrast values to legend labels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>legends</strong> (<em>list</em>) – List of legend labels</p></li>
+<li><p><strong>fit_table</strong> (<em>pd.DataFrame</em>) – DataFrame with fit table data</p></li>
+<li><p><strong>contrasts</strong> (<em>bool</em>) – Whether data represents contrasts</p></li>
+<li><p><strong>cst_factor_for_contrast</strong> (<em>float</em>) – Factor to convert contrasts for display</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Updated legend labels with mass values</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">add_gaussian_traces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arr_fitted_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fitted_params_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legends</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color_palette</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaling_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_values_in_legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_perc_in_legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrasts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cst_factor_for_contrast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_legend_vec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/plotting.html#add_gaussian_traces"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Add individual Gaussian traces to plotly figure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fig</strong> (<em>go.Figure</em>) – Plotly figure object</p></li>
+<li><p><strong>arr_fitted_values</strong> (<em>np.ndarray</em>) – Array of fitted values (x, individual Gaussians, sum)</p></li>
+<li><p><strong>fitted_params_table</strong> (<em>pd.DataFrame</em>) – DataFrame with fit table results</p></li>
+<li><p><strong>legends</strong> (<em>list</em>) – List of legend labels - Same length as columns in arr_fitted_values</p></li>
+<li><p><strong>color_palette</strong> (<em>list</em>) – List of hex color codes</p></li>
+<li><p><strong>sels</strong> (<em>list</em>) – Boolean list for selecting which traces to show</p></li>
+<li><p><strong>baseline</strong> (<em>float</em>) – Baseline value for filtering</p></li>
+<li><p><strong>scaling_factor</strong> (<em>float</em>) – Factor to scale y values</p></li>
+<li><p><strong>show_values_in_legend</strong> (<em>bool</em>) – Whether to add masses / contrast values to legend labels</p></li>
+<li><p><strong>show_perc_in_legend</strong> (<em>bool</em>) – Whether to add percentages to legend labels</p></li>
+<li><p><strong>contrasts</strong> (<em>bool</em>) – Whether data represents contrasts</p></li>
+<li><p><strong>add_labels</strong> (<em>bool</em>) – Whether to add peak labels</p></li>
+<li><p><strong>add_percentages</strong> (<em>bool</em>) – Whether to add percentage labels</p></li>
+<li><p><strong>stacked</strong> (<em>bool</em>) – Whether this is a stacked plot</p></li>
+<li><p><strong>cst_factor_for_contrast</strong> (<em>float</em>) – Factor to convert contrasts for display</p></li>
+<li><p><strong>subplot_row</strong> (<em>int</em><em> or </em><em>None</em>) – Row number for stacked subplots (1-indexed), None for single plot</p></li>
+<li><p><strong>line_width</strong> (<em>int</em><em>, </em><em>default 3</em>) – Width of the Gaussian trace lines</p></li>
+<li><p><strong>show_legend_vec</strong> (<em>list</em><em>, </em><em>default</em><em> [</em><em>]</em>) – Boolean list for showing Gaussian traces in legend</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Updated plotly figure with Gaussian traces</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>go.Figure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">add_percentages_to_legend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">legends</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_table</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/plotting.html#add_percentages_to_legend"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Add percentage values to legend labels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>legends</strong> (<em>list</em>) – List of legend labels</p></li>
+<li><p><strong>fit_table</strong> (<em>pd.DataFrame</em>) – DataFrame with fit table data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Updated legend labels with percentage values</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">add_gaussian_simulation_to_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amplitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left_bound</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/plotting.html#add_gaussian_simulation_to_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Add simulated truncated Gaussian trace to plotly figure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fig</strong> (<em>go.Figure</em>) – Plotly figure object</p></li>
+<li><p><strong>mean</strong> (<em>float</em>) – Mean of the Gaussian distribution</p></li>
+<li><p><strong>std</strong> (<em>float</em>) – Standard deviation of the Gaussian distribution</p></li>
+<li><p><strong>amplitude</strong> (<em>float</em>) – Amplitude of the Gaussian distribution</p></li>
+<li><p><strong>left_bound</strong> (<em>float</em>) – Left boundary for truncation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Updated plotly figure with simulation trace</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>go.Figure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_histograms_and_fits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">analyzer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legends_df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colors_hist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyphotomol.utils.html#pyphotomol.utils.plotting.PlotConfig" title="pyphotomol.utils.plotting.PlotConfig"><span class="pre">PlotConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyphotomol.utils.html#pyphotomol.utils.plotting.AxisConfig" title="pyphotomol.utils.plotting.AxisConfig"><span class="pre">AxisConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layout_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyphotomol.utils.html#pyphotomol.utils.plotting.LayoutConfig" title="pyphotomol.utils.plotting.LayoutConfig"><span class="pre">LayoutConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyphotomol.utils.html#pyphotomol.utils.plotting.LegendConfig" title="pyphotomol.utils.plotting.LegendConfig"><span class="pre">LegendConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/plotting.html#plot_histograms_and_fits"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Create a comprehensive plot of PhotoMol fit data with histograms and Gaussian traces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>analyzer</strong> (<a class="reference internal" href="pyphotomol.html#pyphotomol.MPAnalyzer" title="pyphotomol.MPAnalyzer"><em>pyphotomol.MPAnalyzer</em></a><em> or </em><a class="reference internal" href="pyphotomol.html#pyphotomol.PyPhotoMol" title="pyphotomol.PyPhotoMol"><em>pyphotomol.PyPhotoMol</em></a>) – MPAnalyzer instance containing multiple PyPhotoMol models - or a single PyPhotoMol instance</p></li>
+<li><p><strong>legends_df</strong> (<em>pd.DataFrame</em><em>, </em><em>optional</em>) – DataFrame containing legends, colors, and selections with columns [‘legends’, ‘color’, ‘select’]
+This dataframe affects the fitted curves only, not the histograms.</p></li>
+<li><p><strong>colors_hist</strong> (<em>list</em><em>, </em><em>str</em><em>, or </em><em>pd.DataFrame</em><em>, </em><em>optional</em>) – List of colors for histograms (one per model)
+If a string, it will be used for all histograms.
+If a DataFrame, it should have a column ‘color’ with hex color codes.</p></li>
+<li><p><strong>plot_config</strong> (<a class="reference internal" href="pyphotomol.utils.html#pyphotomol.utils.plotting.PlotConfig" title="pyphotomol.utils.plotting.PlotConfig"><em>PlotConfig</em></a><em>, </em><em>optional</em>) – General plot configuration (dimensions, format, contrasts, etc.)</p></li>
+<li><p><strong>axis_config</strong> (<a class="reference internal" href="pyphotomol.utils.html#pyphotomol.utils.plotting.AxisConfig" title="pyphotomol.utils.plotting.AxisConfig"><em>AxisConfig</em></a><em>, </em><em>optional</em>) – Axis styling configuration (grid, line widths, etc.)</p></li>
+<li><p><strong>layout_config</strong> (<a class="reference internal" href="pyphotomol.utils.html#pyphotomol.utils.plotting.LayoutConfig" title="pyphotomol.utils.plotting.LayoutConfig"><em>LayoutConfig</em></a><em>, </em><em>optional</em>) – Layout configuration (stacked, spacing, etc.)</p></li>
+<li><p><strong>legend_config</strong> (<a class="reference internal" href="pyphotomol.utils.html#pyphotomol.utils.plotting.LegendConfig" title="pyphotomol.utils.plotting.LegendConfig"><em>LegendConfig</em></a><em>, </em><em>optional</em>) – Legend and labeling configuration</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Configured plotly figure object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>go.Figure</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Simple plot with default settings:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">plot_histograms_and_fits</span><span class="p">(</span><span class="n">analyzer</span><span class="p">,</span> <span class="n">colors_hist</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Customized plot with configuration objects:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plot_config</span> <span class="o">=</span> <span class="n">PlotConfig</span><span class="p">(</span><span class="n">plot_width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">contrasts</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">x_range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">layout_config</span> <span class="o">=</span> <span class="n">LayoutConfig</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">vertical_spacing</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">plot_histograms_and_fits</span><span class="p">(</span><span class="n">analyzer</span><span class="p">,</span> <span class="n">plot_config</span><span class="o">=</span><span class="n">plot_config</span><span class="p">,</span>
+<span class="gp">... </span>                              <span class="n">layout_config</span><span class="o">=</span><span class="n">layout_config</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Plot with custom x-axis limits:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plot_config</span> <span class="o">=</span> <span class="n">PlotConfig</span><span class="p">(</span><span class="n">x_range</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">800</span><span class="p">])</span>  <span class="c1"># Zoom to 100-800 kDa range</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">plot_histograms_and_fits</span><span class="p">(</span><span class="n">analyzer</span><span class="p">,</span> <span class="n">plot_config</span><span class="o">=</span><span class="n">plot_config</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">analyzer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colors_hist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyphotomol.utils.html#pyphotomol.utils.plotting.PlotConfig" title="pyphotomol.utils.plotting.PlotConfig"><span class="pre">PlotConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyphotomol.utils.html#pyphotomol.utils.plotting.AxisConfig" title="pyphotomol.utils.plotting.AxisConfig"><span class="pre">AxisConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layout_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyphotomol.utils.html#pyphotomol.utils.plotting.LayoutConfig" title="pyphotomol.utils.plotting.LayoutConfig"><span class="pre">LayoutConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/plotting.html#plot_histogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Create a plot with only histograms from PhotoMol data (wrapper around plot_histograms_and_fits).</p>
+<p>This function is a simplified wrapper that creates histogram-only plots without
+requiring fitted data or legend configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>analyzer</strong> (<a class="reference internal" href="pyphotomol.html#pyphotomol.MPAnalyzer" title="pyphotomol.MPAnalyzer"><em>pyphotomol.MPAnalyzer</em></a><em> or </em><a class="reference internal" href="pyphotomol.html#pyphotomol.PyPhotoMol" title="pyphotomol.PyPhotoMol"><em>pyphotomol.PyPhotoMol</em></a>) – MPAnalyzer instance containing multiple PyPhotoMol models or a single PyPhotoMol instance</p></li>
+<li><p><strong>colors_hist</strong> (<em>list</em><em>, </em><em>optional</em>) – List of colors for histograms (one per model)</p></li>
+<li><p><strong>plot_config</strong> (<a class="reference internal" href="pyphotomol.utils.html#pyphotomol.utils.plotting.PlotConfig" title="pyphotomol.utils.plotting.PlotConfig"><em>PlotConfig</em></a><em>, </em><em>optional</em>) – General plot configuration (dimensions, format, contrasts, etc.)</p></li>
+<li><p><strong>axis_config</strong> (<a class="reference internal" href="pyphotomol.utils.html#pyphotomol.utils.plotting.AxisConfig" title="pyphotomol.utils.plotting.AxisConfig"><em>AxisConfig</em></a><em>, </em><em>optional</em>) – Axis styling configuration (grid, line widths, etc.)</p></li>
+<li><p><strong>layout_config</strong> (<a class="reference internal" href="pyphotomol.utils.html#pyphotomol.utils.plotting.LayoutConfig" title="pyphotomol.utils.plotting.LayoutConfig"><em>LayoutConfig</em></a><em>, </em><em>optional</em>) – Layout configuration (stacked, spacing, etc.)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Configured plotly figure object with histograms only</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>go.Figure</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Create a simple histogram plot:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">plot_histogram</span><span class="p">(</span><span class="n">analyzer</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;#FF5733&#39;</span><span class="p">,</span> <span class="s1">&#39;#33C3FF&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Create stacked normalized histograms:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plot_config</span> <span class="o">=</span> <span class="n">PlotConfig</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">layout_config</span> <span class="o">=</span> <span class="n">LayoutConfig</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">plot_histogram</span><span class="p">(</span><span class="n">analyzer</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">],</span>
+<span class="gp">... </span>                     <span class="n">plot_config</span><span class="o">=</span><span class="n">plot_config</span><span class="p">,</span> <span class="n">layout_config</span><span class="o">=</span><span class="n">layout_config</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pyphotomol.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_calibration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrast</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slope</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intercept</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyphotomol.utils.html#pyphotomol.utils.plotting.PlotConfig" title="pyphotomol.utils.plotting.PlotConfig"><span class="pre">PlotConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyphotomol.utils.html#pyphotomol.utils.plotting.AxisConfig" title="pyphotomol.utils.plotting.AxisConfig"><span class="pre">AxisConfig</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyphotomol/utils/plotting.html#plot_calibration"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Create a scatter plot of mass vs contrast with calibration line.</p>
+<p>This function creates a visualization showing the relationship between
+mass and ratiometric contrast, with a fitted calibration line overlaid.
+This is useful for visualizing calibration quality and outliers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mass</strong> (<em>array-like</em>) – Array of mass values in kDa</p></li>
+<li><p><strong>contrast</strong> (<em>array-like</em>) – Array of corresponding ratiometric contrast values</p></li>
+<li><p><strong>slope</strong> (<em>float</em>) – Slope of the calibration line (contrast = slope * mass + intercept)</p></li>
+<li><p><strong>intercept</strong> (<em>float</em>) – Intercept of the calibration line</p></li>
+<li><p><strong>plot_config</strong> (<a class="reference internal" href="pyphotomol.utils.html#pyphotomol.utils.plotting.PlotConfig" title="pyphotomol.utils.plotting.PlotConfig"><em>PlotConfig</em></a><em>, </em><em>optional</em>) – General plot configuration (dimensions, format, axis size, etc.)</p></li>
+<li><p><strong>axis_config</strong> (<a class="reference internal" href="pyphotomol.utils.html#pyphotomol.utils.plotting.AxisConfig" title="pyphotomol.utils.plotting.AxisConfig"><em>AxisConfig</em></a><em>, </em><em>optional</em>) – Axis styling configuration (grid, line widths, etc.)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Plotly figure object containing the mass vs contrast calibration plot</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>go.Figure</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Plot mass vs contrast calibration:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pyphotomol.utils.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_calibration</span><span class="p">,</span> <span class="n">PlotConfig</span><span class="p">,</span> <span class="n">AxisConfig</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Simulated calibration data</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mass</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">66</span><span class="p">,</span> <span class="mi">146</span><span class="p">,</span> <span class="mi">480</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">contrast</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">slope</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.001</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">intercept</span> <span class="o">=</span> <span class="mf">0.02</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Simple plot with defaults</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">plot_calibration</span><span class="p">(</span><span class="n">mass</span><span class="p">,</span> <span class="n">contrast</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Customized plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot_config</span> <span class="o">=</span> <span class="n">PlotConfig</span><span class="p">(</span><span class="n">plot_width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">plot_height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">axis_config</span> <span class="o">=</span> <span class="n">AxisConfig</span><span class="p">(</span><span class="n">showgrid_x</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">n_y_axis_ticks</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">plot_calibration</span><span class="p">(</span><span class="n">mass</span><span class="p">,</span> <span class="n">contrast</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span>
+<span class="gp">... </span>                      <span class="n">plot_config</span><span class="o">=</span><span class="n">plot_config</span><span class="p">,</span> <span class="n">axis_config</span><span class="o">=</span><span class="n">axis_config</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="color-palettes">
+<h3>Color Palettes<a class="headerlink" href="#color-palettes" title="Link to this heading">#</a></h3>
+<p>Color palettes for PyPhotoMol plotting.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-classes">Main Classes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-functions">Utility Functions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-import">Data Import</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#helper-functions">Helper Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-utilities">Plotting Utilities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-palettes">Color Palettes</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/api.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, osvalB.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

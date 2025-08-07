@@ -1,0 +1,26 @@
+pyphotomol package
+==================
+
+.. automodule:: pyphotomol
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pyphotomol.utils
+
+Submodules
+----------
+
+pyphotomol.main module
+----------------------
+
+.. automodule:: pyphotomol.main
+   :members:
+   :show-inheritance:
+   :undoc-members:
