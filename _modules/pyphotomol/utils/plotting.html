@@ -412,7 +412,6 @@
     <span class="n">add_percentage_to_legend</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="n">add_labels</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="n">add_percentages</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="n">show_legend_all</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">line_width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span></div>
 
 
@@ -1175,7 +1174,7 @@
 <span class="sd">    analyzer : pyphotomol.MPAnalyzer or pyphotomol.PyPhotoMol</span>
 <span class="sd">        MPAnalyzer instance containing multiple PyPhotoMol models - or a single PyPhotoMol instance</span>
 <span class="sd">    legends_df : pd.DataFrame, optional</span>
-<span class="sd">        DataFrame containing legends, colors, and selections with columns [&#39;legends&#39;, &#39;color&#39;, &#39;select&#39;]</span>
+<span class="sd">        DataFrame containing legends, colors, and selections with columns [&#39;legends&#39;, &#39;color&#39;, &#39;select&#39;, &#39;show_legend&#39;]</span>
 <span class="sd">        This dataframe affects the fitted curves only, not the histograms.</span>
 <span class="sd">    colors_hist : list, str, or pd.DataFrame, optional</span>
 <span class="sd">        List of colors for histograms (one per model)</span>
@@ -1240,6 +1239,7 @@
         <span class="n">legends_all</span> <span class="o">=</span> <span class="n">legends_df</span><span class="p">[</span><span class="s1">&#39;legends&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
         <span class="n">color_palette_all</span> <span class="o">=</span> <span class="n">legends_df</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
         <span class="n">sels_all</span> <span class="o">=</span> <span class="n">legends_df</span><span class="p">[</span><span class="s1">&#39;select&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">show_legend_all</span> <span class="o">=</span> <span class="n">legends_df</span><span class="p">[</span><span class="s1">&#39;show_legend&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
     <span class="c1"># If colors_hist is a dataframe and it has a column called &#39;color&#39;,</span>
     <span class="c1"># then extract the colors from that column</span>
@@ -1376,9 +1376,7 @@
                 <span class="n">color_palette</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;#FF7F0E&#39;</span><span class="p">)</span>  <span class="c1"># light orange for the Gaussian sum trace</span>
                 <span class="n">legends</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Gaussian Sum&#39;</span><span class="p">)</span>  <span class="c1"># First legend is for the sum trace</span>
 
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">legend_config</span><span class="o">.</span><span class="n">show_legend_all</span><span class="p">:</span>
-                <span class="n">legend_config</span><span class="o">.</span><span class="n">show_legend_all</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">legends</span><span class="p">)</span>
-
+            <span class="n">show_legend</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">legends</span><span class="p">)</span>
             <span class="n">sels</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">legends</span><span class="p">)</span>
 
         <span class="k">else</span><span class="p">:</span>
@@ -1387,12 +1385,7 @@
             <span class="n">color_palette</span> <span class="o">=</span> <span class="n">color_palette_all</span><span class="p">[</span><span class="n">id_start</span><span class="p">:</span><span class="n">id_end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
             <span class="n">legends</span> <span class="o">=</span> <span class="n">legends_all</span><span class="p">[</span><span class="n">id_start</span><span class="p">:</span><span class="n">id_end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
             <span class="n">sels</span> <span class="o">=</span> <span class="n">sels_all</span><span class="p">[</span><span class="n">id_start</span><span class="p">:</span><span class="n">id_end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
-        
-        <span class="c1"># Ensure show_legend_all is properly initialized</span>
-        <span class="k">if</span> <span class="n">legend_config</span><span class="o">.</span><span class="n">show_legend_all</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">legend_config</span><span class="o">.</span><span class="n">show_legend_all</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">legends_all</span><span class="p">)</span>
-            
-        <span class="n">show_legend_vec</span> <span class="o">=</span> <span class="n">legend_config</span><span class="o">.</span><span class="n">show_legend_all</span><span class="p">[</span><span class="n">id_start</span><span class="p">:</span><span class="n">id_end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">show_legend</span> <span class="o">=</span> <span class="n">show_legend_all</span><span class="p">[</span><span class="n">id_start</span><span class="p">:</span><span class="n">id_end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
 
         <span class="c1"># Update starting index for next model</span>
         <span class="n">id_start</span> <span class="o">=</span> <span class="n">id_end</span> <span class="o">+</span> <span class="mi">1</span>
@@ -1419,7 +1412,7 @@
             <span class="n">contrasts</span><span class="o">=</span><span class="n">plot_config</span><span class="o">.</span><span class="n">contrasts</span><span class="p">,</span>
             <span class="n">cst_factor_for_contrast</span><span class="o">=</span><span class="n">plot_config</span><span class="o">.</span><span class="n">cst_factor_for_contrast</span><span class="p">,</span>
             <span class="n">line_width</span><span class="o">=</span><span class="n">legend_config</span><span class="o">.</span><span class="n">line_width</span><span class="p">,</span>
-            <span class="n">show_legend_vec</span><span class="o">=</span><span class="n">show_legend_vec</span>
+            <span class="n">show_legend_vec</span><span class="o">=</span><span class="n">show_legend</span>
         <span class="p">)</span>
 
         <span class="c1"># Determine correct sels for labels based on fitted data structure</span>

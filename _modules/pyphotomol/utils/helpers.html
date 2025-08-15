@@ -662,11 +662,12 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">fit_histogram</span><span class="p">(</span><span class="n">hist_counts</span><span class="p">,</span> 
                   <span class="n">hist_centers</span><span class="p">,</span>
                   <span class="n">guess_positions</span><span class="o">=</span><span class="p">[</span><span class="mi">66</span><span class="p">,</span><span class="mi">148</span><span class="p">,</span><span class="mi">480</span><span class="p">],</span> 
-                  <span class="n">mean_tolerance</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> 
-                  <span class="n">std_tolerance</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+                  <span class="n">mean_tolerance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+                  <span class="n">std_tolerance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                   <span class="n">threshold</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
                   <span class="n">baseline</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-                  <span class="n">masses</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+                  <span class="n">masses</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                  <span class="n">fit_baseline</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Fit a histogram with multiple truncated gaussians.</span>
@@ -681,8 +682,10 @@
 <span class="sd">        Initial guesses for the positions of the peaks.</span>
 <span class="sd">    mean_tolerance : int, default 100</span>
 <span class="sd">        Tolerance for the peak positions.</span>
+<span class="sd">        If None, it will be copied from guess_positions.</span>
 <span class="sd">    std_tolerance : int, default 200</span>
 <span class="sd">        Maximum standard deviation for the peaks.</span>
+<span class="sd">        If None, it will be copied from guess_positions.</span>
 <span class="sd">    threshold : int, default 40 for masses in kDa units</span>
 <span class="sd">        For masses, minimum value that can be observed. </span>
 <span class="sd">        For contrasts, it is be the max value that can be observed. It should be a negative value.</span>
@@ -690,7 +693,8 @@
 <span class="sd">        Baseline value to be added to the fit.</span>
 <span class="sd">    masses : bool, default True</span>
 <span class="sd">        If True, the fit is for mass data; if False, it is for contrast data.</span>
-<span class="sd">        </span>
+<span class="sd">    fit_baseline : bool, default False</span>
+<span class="sd">        If True, the fit will include a baseline parameter. The &#39;baseline&#39; argument will be ignored.</span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    popt : np.ndarray</span>
@@ -715,34 +719,47 @@
     
     <span class="k">else</span><span class="p">:</span>
 
+        <span class="n">guess_positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">)</span>
+
         <span class="c1"># Get amplitude for each guess position</span>
         <span class="n">guess_amp</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="n">guess_positions</span><span class="p">:</span>
+
             <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">hist_centers</span> <span class="o">-</span> <span class="n">pos</span><span class="p">))</span>
             <span class="n">guess_amp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hist_counts</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
 
+        <span class="n">guess_amp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">guess_amp</span><span class="p">)</span>
+
         <span class="k">if</span> <span class="n">masses</span><span class="p">:</span>
 
-            <span class="c1"># Raise an error if the std_tolerance is not greater than 5</span>
-            <span class="k">if</span> <span class="n">std_tolerance</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Standard deviation tolerance must be greater than 5 for mass data.&quot;</span><span class="p">)</span>
+            <span class="c1"># Raise an error if the std_tolerance is not greater than 8</span>
+            <span class="k">if</span> <span class="n">std_tolerance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">std_tolerance</span> <span class="o">&lt;=</span> <span class="mi">8</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Standard deviation tolerance must be greater than 8 for mass data.&quot;</span><span class="p">)</span>
 
-            <span class="n">fit_guess</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">guess_amp</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">))))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+            <span class="n">fit_guess</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">guess_positions</span><span class="p">,</span> <span class="n">guess_amp</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">8</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">))))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
         <span class="k">else</span><span class="p">:</span>
 
             <span class="c1"># Raise an error if the std_tolerance is not greater than 0.0001</span>
-            <span class="k">if</span> <span class="n">std_tolerance</span> <span class="o">&lt;=</span> <span class="mf">0.0001</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">std_tolerance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">std_tolerance</span> <span class="o">&lt;=</span> <span class="mf">0.0001</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Standard deviation tolerance must be greater than 0.0001 for contrast data.&quot;</span><span class="p">)</span>
 
             <span class="c1"># Convert guess positions to positive values for the fitting</span>
             <span class="n">guess_positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">)</span>
-            <span class="n">fit_guess</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">guess_amp</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0001</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">))))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
-        
-        <span class="n">lower_bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">)</span> <span class="o">-</span> <span class="n">mean_tolerance</span> <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">))))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
-        <span class="n">upper_bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">)</span> <span class="o">+</span> <span class="n">mean_tolerance</span> <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">hist_counts</span><span class="p">)</span><span class="o">*</span><span class="mf">1.3</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">std_tolerance</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">))))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+            <span class="n">fit_guess</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">guess_positions</span><span class="p">,</span> <span class="n">guess_amp</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0001</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">))))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 
-        <span class="n">bounds</span>       <span class="o">=</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">lower_bounds</span><span class="p">),</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">upper_bounds</span><span class="p">))</span>
-    
+        <span class="n">mean_low_bounds</span> <span class="o">=</span> <span class="n">guess_positions</span> <span class="o">-</span> <span class="n">mean_tolerance</span> <span class="k">if</span> <span class="n">mean_tolerance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">guess_positions</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">)</span><span class="o">*</span><span class="mf">0.5</span>
+        <span class="n">mean_upp_bounds</span> <span class="o">=</span> <span class="n">guess_positions</span> <span class="o">+</span> <span class="n">mean_tolerance</span> <span class="k">if</span> <span class="n">mean_tolerance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">guess_positions</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">)</span><span class="o">*</span><span class="mf">0.5</span>
+
+        <span class="n">std_low</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">))</span> 
+        <span class="n">std_upp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">std_tolerance</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">))</span> <span class="k">if</span> <span class="n">std_tolerance</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">)</span>
+
+        <span class="n">amp_low</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">))</span>
+        <span class="n">amp_upp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">hist_counts</span><span class="p">)</span><span class="o">*</span><span class="mf">1.3</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">guess_positions</span><span class="p">))</span>
+
+        <span class="n">lower_bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">mean_low_bounds</span><span class="p">,</span> <span class="n">amp_low</span><span class="p">,</span> <span class="n">std_low</span><span class="p">))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+        <span class="n">upper_bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">mean_upp_bounds</span><span class="p">,</span> <span class="n">amp_upp</span><span class="p">,</span> <span class="n">std_upp</span><span class="p">))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
     <span class="k">if</span> <span class="n">masses</span><span class="p">:</span>
 
         <span class="n">values_have_sense</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">greater</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">hist_centers</span><span class="p">),</span><span class="n">threshold</span><span class="p">)</span> <span class="c1"># We use np.abs to allow fitting negative masses also...</span>
@@ -763,22 +780,42 @@
     <span class="c1"># Restrict data range for the fitting</span>
     <span class="n">hist_counts</span> <span class="o">=</span> <span class="n">hist_counts</span> <span class="o">*</span> <span class="n">values_have_sense</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">fitting_helper_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">params</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">truncated_multi_gauss_with_baseline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">threshold</span><span class="p">,</span><span class="n">baseline</span><span class="p">,</span><span class="o">*</span><span class="n">params</span><span class="p">)</span> 
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">fit_baseline</span><span class="p">:</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">fitting_helper_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">params</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">truncated_multi_gauss_with_baseline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">threshold</span><span class="p">,</span><span class="n">baseline</span><span class="p">,</span><span class="o">*</span><span class="n">params</span><span class="p">)</span> 
+
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="c1"># Add the guess and bounds for the baseline</span>
+        <span class="n">fit_guess</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fit_guess</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+        <span class="n">lower_bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lower_bounds</span><span class="p">,</span> <span class="o">-</span><span class="mf">1e6</span><span class="p">)</span>
+        <span class="n">upper_bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">upper_bounds</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">hist_counts</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">fitting_helper_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">params</span><span class="p">):</span>
+            <span class="n">baseline</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Last parameter is the baseline</span>
+            <span class="c1"># remove the last parameter</span>
+            <span class="n">params</span> <span class="o">=</span> <span class="n">params</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">truncated_multi_gauss_with_baseline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">threshold</span><span class="p">,</span><span class="n">baseline</span><span class="p">,</span><span class="o">*</span><span class="n">params</span><span class="p">)</span>
 
     <span class="n">func</span> <span class="o">=</span> <span class="n">fitting_helper_func</span>
+
+    <span class="n">bounds</span>       <span class="o">=</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">lower_bounds</span><span class="p">),</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">upper_bounds</span><span class="p">))</span>
 
     <span class="c1"># Do the fitting</span>
     <span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">hist_centers</span><span class="p">,</span> <span class="n">hist_counts</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="n">fit_guess</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">)</span>  <span class="c1">#, method=&#39;dogbox&#39;, maxfev=1E5)</span>
     <span class="c1"># Create fit and individual gaussians for plotting</span>
     <span class="c1"># Finer grid</span>
     <span class="n">x_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">hist_centers</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">hist_centers</span><span class="p">),</span> <span class="mi">800</span><span class="p">)</span>
+
+    <span class="n">baseline</span> <span class="o">=</span> <span class="n">popt</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">fit_baseline</span> <span class="k">else</span> <span class="n">baseline</span>
+
     <span class="n">single_gauss</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">popt</span><span class="p">),</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">popt</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">fit_baseline</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
         <span class="n">ctr</span> <span class="o">=</span> <span class="n">popt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="n">amp</span> <span class="o">=</span> <span class="n">popt</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">wid</span> <span class="o">=</span> <span class="n">popt</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
-        <span class="n">single_gauss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">x_grid</span><span class="p">,</span> <span class="n">ctr</span><span class="p">,</span> <span class="n">amp</span><span class="p">,</span> <span class="n">wid</span><span class="p">))</span>
+        <span class="n">single_gauss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">multi_gauss</span><span class="p">(</span><span class="n">x_grid</span><span class="p">,</span> <span class="n">ctr</span><span class="p">,</span> <span class="n">amp</span><span class="p">,</span> <span class="n">wid</span><span class="p">)</span><span class="o">+</span><span class="n">baseline</span><span class="p">)</span>
 
     <span class="c1"># Sum of all</span>
     <span class="n">fit_sum</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">x_grid</span><span class="p">,</span> <span class="o">*</span><span class="n">popt</span><span class="p">)</span>
@@ -800,7 +837,8 @@
     <span class="c1"># If we fited the contrasts, we need to convert the means to negative values</span>
     <span class="c1"># and the fitted x-axis </span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">masses</span><span class="p">:</span>
-        <span class="n">popt</span><span class="p">[::</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">popt</span><span class="p">[::</span><span class="mi">3</span><span class="p">]</span> 
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">popt</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">fit_baseline</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+            <span class="n">popt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">popt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="c1"># Convert the fit x-axis to negative values, leave the first column as is (x-coordinates)</span>
         <span class="n">fit</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">fit</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
 
@@ -840,6 +878,15 @@
 <span class="sd">    fit_table : pd.DataFrame</span>
 <span class="sd">        DataFrame containing the fit results.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># If popt is not divisible by 3 - remove the last parameter that is the fitted baseline</span>
+    <span class="n">fit_baseline</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">popt</span><span class="p">)</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">!=</span> <span class="mi">0</span>
+    
+    <span class="k">if</span> <span class="n">fit_baseline</span><span class="p">:</span>
+        <span class="n">baseline</span> <span class="o">=</span> <span class="n">popt</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">baseline_error</span> <span class="o">=</span> <span class="n">popt_error</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">popt</span> <span class="o">=</span> <span class="n">popt</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">popt_error</span> <span class="o">=</span> <span class="n">popt_error</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
     <span class="c1"># Create lists with fitting parameters</span>
     <span class="c1"># These are later used to create a pandas DataFrame</span>
@@ -892,6 +939,11 @@
         <span class="n">fit_table</span><span class="p">[</span><span class="s1">&#39;Position Error / %&#39;</span> <span class="p">]</span> <span class="o">=</span> <span class="n">list_pos_error</span>
         <span class="n">fit_table</span><span class="p">[</span><span class="s1">&#39;Sigma Error / %&#39;</span> <span class="p">]</span> <span class="o">=</span> <span class="n">list_sigma_error</span>
         <span class="n">fit_table</span><span class="p">[</span><span class="s1">&#39;Amplitude Error / %&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">list_ampl_error</span>
+
+    <span class="c1"># Append the shared baseline if it was fitted</span>
+    <span class="k">if</span> <span class="n">fit_baseline</span><span class="p">:</span>
+        <span class="n">fit_table</span><span class="p">[</span><span class="s1">&#39;Baseline&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">baseline</span>
+        <span class="n">fit_table</span><span class="p">[</span><span class="s1">&#39;Baseline Error / %&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">baseline_error</span>
 
     <span class="k">return</span> <span class="n">fit_table</span></div>
 

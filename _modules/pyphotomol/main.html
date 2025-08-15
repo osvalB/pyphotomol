@@ -1002,10 +1002,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">fit_histogram</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span> 
             <span class="n">peaks_guess</span><span class="p">,</span>
-            <span class="n">mean_tolerance</span><span class="p">,</span>
-            <span class="n">std_tolerance</span><span class="p">,</span>
+            <span class="n">mean_tolerance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">std_tolerance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="n">threshold</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-            <span class="n">baseline</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+            <span class="n">baseline</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+            <span class="n">fit_baseline</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Fit the histogram data to the guessed peaks.</span>
@@ -1020,14 +1021,19 @@
 <span class="sd">            List of guessed peaks.</span>
 <span class="sd">        mean_tolerance : float</span>
 <span class="sd">            Tolerance for the mean of the Gaussian fit.</span>
+<span class="sd">            If None, it will be inferred from the peaks guesses.</span>
 <span class="sd">        std_tolerance : float</span>
 <span class="sd">            Tolerance for the standard deviation of the Gaussian fit.</span>
+<span class="sd">            If None, it will be inferred from the peaks guesses.</span>
 <span class="sd">        threshold : float, optional</span>
 <span class="sd">            For masses: minimum value that can be observed (in kDa units). Default is 40.</span>
 <span class="sd">            For contrasts: maximum value that can be observed (should be negative). Default is -0.0024.</span>
 <span class="sd">            If None, defaults are applied based on detected data type.</span>
 <span class="sd">        baseline : float, default 0.0</span>
 <span class="sd">            Baseline value to be subtracted from the fit.</span>
+<span class="sd">        fit_baseline : bool, default False</span>
+<span class="sd">            Whether to fit a baseline to the histogram.</span>
+<span class="sd">            If True, a baseline will be included in the fit and the &#39;baseline&#39; argument will be ignored.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -1059,7 +1065,8 @@
                 <span class="n">mean_tolerance</span><span class="o">=</span><span class="n">mean_tolerance</span><span class="p">,</span>
                 <span class="n">std_tolerance</span><span class="o">=</span><span class="n">std_tolerance</span><span class="p">,</span>
                 <span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span>
-                <span class="n">baseline</span><span class="o">=</span><span class="n">baseline</span><span class="p">)</span>
+                <span class="n">baseline</span><span class="o">=</span><span class="n">baseline</span><span class="p">,</span>
+                <span class="n">fit_baseline</span><span class="o">=</span><span class="n">fit_baseline</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">popt</span><span class="p">,</span> <span class="n">fit</span><span class="p">,</span> <span class="n">fit_errors</span> <span class="o">=</span> <span class="n">fit_histogram</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">hist_counts</span><span class="p">,</span> 
@@ -1069,11 +1076,16 @@
                 <span class="n">mean_tolerance</span><span class="o">=</span><span class="n">mean_tolerance</span><span class="p">,</span>
                 <span class="n">std_tolerance</span><span class="o">=</span><span class="n">std_tolerance</span><span class="p">,</span>
                 <span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span>
-                <span class="n">baseline</span><span class="o">=</span><span class="n">baseline</span><span class="p">)</span>
-            
+                <span class="n">baseline</span><span class="o">=</span><span class="n">baseline</span><span class="p">,</span>
+                <span class="n">fit_baseline</span><span class="o">=</span><span class="n">fit_baseline</span><span class="p">)</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">fitted_params</span> <span class="o">=</span> <span class="n">popt</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fitted_data</span> <span class="o">=</span> <span class="n">fit</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fitted_params_errors</span> <span class="o">=</span> <span class="n">fit_errors</span>
+
+        <span class="k">if</span> <span class="n">fit_baseline</span><span class="p">:</span>
+            <span class="n">baseline</span> <span class="o">=</span> <span class="n">popt</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Last parameter is the baseline if fitting baseline</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">baseline</span> <span class="o">=</span> <span class="n">baseline</span>  <span class="c1"># Store the baseline used for fitting</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">masses_fitted</span> <span class="o">=</span> <span class="n">use_masses</span>
@@ -1465,7 +1477,7 @@
 <span class="sd">        </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">            tuple: (legends_df, colors_hist_df, legends_all, color_palette_all, sels_all, colors_hist)</span>
+<span class="sd">            tuple: (legends_df, colors_hist_df)</span>
 <span class="sd">                - legends_df: DataFrame with legends, colors, and selection flags for Gaussian traces</span>
 <span class="sd">                - colors_hist_df: DataFrame with histogram colors for each model</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1533,10 +1545,10 @@
             <span class="n">legends_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
                 <span class="s1">&#39;legends&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;No fits&#39;</span><span class="p">],</span>
                 <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;#000000&#39;</span><span class="p">],</span>
-                <span class="s1">&#39;select&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span>
+                <span class="s1">&#39;select&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s1">&#39;show_legend&#39;</span><span class="p">:</span> <span class="kc">False</span>
             <span class="p">})</span>
             <span class="n">color_palette_all</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#000000&#39;</span><span class="p">]</span>
-            <span class="n">sels_all</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># Handle sequential coloring if not repeat_colors</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">repeat_colors</span><span class="p">:</span>
@@ -1554,12 +1566,11 @@
                 <span class="c1"># Ensure we have enough colors</span>
                 <span class="n">color_palette_all</span> <span class="o">=</span> <span class="p">(</span><span class="n">color_palette</span> <span class="o">*</span> <span class="p">((</span><span class="n">numberOfLegends</span> <span class="o">//</span> <span class="nb">len</span><span class="p">(</span><span class="n">color_palette</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))[:</span><span class="n">numberOfLegends</span><span class="p">]</span>
             
-            <span class="n">sels_all</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">*</span> <span class="n">numberOfLegends</span>
-            
             <span class="n">legends_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
                 <span class="s1">&#39;legends&#39;</span><span class="p">:</span> <span class="n">legends_all</span><span class="p">,</span>
                 <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="n">color_palette_all</span><span class="p">,</span>
-                <span class="s1">&#39;select&#39;</span><span class="p">:</span> <span class="n">sels_all</span>
+                <span class="s1">&#39;select&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s1">&#39;show_legend&#39;</span><span class="p">:</span> <span class="kc">True</span>
             <span class="p">})</span>
         
         <span class="c1"># Create histogram colors dataframe</span>
