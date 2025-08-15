@@ -48,3 +48,5 @@ masses_A_B_*.csv
 # New naming patterns with concentrations
 masses_monomer_*nM.csv  
 masses_A_B_*nM.csv
+
+.pytest_cache/

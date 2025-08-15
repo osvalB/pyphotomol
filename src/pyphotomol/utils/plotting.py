@@ -52,7 +52,6 @@ class LegendConfig:
     add_percentage_to_legend: bool = False
     add_labels: bool = True
     add_percentages: bool = True
-    show_legend_all: Optional[List[bool]] = None
     line_width: int = 3
 
 __all__ = [
@@ -788,7 +787,7 @@ def plot_histograms_and_fits(analyzer,
     analyzer : pyphotomol.MPAnalyzer or pyphotomol.PyPhotoMol
         MPAnalyzer instance containing multiple PyPhotoMol models - or a single PyPhotoMol instance
     legends_df : pd.DataFrame, optional
-        DataFrame containing legends, colors, and selections with columns ['legends', 'color', 'select']
+        DataFrame containing legends, colors, and selections with columns ['legends', 'color', 'select', 'show_legend']
         This dataframe affects the fitted curves only, not the histograms.
     colors_hist : list, str, or pd.DataFrame, optional
         List of colors for histograms (one per model)
@@ -853,6 +852,7 @@ def plot_histograms_and_fits(analyzer,
         legends_all = legends_df['legends'].tolist()
         color_palette_all = legends_df['color'].tolist()
         sels_all = legends_df['select'].tolist()
+        show_legend_all = legends_df['show_legend'].tolist()
 
     # If colors_hist is a dataframe and it has a column called 'color',
     # then extract the colors from that column
@@ -989,9 +989,7 @@ def plot_histograms_and_fits(analyzer,
                 color_palette.insert(0, '#FF7F0E')  # light orange for the Gaussian sum trace
                 legends.insert(0, 'Gaussian Sum')  # First legend is for the sum trace
 
-            if not legend_config.show_legend_all:
-                legend_config.show_legend_all = [True] * len(legends)
-
+            show_legend = [True] * len(legends)
             sels = [True] * len(legends)
 
         else:
@@ -1000,12 +998,7 @@ def plot_histograms_and_fits(analyzer,
             color_palette = color_palette_all[id_start:id_end + 1]
             legends = legends_all[id_start:id_end + 1]
             sels = sels_all[id_start:id_end + 1]
-        
-        # Ensure show_legend_all is properly initialized
-        if legend_config.show_legend_all is None:
-            legend_config.show_legend_all = [True] * len(legends_all)
-            
-        show_legend_vec = legend_config.show_legend_all[id_start:id_end + 1]
+            show_legend = show_legend_all[id_start:id_end + 1]
 
         # Update starting index for next model
         id_start = id_end + 1
@@ -1032,7 +1025,7 @@ def plot_histograms_and_fits(analyzer,
             contrasts=plot_config.contrasts,
             cst_factor_for_contrast=plot_config.cst_factor_for_contrast,
             line_width=legend_config.line_width,
-            show_legend_vec=show_legend_vec
+            show_legend_vec=show_legend
         )
 
         # Determine correct sels for labels based on fitted data structure

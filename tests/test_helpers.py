@@ -106,11 +106,16 @@ def test_fit_histogram():
 
     # Test raise ValueError by setting the std threshold to an unreasonable value
     with pytest.raises(ValueError):
-        fit_histogram(hist_counts, hist_centers, peaks, std_tolerance=6)
+        fit_histogram(hist_counts, hist_centers, peaks, std_tolerance=9)
 
     # Check ValueError if the std_tolerance is not greater than 5
     with pytest.raises(ValueError):
         fit_histogram(hist_counts, hist_centers, peaks, std_tolerance=2)
+
+    # Fit with std_tolerance set as None
+    fit_histogram(hist_counts, hist_centers, peaks, std_tolerance=None)
+    assert isinstance(popt, np.ndarray)
+    assert isinstance(fit, np.ndarray)
 
 def test_fit_histogram_no_peaks():
     """Test the fit_histogram function with no peaks found."""
@@ -197,7 +202,7 @@ def test_calibrate():
     hist_centers, hist_counts, _ = create_histogram(contrasts, window=[-0.2, 0], bin_width=0.0004)
     peaks = guess_peaks(hist_counts, hist_centers,10, 4, 4, False)
     
-    popt, fit, fit_errors = fit_histogram(hist_counts, hist_centers, peaks)
+    popt, fit, fit_errors = fit_histogram(hist_counts, hist_centers, peaks,masses=False,threshold=0)
     n_binding, n_unbinding = count_binding_events_from_contrasts(contrasts)
     
     table = create_fit_table(popt, fit_errors, fit, n_binding, n_unbinding,hist_centers,masses=False)

@@ -616,10 +616,11 @@ class PyPhotoMol:
     def fit_histogram(
             self, 
             peaks_guess,
-            mean_tolerance,
-            std_tolerance,
+            mean_tolerance=None,
+            std_tolerance=None,
             threshold=None,
-            baseline=0.0):
+            baseline=0.0,
+            fit_baseline=False):
         
         """
         Fit the histogram data to the guessed peaks.
@@ -634,14 +635,19 @@ class PyPhotoMol:
             List of guessed peaks.
         mean_tolerance : float
             Tolerance for the mean of the Gaussian fit.
+            If None, it will be inferred from the peaks guesses.
         std_tolerance : float
             Tolerance for the standard deviation of the Gaussian fit.
+            If None, it will be inferred from the peaks guesses.
         threshold : float, optional
             For masses: minimum value that can be observed (in kDa units). Default is 40.
             For contrasts: maximum value that can be observed (should be negative). Default is -0.0024.
             If None, defaults are applied based on detected data type.
         baseline : float, default 0.0
             Baseline value to be subtracted from the fit.
+        fit_baseline : bool, default False
+            Whether to fit a baseline to the histogram.
+            If True, a baseline will be included in the fit and the 'baseline' argument will be ignored.
 
         Examples
         --------
@@ -673,7 +679,8 @@ class PyPhotoMol:
                 mean_tolerance=mean_tolerance,
                 std_tolerance=std_tolerance,
                 threshold=threshold,
-                baseline=baseline)
+                baseline=baseline,
+                fit_baseline=fit_baseline)
         else:
             popt, fit, fit_errors = fit_histogram(
                 self.hist_counts, 
@@ -683,11 +690,16 @@ class PyPhotoMol:
                 mean_tolerance=mean_tolerance,
                 std_tolerance=std_tolerance,
                 threshold=threshold,
-                baseline=baseline)
-            
+                baseline=baseline,
+                fit_baseline=fit_baseline)
+
         self.fitted_params = popt
         self.fitted_data = fit
         self.fitted_params_errors = fit_errors
+
+        if fit_baseline:
+            baseline = popt[-1]  # Last parameter is the baseline if fitting baseline
+
         self.baseline = baseline  # Store the baseline used for fitting
 
         self.masses_fitted = use_masses
@@ -1049,7 +1061,7 @@ class MPAnalyzer():
         
         Returns
         -------
-            tuple: (legends_df, colors_hist_df, legends_all, color_palette_all, sels_all, colors_hist)
+            tuple: (legends_df, colors_hist_df)
                 - legends_df: DataFrame with legends, colors, and selection flags for Gaussian traces
                 - colors_hist_df: DataFrame with histogram colors for each model
         """
@@ -1117,10 +1129,10 @@ class MPAnalyzer():
             legends_df = pd.DataFrame({
                 'legends': ['No fits'],
                 'color': ['#000000'],
-                'select': [False]
+                'select': False,
+                'show_legend': False
             })
             color_palette_all = ['#000000']
-            sels_all = [False]
         else:
             # Handle sequential coloring if not repeat_colors
             if not repeat_colors:
@@ -1138,12 +1150,11 @@ class MPAnalyzer():
                 # Ensure we have enough colors
                 color_palette_all = (color_palette * ((numberOfLegends // len(color_palette)) + 1))[:numberOfLegends]
             
-            sels_all = [True] * numberOfLegends
-            
             legends_df = pd.DataFrame({
                 'legends': legends_all,
                 'color': color_palette_all,
-                'select': sels_all
+                'select': True,
+                'show_legend': True
             })
         
         # Create histogram colors dataframe

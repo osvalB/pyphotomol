@@ -154,6 +154,17 @@ def test_pyphotomol_class():
     # Check that the fit table has three rows (one per Gaussian)
     assert len(pm_instance.fit_table) == 3
 
+    # Fit histogram with baseline included
+    pm_instance.fit_histogram(peaks_guess=pm_instance.peaks_guess, 
+                              mean_tolerance=None, 
+                              std_tolerance=None, 
+                              fit_baseline=True)
+    
+    pm_instance.create_fit_table()
+    # Check that fitted_params, fitted_data, and fitted_params_errors are not None
+    assert pm_instance.fitted_params is not None
+    assert pm_instance.fitted_data is not None
+    assert pm_instance.fitted_params_errors is not None
 
 def test_pyphotomol_class_contrasts():
 

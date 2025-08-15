@@ -290,11 +290,12 @@ def truncated_multi_gauss_with_baseline(x,lower_limit_of_resolution,baseline,*pa
 def fit_histogram(hist_counts, 
                   hist_centers,
                   guess_positions=[66,148,480], 
-                  mean_tolerance=100, 
-                  std_tolerance=200,
+                  mean_tolerance=None, 
+                  std_tolerance=None,
                   threshold=40,
                   baseline=0,
-                  masses=True):
+                  masses=True,
+                  fit_baseline=False):
         
     """
     Fit a histogram with multiple truncated gaussians.
@@ -309,8 +310,10 @@ def fit_histogram(hist_counts,
         Initial guesses for the positions of the peaks.
     mean_tolerance : int, default 100
         Tolerance for the peak positions.
+        If None, it will be copied from guess_positions.
     std_tolerance : int, default 200
         Maximum standard deviation for the peaks.
+        If None, it will be copied from guess_positions.
     threshold : int, default 40 for masses in kDa units
         For masses, minimum value that can be observed. 
         For contrasts, it is be the max value that can be observed. It should be a negative value.
@@ -318,7 +321,8 @@ def fit_histogram(hist_counts,
         Baseline value to be added to the fit.
     masses : bool, default True
         If True, the fit is for mass data; if False, it is for contrast data.
-        
+    fit_baseline : bool, default False
+        If True, the fit will include a baseline parameter. The 'baseline' argument will be ignored.
     Returns
     -------
     popt : np.ndarray
@@ -343,34 +347,47 @@ def fit_histogram(hist_counts,
     
     else:
 
+        guess_positions = np.array(guess_positions)
+
         # Get amplitude for each guess position
         guess_amp = []
         for pos in guess_positions:
+
             ind = np.argmin(np.abs(hist_centers - pos))
             guess_amp.append(hist_counts[ind])
 
+        guess_amp = np.array(guess_amp)
+
         if masses:
 
-            # Raise an error if the std_tolerance is not greater than 5
-            if std_tolerance <= 5:
-                raise ValueError("Standard deviation tolerance must be greater than 5 for mass data.")
+            # Raise an error if the std_tolerance is not greater than 8
+            if std_tolerance is not None and std_tolerance <= 8:
+                raise ValueError("Standard deviation tolerance must be greater than 8 for mass data.")
 
-            fit_guess    = np.column_stack((np.array(guess_positions), np.array(guess_amp), np.array([5]*len(guess_positions)))).flatten()
+            fit_guess    = np.column_stack((guess_positions, guess_amp, np.array([8]*len(guess_positions)))).flatten()
+
         else:
 
             # Raise an error if the std_tolerance is not greater than 0.0001
-            if std_tolerance <= 0.0001:
+            if std_tolerance is not None and std_tolerance <= 0.0001:
                 raise ValueError("Standard deviation tolerance must be greater than 0.0001 for contrast data.")
 
             # Convert guess positions to positive values for the fitting
             guess_positions = np.abs(guess_positions)
-            fit_guess    = np.column_stack((np.array(guess_positions), np.array(guess_amp), np.array([0.0001]*len(guess_positions)))).flatten()
-        
-        lower_bounds = np.column_stack((np.array(guess_positions) - mean_tolerance , np.array([0]*len(guess_positions)), np.array([0]*len(guess_positions)))).flatten()
-        upper_bounds = np.column_stack((np.array(guess_positions) + mean_tolerance , np.array([np.max(hist_counts)*1.3]*len(guess_positions)), np.array([std_tolerance]*len(guess_positions)))).flatten()
+            fit_guess    = np.column_stack((guess_positions, guess_amp, np.array([0.0001]*len(guess_positions)))).flatten()
 
-        bounds       = (tuple(lower_bounds), tuple(upper_bounds))
-    
+        mean_low_bounds = guess_positions - mean_tolerance if mean_tolerance is not None else guess_positions - np.abs(guess_positions)*0.5
+        mean_upp_bounds = guess_positions + mean_tolerance if mean_tolerance is not None else guess_positions + np.abs(guess_positions)*0.5
+
+        std_low = np.array([0]*len(guess_positions)) 
+        std_upp = np.array([std_tolerance]*len(guess_positions)) if std_tolerance is not None else np.array(guess_positions)
+
+        amp_low = np.array([0]*len(guess_positions))
+        amp_upp = np.array([np.max(hist_counts)*1.3]*len(guess_positions))
+
+        lower_bounds = np.column_stack((mean_low_bounds, amp_low, std_low)).flatten()
+        upper_bounds = np.column_stack((mean_upp_bounds, amp_upp, std_upp)).flatten()
+
     if masses:
 
         values_have_sense = np.greater(np.abs(hist_centers),threshold) # We use np.abs to allow fitting negative masses also...
@@ -391,22 +408,42 @@ def fit_histogram(hist_counts,
     # Restrict data range for the fitting
     hist_counts = hist_counts * values_have_sense
 
-    def fitting_helper_func(x,*params):
-        return truncated_multi_gauss_with_baseline(x,threshold,baseline,*params) 
+    if not fit_baseline:
+
+        def fitting_helper_func(x,*params):
+            return truncated_multi_gauss_with_baseline(x,threshold,baseline,*params) 
+
+    else:
+
+        # Add the guess and bounds for the baseline
+        fit_guess    = np.append(fit_guess, 0.1)
+        lower_bounds = np.append(lower_bounds, -1e6)
+        upper_bounds = np.append(upper_bounds, np.max(hist_counts)/10)
+
+        def fitting_helper_func(x,*params):
+            baseline = params[-1]  # Last parameter is the baseline
+            # remove the last parameter
+            params = params[:-1]
+            return truncated_multi_gauss_with_baseline(x,threshold,baseline,*params)
 
     func = fitting_helper_func
+
+    bounds       = (tuple(lower_bounds), tuple(upper_bounds))
 
     # Do the fitting
     popt, pcov = curve_fit(func, hist_centers, hist_counts, p0=fit_guess, bounds=bounds)  #, method='dogbox', maxfev=1E5)
     # Create fit and individual gaussians for plotting
     # Finer grid
     x_grid = np.linspace(np.min(hist_centers), np.max(hist_centers), 800)
+
+    baseline = popt[-1] if fit_baseline else baseline
+
     single_gauss = []
-    for i in range(0, len(popt), 3):
+    for i in range(0, len(popt)-1*fit_baseline, 3):
         ctr = popt[i]
         amp = popt[i+1]
         wid = popt[i+2]
-        single_gauss.append(func(x_grid, ctr, amp, wid))
+        single_gauss.append(multi_gauss(x_grid, ctr, amp, wid)+baseline)
 
     # Sum of all
     fit_sum = func(x_grid, *popt)
@@ -428,7 +465,8 @@ def fit_histogram(hist_counts,
     # If we fited the contrasts, we need to convert the means to negative values
     # and the fitted x-axis 
     if not masses:
-        popt[::3] = -popt[::3] 
+        for i in range(0, len(popt)-1*fit_baseline, 3):
+            popt[i] = -popt[i]
         # Convert the fit x-axis to negative values, leave the first column as is (x-coordinates)
         fit[:, 0] = fit[:, 0] * -1
 
@@ -465,6 +503,15 @@ def create_fit_table(popt,popt_error,fit,
     fit_table : pd.DataFrame
         DataFrame containing the fit results.
     """
+
+    # If popt is not divisible by 3 - remove the last parameter that is the fitted baseline
+    fit_baseline = len(popt) % 3 != 0
+    
+    if fit_baseline:
+        baseline = popt[-1]
+        baseline_error = popt_error[-1]
+        popt = popt[:-1]
+        popt_error = popt_error[:-1]
 
     # Create lists with fitting parameters
     # These are later used to create a pandas DataFrame
@@ -517,6 +564,11 @@ def create_fit_table(popt,popt_error,fit,
         fit_table['Position Error / %' ] = list_pos_error
         fit_table['Sigma Error / %' ] = list_sigma_error
         fit_table['Amplitude Error / %'] = list_ampl_error
+
+    # Append the shared baseline if it was fitted
+    if fit_baseline:
+        fit_table['Baseline'] = baseline
+        fit_table['Baseline Error / %'] = baseline_error
 
     return fit_table
 

@@ -268,7 +268,7 @@ def create_notebook_7_files(
         assert np.isclose(free_B_fraction + bound_B_fraction, 1), f"B fraction and AB fraction should sum to 1. We got {free_B_fraction + bound_B_fraction}"
 
         # Simulate counts for A, B and AB - counts are directly proportional to the concentration
-        total_counts = 3200  # Total counts for each concentration
+        total_counts = 3400  # Total counts for each concentration
         A_counts     = total_counts * A_free / (A_free + complex_conc + B_free)
         AB_counts    = total_counts * complex_conc / (A_free + complex_conc + B_free)
         B_counts     = total_counts * B_free / (A_free + complex_conc + B_free)

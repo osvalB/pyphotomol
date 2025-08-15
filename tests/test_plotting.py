@@ -290,7 +290,7 @@ def test_plot_histograms_and_fits():
     # Set all Sels to False and plot again
     legends_df_copy = legends_df.copy()
     legends_df_copy['select'] = True
-    legend_config = LegendConfig(show_legend_all=[])
+    legend_config = LegendConfig()
     
     fig = plot_histograms_and_fits(pms,
                                    legends_df_copy,
@@ -318,7 +318,8 @@ def test_plot_histograms_and_fits_with_contrasts():
     legends_df = pd.DataFrame({
         'legends': ['Model 1', 'Model 2'],
         'color': ['#FF0000', '#00FF00'],  # Dummy colors for traces
-        'select': [True, True]
+        'select': [True, True],
+        'show_legend': [True, True]
     })
     colors_hist = ['#0000FF', '#FFFF00']  # Colors for histograms
 
