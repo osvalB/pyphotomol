@@ -808,6 +808,8 @@
     <span class="c1"># Finer grid</span>
     <span class="n">x_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">hist_centers</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">hist_centers</span><span class="p">),</span> <span class="mi">800</span><span class="p">)</span>
 
+    <span class="n">bool_x_grid_below_threshold</span> <span class="o">=</span> <span class="n">x_grid</span> <span class="o">&lt;</span> <span class="n">threshold</span>
+
     <span class="n">baseline</span> <span class="o">=</span> <span class="n">popt</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">fit_baseline</span> <span class="k">else</span> <span class="n">baseline</span>
 
     <span class="n">single_gauss</span> <span class="o">=</span> <span class="p">[]</span>
@@ -815,7 +817,12 @@
         <span class="n">ctr</span> <span class="o">=</span> <span class="n">popt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="n">amp</span> <span class="o">=</span> <span class="n">popt</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">wid</span> <span class="o">=</span> <span class="n">popt</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
-        <span class="n">single_gauss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">multi_gauss</span><span class="p">(</span><span class="n">x_grid</span><span class="p">,</span> <span class="n">ctr</span><span class="p">,</span> <span class="n">amp</span><span class="p">,</span> <span class="n">wid</span><span class="p">)</span><span class="o">+</span><span class="n">baseline</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">multi_gauss</span><span class="p">(</span><span class="n">x_grid</span><span class="p">,</span> <span class="n">ctr</span><span class="p">,</span> <span class="n">amp</span><span class="p">,</span> <span class="n">wid</span><span class="p">)</span><span class="o">+</span><span class="n">baseline</span>
+       
+        <span class="c1"># The single gaussian has to be zero outside the threshold</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">bool_x_grid_below_threshold</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        
+        <span class="n">single_gauss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
     <span class="c1"># Sum of all</span>
     <span class="n">fit_sum</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">x_grid</span><span class="p">,</span> <span class="o">*</span><span class="n">popt</span><span class="p">)</span>
