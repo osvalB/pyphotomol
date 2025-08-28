@@ -436,6 +436,8 @@ def fit_histogram(hist_counts,
     # Finer grid
     x_grid = np.linspace(np.min(hist_centers), np.max(hist_centers), 800)
 
+    bool_x_grid_below_threshold = x_grid < threshold
+
     baseline = popt[-1] if fit_baseline else baseline
 
     single_gauss = []
@@ -443,7 +445,12 @@ def fit_histogram(hist_counts,
         ctr = popt[i]
         amp = popt[i+1]
         wid = popt[i+2]
-        single_gauss.append(multi_gauss(x_grid, ctr, amp, wid)+baseline)
+        y = multi_gauss(x_grid, ctr, amp, wid)+baseline
+       
+        # The single gaussian has to be zero outside the threshold
+        y[bool_x_grid_below_threshold] = 0
+        
+        single_gauss.append(y)
 
     # Sum of all
     fit_sum = func(x_grid, *popt)
