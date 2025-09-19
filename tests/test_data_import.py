@@ -117,6 +117,13 @@ def test_import_csv_contrasts_only():
     assert len(contrasts) > 0  # Ensure there are contrasts in the file
     assert not np.any(np.isnan(contrasts))
 
+def test_import_csv_contrasts_only_2():
+    """Test import_csv with contrasts only (no masses)."""
+    contrasts, masses_kda = import_csv("test_files/eventsFound.csv")
+    assert isinstance(contrasts, np.ndarray)
+    assert masses_kda is None  # No masses_kDa in this file
+    assert len(contrasts) > 0  # Ensure there are contrasts in the file
+    assert not np.any(np.isnan(contrasts))
 
 def test_import_csv_with_nan_values():
     """Test that CSV import properly filters NaN values."""
