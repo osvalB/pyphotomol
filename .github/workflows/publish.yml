@@ -3,7 +3,7 @@ name: Publish Python Package
 on:
   push:
     tags:
-      - "v*.*.*"  # Only run when a version tag like v1.2.3 is pushed
+      - "v*.*"  # Only run when a version tag like v1.2 is pushed
 
 permissions:
   contents: read
