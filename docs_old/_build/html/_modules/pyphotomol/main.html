@@ -1,0 +1,1699 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pyphotomol.main &#8212; PyPhotoMol 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/pyphotomol/main';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">PyPhotoMol 0.1.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../quickstart.html">
+    Quick Start Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../modules.html">
+    pyphotomol
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/osvalB/pyPhotoMol" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../quickstart.html">
+    Quick Start Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../modules.html">
+    pyphotomol
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/osvalB/pyPhotoMol" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">pyphotomol.main</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for pyphotomol.main</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Main class to handle the mass photometry data </span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">curve_fit</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">wraps</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.utils.helpers</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">contrasts_to_mass</span><span class="p">,</span>
+    <span class="n">create_histogram</span><span class="p">,</span>
+    <span class="n">count_binding_events_from_contrasts</span><span class="p">,</span>
+    <span class="n">count_binding_events_from_masses</span><span class="p">,</span>
+    <span class="n">guess_peaks</span><span class="p">,</span>
+    <span class="n">fit_histogram</span><span class="p">,</span>
+    <span class="n">create_fit_table</span><span class="p">,</span>
+    <span class="n">calibrate</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.utils.data_import</span><span class="w"> </span><span class="kn">import</span> <span class="n">import_file_h5</span><span class="p">,</span> <span class="n">import_csv</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.utils.palette</span><span class="w"> </span><span class="kn">import</span> <span class="n">COLOR_PALETTE_9</span><span class="p">,</span> <span class="n">COLOR_PALETTE_12</span><span class="p">,</span> <span class="n">COLOR_PALETTE_40</span><span class="p">,</span> <span class="n">HISTOGRAM_PALETTE</span>
+
+<div class="viewcode-block" id="log_method">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.log_method">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">log_method</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Decorator to automatically handle errors and logging.</span>
+<span class="sd">    </span>
+<span class="sd">    This decorator will:</span>
+<span class="sd">    1. Handle exceptions by logging them to the logbook</span>
+<span class="sd">    2. Re-raise exceptions after logging</span>
+<span class="sd">    Note: The actual success logging is handled by each method individually</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">method_name</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span>
+        
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Call the original method (which handles its own success logging)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+            
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="c1"># Log the error with all available parameters</span>
+            <span class="n">parameters</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">if</span> <span class="n">args</span><span class="p">:</span>
+                <span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;args&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">args</span>
+            <span class="k">if</span> <span class="n">kwargs</span><span class="p">:</span>
+                <span class="n">parameters</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+                
+            <span class="bp">self</span><span class="o">.</span><span class="n">_log_error</span><span class="p">(</span><span class="n">method_name</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="n">parameters</span><span class="p">,</span> <span class="n">error_message</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="c1"># Re-raise the exception</span>
+            <span class="k">raise</span>
+    
+    <span class="k">return</span> <span class="n">wrapper</span></div>
+
+
+<div class="viewcode-block" id="log_batch_method">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.log_batch_method">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">log_batch_method</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Decorator to automatically handle errors and logging for MPAnalyzer methods.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">method_name</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span>
+        
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Call the original method (which handles its own success logging)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+            
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="c1"># Log the batch error with all available parameters</span>
+            <span class="n">parameters</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">if</span> <span class="n">args</span><span class="p">:</span>
+                <span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;args&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">args</span>
+            <span class="k">if</span> <span class="n">kwargs</span><span class="p">:</span>
+                <span class="n">parameters</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+                
+            <span class="bp">self</span><span class="o">.</span><span class="n">_log_batch_error</span><span class="p">(</span><span class="n">method_name</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="n">parameters</span><span class="p">,</span> <span class="n">error_message</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="c1"># Re-raise the exception</span>
+            <span class="k">raise</span>
+    
+    <span class="k">return</span> <span class="n">wrapper</span></div>
+
+
+<div class="viewcode-block" id="PyPhotoMol">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.PyPhotoMol">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PyPhotoMol</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Main class for analyzing mass photometry data.</span>
+<span class="sd">    </span>
+<span class="sd">    The PyPhotoMol class provides a comprehensive suite of tools for importing,</span>
+<span class="sd">    analyzing, and visualizing mass photometry data. It supports data import from</span>
+<span class="sd">    HDF5 and CSV files, histogram creation and analysis, peak detection, Gaussian</span>
+<span class="sd">    fitting, and mass-contrast calibration.</span>
+<span class="sd">    </span>
+<span class="sd">    All operations are automatically logged to a comprehensive logbook that tracks</span>
+<span class="sd">    parameters, results, and any errors encountered during analysis.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    contrasts : np.ndarray or None</span>
+<span class="sd">        Array of contrast values from imported data</span>
+<span class="sd">    masses : np.ndarray or None  </span>
+<span class="sd">        Array of mass values (in kDa) from imported data or converted from contrasts</span>
+<span class="sd">    histogram_centers : np.ndarray or None</span>
+<span class="sd">        Bin centers for created histograms</span>
+<span class="sd">    hist_counts : np.ndarray or None</span>
+<span class="sd">        Count values for histogram bins</span>
+<span class="sd">    hist_nbins : int or None</span>
+<span class="sd">        Number of bins in the histogram</span>
+<span class="sd">    hist_window : list or None</span>
+<span class="sd">        [min, max] window used for histogram creation</span>
+<span class="sd">    bin_width : float or None</span>
+<span class="sd">        Width of histogram bins</span>
+<span class="sd">    hist_data_type : str or None</span>
+<span class="sd">        Type of data used for histogram (&#39;masses&#39; or &#39;contrasts&#39;)</span>
+<span class="sd">    peaks_guess : np.ndarray or None</span>
+<span class="sd">        Positions of detected peaks in the histogram</span>
+<span class="sd">    nbinding : int or None</span>
+<span class="sd">        Number of binding events detected</span>
+<span class="sd">    nunbinding : int or None</span>
+<span class="sd">        Number of unbinding events detected</span>
+<span class="sd">    fitted_params : np.ndarray or None</span>
+<span class="sd">        Parameters from Multi-Gaussian fitting</span>
+<span class="sd">    fitted_data : np.ndarray or None</span>
+<span class="sd">        Fitted curve data points</span>
+<span class="sd">    fitted_params_errors : np.ndarray or None</span>
+<span class="sd">        Error estimates for fitted parameters</span>
+<span class="sd">    masses_fitted : np.ndarray or None</span>
+<span class="sd">        Mass values corresponding to fitted peaks</span>
+<span class="sd">    baseline : float</span>
+<span class="sd">        Baseline value used for fitting operations (default: 0)</span>
+<span class="sd">    fit_table : pd.DataFrame or None</span>
+<span class="sd">        Summary table of fitting results</span>
+<span class="sd">    calibration_dic : dict or None</span>
+<span class="sd">        Dictionary containing mass-contrast calibration parameters</span>
+<span class="sd">    logbook : list</span>
+<span class="sd">        List of all operations performed, with timestamps and parameters</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Basic workflow for mass photometry analysis:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; model = PyPhotoMol()</span>
+<span class="sd">    &gt;&gt;&gt; model.import_file(&#39;data.h5&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; model.count_binding_events()</span>
+<span class="sd">    &gt;&gt;&gt; model.create_histogram(use_masses=True, window=[0, 1000], bin_width=10)</span>
+<span class="sd">    &gt;&gt;&gt; model.guess_peaks()</span>
+<span class="sd">    &gt;&gt;&gt; model.fit_histogram(peaks_guess=model.peaks_guess, mean_tolerance=200, std_tolerance=300)</span>
+<span class="sd">    &gt;&gt;&gt; model.print_logbook_summary()</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="PyPhotoMol.__init__">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.PyPhotoMol.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize a new PyPhotoMol instance.</span>
+<span class="sd">        </span>
+<span class="sd">        Creates an empty instance with all data properties set to None</span>
+<span class="sd">        and initializes an empty logbook for operation tracking.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Track the file being analyzed</span>
+
+        <span class="c1"># Data properties</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">contrasts</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">masses</span> <span class="o">=</span> <span class="kc">None</span>
+        
+        <span class="c1"># Histogram properties</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">histogram_centers</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hist_counts</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hist_nbins</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hist_window</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bin_width</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hist_data_type</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Track whether histogram uses &#39;masses&#39; or &#39;contrasts&#39;</span>
+        
+        <span class="c1"># Peak detection properties</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peaks_guess</span> <span class="o">=</span> <span class="kc">None</span>
+        
+        <span class="c1"># Event counting properties</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nbinding</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nunbinding</span> <span class="o">=</span> <span class="kc">None</span>
+        
+        <span class="c1"># Fitting properties</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fitted_params</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fitted_data</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fitted_params_errors</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">masses_fitted</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">baseline</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Default baseline for fitting</span>
+        
+        <span class="c1"># Results properties</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fit_table</span> <span class="o">=</span> <span class="kc">None</span>
+        
+        <span class="c1"># Calibration properties</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">calibration_dic</span> <span class="o">=</span> <span class="kc">None</span>
+        
+        <span class="c1"># Logbook properties</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logbook</span> <span class="o">=</span> <span class="p">[]</span></div>
+
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">_log_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method_name</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">result_summary</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">notes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal method to log successful operations with timestamp and details.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        method_name : str</span>
+<span class="sd">            Name of the method that was executed</span>
+<span class="sd">        parameters : dict, optional</span>
+<span class="sd">            Parameters passed to the method</span>
+<span class="sd">        result_summary : dict, optional</span>
+<span class="sd">            Summary of results produced by the method</span>
+<span class="sd">        notes : str, optional</span>
+<span class="sd">            Additional notes about the operation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">log_entry</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
+            <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="n">method_name</span><span class="p">,</span>
+            <span class="s1">&#39;parameters&#39;</span><span class="p">:</span> <span class="n">parameters</span> <span class="ow">or</span> <span class="p">{},</span>
+            <span class="s1">&#39;result_summary&#39;</span><span class="p">:</span> <span class="n">result_summary</span> <span class="ow">or</span> <span class="p">{},</span>
+            <span class="s1">&#39;notes&#39;</span><span class="p">:</span> <span class="n">notes</span><span class="p">,</span>
+            <span class="s1">&#39;success&#39;</span><span class="p">:</span> <span class="kc">True</span>
+        <span class="p">}</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">logbook</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">log_entry</span><span class="p">)</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">_log_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method_name</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">error_message</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Internal method to log errors that occurred during operations.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        method_name : str</span>
+<span class="sd">            Name of the method where the error occurred</span>
+<span class="sd">        parameters : dict, optional</span>
+<span class="sd">            Parameters that were passed to the method</span>
+<span class="sd">        error_message : str, optional</span>
+<span class="sd">            Description of the error that occurred</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">log_entry</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
+            <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="n">method_name</span><span class="p">,</span>
+            <span class="s1">&#39;parameters&#39;</span><span class="p">:</span> <span class="n">parameters</span> <span class="ow">or</span> <span class="p">{},</span>
+            <span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="n">error_message</span><span class="p">,</span>
+            <span class="s1">&#39;success&#39;</span><span class="p">:</span> <span class="kc">False</span>
+        <span class="p">}</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">logbook</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">log_entry</span><span class="p">)</span>
+    
+<div class="viewcode-block" id="PyPhotoMol.get_logbook">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.PyPhotoMol.get_logbook">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_logbook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save_to_file</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieve the logbook of all operations performed on this instance.</span>
+<span class="sd">        </span>
+<span class="sd">        The logbook contains a complete history of all method calls, including</span>
+<span class="sd">        parameters used, results obtained, timestamps, and any errors encountered.</span>
+<span class="sd">        This provides full traceability of the analysis workflow.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        as_dataframe : bool, default True</span>
+<span class="sd">            If True, return logbook as a pandas DataFrame for easy analysis.</span>
+<span class="sd">            If False, return as a list of dictionaries.</span>
+<span class="sd">        save_to_file : str, optional</span>
+<span class="sd">            If provided, save the logbook to this file path as JSON format.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pandas.DataFrame or list</span>
+<span class="sd">            Logbook entries containing operation history. DataFrame columns include:</span>
+<span class="sd">            - timestamp: ISO format timestamp of when operation was performed</span>
+<span class="sd">            - method: Name of the method that was called</span>
+<span class="sd">            - parameters: Dictionary of parameters passed to the method</span>
+<span class="sd">            - result_summary: Summary of results produced (for successful operations)</span>
+<span class="sd">            - notes: Additional notes about the operation</span>
+<span class="sd">            - success: Boolean indicating if operation completed successfully</span>
+<span class="sd">            - error: Error message (only present for failed operations)</span>
+<span class="sd">            </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Get logbook as DataFrame for analysis:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; model = PyPhotoMol()</span>
+<span class="sd">        &gt;&gt;&gt; model.import_file(&#39;data.h5&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; logbook_df = model.get_logbook()</span>
+<span class="sd">        &gt;&gt;&gt; print(logbook_df[[&#39;timestamp&#39;, &#39;method&#39;, &#39;success&#39;]])</span>
+<span class="sd">        </span>
+<span class="sd">        Save logbook to file:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; model.get_logbook(save_to_file=&#39;analysis_log.json&#39;)</span>
+<span class="sd">        </span>
+<span class="sd">        Get raw logbook data:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; raw_logbook = model.get_logbook(as_dataframe=False)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">save_to_file</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_to_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">logbook</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">as_dataframe</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">logbook</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">,</span> <span class="s1">&#39;method&#39;</span><span class="p">,</span> <span class="s1">&#39;parameters&#39;</span><span class="p">,</span> <span class="s1">&#39;result_summary&#39;</span><span class="p">,</span> <span class="s1">&#39;notes&#39;</span><span class="p">,</span> <span class="s1">&#39;success&#39;</span><span class="p">])</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">logbook</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">logbook</span></div>
+
+    
+<div class="viewcode-block" id="PyPhotoMol.clear_logbook">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.PyPhotoMol.clear_logbook">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">clear_logbook</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Clear all logbook entries.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logbook</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_log_operation</span><span class="p">(</span><span class="s1">&#39;clear_logbook&#39;</span><span class="p">,</span> <span class="n">notes</span><span class="o">=</span><span class="s1">&#39;Logbook cleared&#39;</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="PyPhotoMol.print_logbook_summary">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.PyPhotoMol.print_logbook_summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">print_logbook_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Print a summary of the logbook.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">logbook</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No operations logged yet.&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== PyPhotoMol Logbook Summary ===&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total operations: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">logbook</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="n">successful_ops</span> <span class="o">=</span> <span class="p">[</span><span class="n">entry</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">logbook</span> <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)]</span>
+        <span class="n">failed_ops</span> <span class="o">=</span> <span class="p">[</span><span class="n">entry</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">logbook</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)]</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Successful operations: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">successful_ops</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed operations: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">failed_ops</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">logbook</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;First operation: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">logbook</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;timestamp&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">logbook</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;method&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Last operation: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">logbook</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;timestamp&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">logbook</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;method&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Show method frequency</span>
+        <span class="n">methods</span> <span class="o">=</span> <span class="p">[</span><span class="n">entry</span><span class="p">[</span><span class="s1">&#39;method&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">logbook</span><span class="p">]</span>
+        <span class="n">method_counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">methods</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Most used methods:&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">method</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">method_counts</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> times&quot;</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">failed_ops</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Failed operations:&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">failed_ops</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]:</span>  <span class="c1"># Show last 3 failures</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">entry</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">entry</span><span class="p">[</span><span class="s1">&#39;method&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">entry</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Unknown error&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PyPhotoMol.import_file">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.PyPhotoMol.import_file">[docs]</a>
+    <span class="nd">@log_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">import_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Import mass photometry data from HDF5 or CSV files.</span>
+<span class="sd">        </span>
+<span class="sd">        This method loads contrast and mass data from supported file formats.</span>
+<span class="sd">        NaN values are automatically removed from the imported data. The import</span>
+<span class="sd">        operation is automatically logged with file information and data statistics.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        file_path : str</span>
+<span class="sd">            Path to the data file. Supported formats are:</span>
+<span class="sd">            - &#39;.h5&#39; : HDF5 files with standard mass photometry structure</span>
+<span class="sd">            - &#39;.csv&#39; : CSV files with contrast and mass columns</span>
+<span class="sd">            </span>
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the file format is not supported (not .h5 or .csv)</span>
+<span class="sd">        FileNotFoundError</span>
+<span class="sd">            If the specified file does not exist</span>
+<span class="sd">        KeyError</span>
+<span class="sd">            If required data columns are missing from the file</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        After import, the following attributes are populated:</span>
+<span class="sd">        - self.contrasts : Array of contrast values with NaN removed</span>
+<span class="sd">        - self.masses : Array of mass values with NaN removed (if available)</span>
+<span class="sd">        </span>
+<span class="sd">        The logbook will record:</span>
+<span class="sd">        - File path and type</span>
+<span class="sd">        - Number of data points imported</span>
+<span class="sd">        - Range of contrast and mass values</span>
+<span class="sd">        </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Import HDF5 data:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; model = PyPhotoMol()</span>
+<span class="sd">        &gt;&gt;&gt; model.import_file(&#39;experiment_data.h5&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; print(f&quot;Imported {len(model.contrasts)} contrast measurements&quot;)</span>
+<span class="sd">        </span>
+<span class="sd">        Import CSV data:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; model.import_file(&#39;processed_data.csv&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; print(f&quot;Mass range: {model.masses.min():.1f} - {model.masses.max():.1f} kDa&quot;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">file_path</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.h5&#39;</span><span class="p">):</span>
+            <span class="n">contrasts</span><span class="p">,</span> <span class="n">masses</span> <span class="o">=</span> <span class="n">import_file_h5</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">file_path</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.csv&#39;</span><span class="p">):</span>
+            <span class="n">contrasts</span><span class="p">,</span> <span class="n">masses</span> <span class="o">=</span> <span class="n">import_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unsupported file format. Use .h5 or .csv files.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Extract the basename from the file path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="n">file_path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;/&#39;</span> <span class="ow">in</span> <span class="n">file_path</span> <span class="k">else</span> <span class="n">file_path</span>
+
+        <span class="c1"># Remove NaN values from contrasts and masses</span>
+        <span class="k">if</span> <span class="n">contrasts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">contrasts</span> <span class="o">=</span> <span class="n">contrasts</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">contrasts</span><span class="p">)]</span> 
+            
+        <span class="k">if</span> <span class="n">masses</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">masses</span> <span class="o">=</span> <span class="n">masses</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">masses</span><span class="p">)]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">contrasts</span> <span class="o">=</span> <span class="n">contrasts</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">masses</span> <span class="o">=</span> <span class="n">masses</span>
+
+        <span class="c1"># Log the operation with detailed results</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_log_operation</span><span class="p">(</span>
+            <span class="s1">&#39;import_file&#39;</span><span class="p">,</span>
+            <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;file_path&#39;</span><span class="p">:</span> <span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;file_type&#39;</span><span class="p">:</span> <span class="n">file_path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]},</span>
+            <span class="n">result_summary</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;n_contrasts&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">contrasts</span><span class="p">)</span> <span class="k">if</span> <span class="n">contrasts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="s1">&#39;n_masses&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">masses</span><span class="p">)</span> <span class="k">if</span> <span class="n">masses</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="s1">&#39;contrast_range&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">contrasts</span><span class="p">)),</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">contrasts</span><span class="p">))]</span> <span class="k">if</span> <span class="n">contrasts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="s1">&#39;mass_range&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">masses</span><span class="p">)),</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">masses</span><span class="p">))]</span> <span class="k">if</span> <span class="n">masses</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="PyPhotoMol.count_binding_events">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.PyPhotoMol.count_binding_events">[docs]</a>
+    <span class="nd">@log_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">count_binding_events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Count binding and unbinding events from the mass data.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Check if we have masses available</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">masses</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">n_binding</span><span class="p">,</span> <span class="n">n_unbinding</span> <span class="o">=</span> <span class="n">count_binding_events_from_masses</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">masses</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nbinding</span>   <span class="o">=</span> <span class="n">n_binding</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nunbinding</span> <span class="o">=</span> <span class="n">n_unbinding</span>
+        
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">masses</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">contrasts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="n">n_binding</span><span class="p">,</span> <span class="n">n_unbinding</span> <span class="o">=</span> <span class="n">count_binding_events_from_contrasts</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">contrasts</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nbinding</span>   <span class="o">=</span> <span class="n">n_binding</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nunbinding</span> <span class="o">=</span> <span class="n">n_unbinding</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No mass or contrast data available to count binding events.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Log the operation with detailed results</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_log_operation</span><span class="p">(</span>
+            <span class="s1">&#39;count_binding_events&#39;</span><span class="p">,</span>
+            <span class="n">result_summary</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;n_binding&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_binding</span><span class="p">),</span>
+                <span class="s1">&#39;n_unbinding&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_unbinding</span><span class="p">),</span>
+                <span class="s1">&#39;binding_ratio&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_binding</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_binding</span> <span class="o">+</span> <span class="n">n_unbinding</span><span class="p">))</span> <span class="k">if</span> <span class="p">(</span><span class="n">n_binding</span> <span class="o">+</span> <span class="n">n_unbinding</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+    
+<div class="viewcode-block" id="PyPhotoMol.create_histogram">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.PyPhotoMol.create_histogram">[docs]</a>
+    <span class="nd">@log_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_histogram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">use_masses</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2000</span><span class="p">],</span> <span class="n">bin_width</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a histogram from imported contrast or mass data.</span>
+<span class="sd">        </span>
+<span class="sd">        This method generates a histogram from the imported data, which is essential</span>
+<span class="sd">        for subsequent peak detection and fitting operations. The histogram parameters</span>
+<span class="sd">        can be customized for different types of analysis.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        use_masses : bool, default True</span>
+<span class="sd">            If True, create histogram from mass data (requires masses to be available).</span>
+<span class="sd">            If False, create histogram from contrast data.</span>
+<span class="sd">        window : list of two floats, default [0, 2000]</span>
+<span class="sd">            Range for the histogram as [min, max]. Units depend on data type:</span>
+<span class="sd">            - For masses: typically [0, 2000] kDa</span>
+<span class="sd">            - For contrasts: typically [-1, 0] (e.g., [-0.8, -0.2])</span>
+<span class="sd">        bin_width : float, default 10</span>
+<span class="sd">            Width of histogram bins. Units depend on data type:</span>
+<span class="sd">            - For masses: typically 10-50 kDa</span>
+<span class="sd">            - For contrasts: typically 0.0004-0.001</span>
+<span class="sd">            </span>
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        AttributeError</span>
+<span class="sd">            If no data has been imported yet</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If use_masses=True but no mass data is available</span>
+<span class="sd">            </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        After histogram creation, the following attributes are populated:</span>
+<span class="sd">        - self.histogram_centers : Bin center positions</span>
+<span class="sd">        - self.hist_counts : Count values for each bin</span>
+<span class="sd">        - self.hist_nbins : Number of bins created</span>
+<span class="sd">        - self.hist_window : Window used for histogram</span>
+<span class="sd">        - self.bin_width : Bin width used</span>
+<span class="sd">        - self.hist_data_type : Data type used (&#39;masses&#39; or &#39;contrasts&#39;)</span>
+<span class="sd">        </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Create mass histogram for protein analysis:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; model.create_histogram(use_masses=True, window=[0, 1000], bin_width=20)</span>
+<span class="sd">        </span>
+<span class="sd">        Create contrast histogram for calibration:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; model.create_histogram(use_masses=False, window=[-0.8, -0.2], bin_width=0.0004)</span>
+<span class="sd">        </span>
+<span class="sd">        High-resolution histogram for detailed analysis:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; model.create_histogram(use_masses=True, window=[50, 200], bin_width=5)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Count binding events if not done yet</span>
+
+        <span class="k">if</span> <span class="n">use_masses</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">masses</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">histogram_centers</span><span class="p">,</span> <span class="n">hist_counts</span><span class="p">,</span> <span class="n">hist_nbins</span> <span class="o">=</span> <span class="n">create_histogram</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">masses</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">bin_width</span><span class="o">=</span><span class="n">bin_width</span><span class="p">)</span>
+            <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;masses&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">histogram_centers</span><span class="p">,</span> <span class="n">hist_counts</span><span class="p">,</span> <span class="n">hist_nbins</span> <span class="o">=</span> <span class="n">create_histogram</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">contrasts</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">bin_width</span><span class="o">=</span><span class="n">bin_width</span><span class="p">)</span>
+            <span class="n">data_type</span> <span class="o">=</span> <span class="s1">&#39;contrasts&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">histogram_centers</span> <span class="o">=</span> <span class="n">histogram_centers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hist_counts</span> <span class="o">=</span> <span class="n">hist_counts</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hist_nbins</span> <span class="o">=</span> <span class="n">hist_nbins</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hist_window</span> <span class="o">=</span> <span class="n">window</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bin_width</span> <span class="o">=</span> <span class="n">bin_width</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hist_data_type</span> <span class="o">=</span> <span class="n">data_type</span>  <span class="c1"># Store the data type used for histogram</span>
+
+        <span class="c1"># Log the operation with detailed results</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_log_operation</span><span class="p">(</span>
+            <span class="s1">&#39;create_histogram&#39;</span><span class="p">,</span>
+            <span class="n">parameters</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;use_masses&#39;</span><span class="p">:</span> <span class="n">use_masses</span><span class="p">,</span>
+                <span class="s1">&#39;window&#39;</span><span class="p">:</span> <span class="n">window</span><span class="p">,</span>
+                <span class="s1">&#39;bin_width&#39;</span><span class="p">:</span> <span class="n">bin_width</span>
+            <span class="p">},</span>
+            <span class="n">result_summary</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;n_bins&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">hist_nbins</span><span class="p">),</span>
+                <span class="s1">&#39;total_counts&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">hist_counts</span><span class="p">)),</span>
+                <span class="s1">&#39;max_count&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">hist_counts</span><span class="p">)),</span>
+                <span class="s1">&#39;data_type&#39;</span><span class="p">:</span> <span class="n">data_type</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="PyPhotoMol.guess_peaks">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.PyPhotoMol.guess_peaks">[docs]</a>
+    <span class="nd">@log_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">guess_peaks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_height</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">min_distance</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">prominence</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Guess peaks in the histogram data.</span>
+
+<span class="sd">        The different arguments will be adjusted according to the region of the histogram.</span>
+<span class="sd">        For example, the given distance will be used for mass data between 0 and 650 kDa,</span>
+<span class="sd">        between 650 and 1500 kDa, the distance will be multiplied by a factor of 3, </span>
+<span class="sd">        and for data above 1500 kDa, the distance will be multiplied by a factor of 8.</span>
+<span class="sd">        See the `guess_peaks` function in `utils.helpers` for more details.</span>
+
+<span class="sd">        Example of min_height, min_distance and prominence for contrasts:</span>
+<span class="sd">            min_height=10, min_distance=4, prominence=4</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        min_height : int, default 10</span>
+<span class="sd">            Minimum height of the peaks.</span>
+<span class="sd">        min_distance : int, default 4</span>
+<span class="sd">            Minimum distance between peaks.</span>
+<span class="sd">        prominence : int, default 4</span>
+<span class="sd">            Minimum prominence of the peaks.</span>
+<span class="sd">            </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hist_counts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Histogram data not found. Please create a histogram first.&quot;</span><span class="p">)</span>
+
+        <span class="n">peaks</span> <span class="o">=</span> <span class="n">guess_peaks</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hist_counts</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">histogram_centers</span><span class="p">,</span> <span class="n">min_height</span><span class="p">,</span> <span class="n">min_distance</span><span class="p">,</span> <span class="n">prominence</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">peaks_guess</span> <span class="o">=</span> <span class="n">peaks</span>
+
+        <span class="c1"># Log the operation with detailed results</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_log_operation</span><span class="p">(</span>
+            <span class="s1">&#39;guess_peaks&#39;</span><span class="p">,</span>
+            <span class="n">parameters</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;min_height&#39;</span><span class="p">:</span> <span class="n">min_height</span><span class="p">,</span>
+                <span class="s1">&#39;min_distance&#39;</span><span class="p">:</span> <span class="n">min_distance</span><span class="p">,</span>
+                <span class="s1">&#39;prominence&#39;</span><span class="p">:</span> <span class="n">prominence</span>
+            <span class="p">},</span>
+            <span class="n">result_summary</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;n_peaks_found&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">peaks</span><span class="p">),</span>
+                <span class="s1">&#39;peak_positions&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span> <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="n">peaks</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">peaks</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">[]</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+    
+<div class="viewcode-block" id="PyPhotoMol.contrasts_to_masses">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.PyPhotoMol.contrasts_to_masses">[docs]</a>
+    <span class="nd">@log_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">contrasts_to_masses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">slope</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">intercept</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert contrasts to masses using a linear transformation.</span>
+<span class="sd">        We assume a calibratio was done using</span>
+<span class="sd">        f(mass) = slope * contrast + intercept</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        slope : float, default 1.0</span>
+<span class="sd">            Slope of the linear transformation.</span>
+<span class="sd">        intercept : float, default 0.0</span>
+<span class="sd">            Intercept of the linear transformation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">contrasts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Contrasts data not found. Please import contrasts data first.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">masses</span> <span class="o">=</span> <span class="n">contrasts_to_mass</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">contrasts</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="o">=</span><span class="n">intercept</span><span class="p">)</span>
+
+        <span class="c1"># Log the operation with detailed results</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_log_operation</span><span class="p">(</span>
+            <span class="s1">&#39;contrasts_to_masses&#39;</span><span class="p">,</span>
+            <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;slope&#39;</span><span class="p">:</span> <span class="n">slope</span><span class="p">,</span> <span class="s1">&#39;intercept&#39;</span><span class="p">:</span> <span class="n">intercept</span><span class="p">},</span>
+            <span class="n">result_summary</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;n_masses_converted&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">masses</span><span class="p">),</span>
+                <span class="s1">&#39;mass_range&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">masses</span><span class="p">)),</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">masses</span><span class="p">))]</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+    
+<div class="viewcode-block" id="PyPhotoMol.fit_histogram">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.PyPhotoMol.fit_histogram">[docs]</a>
+    <span class="nd">@log_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fit_histogram</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> 
+            <span class="n">peaks_guess</span><span class="p">,</span>
+            <span class="n">mean_tolerance</span><span class="p">,</span>
+            <span class="n">std_tolerance</span><span class="p">,</span>
+            <span class="n">threshold</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">baseline</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fit the histogram data to the guessed peaks.</span>
+<span class="sd">        We use a multi-Gaussian fit to the histogram data.</span>
+<span class="sd">        </span>
+<span class="sd">        The data type (masses or contrasts) is automatically detected from the histogram</span>
+<span class="sd">        that was previously created using create_histogram().</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        peaks_guess : list</span>
+<span class="sd">            List of guessed peaks.</span>
+<span class="sd">        mean_tolerance : float</span>
+<span class="sd">            Tolerance for the mean of the Gaussian fit.</span>
+<span class="sd">        std_tolerance : float</span>
+<span class="sd">            Tolerance for the standard deviation of the Gaussian fit.</span>
+<span class="sd">        threshold : float, optional</span>
+<span class="sd">            For masses: minimum value that can be observed (in kDa units). Default is 40.</span>
+<span class="sd">            For contrasts: maximum value that can be observed (should be negative). Default is -0.0024.</span>
+<span class="sd">            If None, defaults are applied based on detected data type.</span>
+<span class="sd">        baseline : float, default 0.0</span>
+<span class="sd">            Baseline value to be subtracted from the fit.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Fit histogram after creating it:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; model.create_histogram(use_masses=True, window=[0, 2000], bin_width=10)</span>
+<span class="sd">        &gt;&gt;&gt; model.guess_peaks()</span>
+<span class="sd">        &gt;&gt;&gt; model.fit_histogram(model.peaks_guess, mean_tolerance=100, std_tolerance=200)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hist_counts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Histogram data not found. Please create a histogram first.&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Automatically detect data type from histogram</span>
+        <span class="n">use_masses</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hist_data_type</span> <span class="o">==</span> <span class="s1">&#39;masses&#39;</span><span class="p">)</span>
+        
+        <span class="c1"># Set default threshold based on data type if not provided</span>
+        <span class="k">if</span> <span class="n">threshold</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">use_masses</span><span class="p">:</span>
+                <span class="n">threshold</span> <span class="o">=</span> <span class="mi">40</span>  <span class="c1"># Default for masses in kDa</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">threshold</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.0024</span>  <span class="c1"># Default for contrasts</span>
+
+        <span class="k">if</span> <span class="n">use_masses</span><span class="p">:</span>
+            <span class="n">popt</span><span class="p">,</span> <span class="n">fit</span><span class="p">,</span> <span class="n">fit_errors</span> <span class="o">=</span> <span class="n">fit_histogram</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">hist_counts</span><span class="p">,</span> 
+                <span class="bp">self</span><span class="o">.</span><span class="n">histogram_centers</span><span class="p">,</span> 
+                <span class="n">peaks_guess</span><span class="p">,</span> 
+                <span class="n">masses</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">mean_tolerance</span><span class="o">=</span><span class="n">mean_tolerance</span><span class="p">,</span>
+                <span class="n">std_tolerance</span><span class="o">=</span><span class="n">std_tolerance</span><span class="p">,</span>
+                <span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span>
+                <span class="n">baseline</span><span class="o">=</span><span class="n">baseline</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">popt</span><span class="p">,</span> <span class="n">fit</span><span class="p">,</span> <span class="n">fit_errors</span> <span class="o">=</span> <span class="n">fit_histogram</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">hist_counts</span><span class="p">,</span> 
+                <span class="bp">self</span><span class="o">.</span><span class="n">histogram_centers</span><span class="p">,</span> 
+                <span class="n">peaks_guess</span><span class="p">,</span> 
+                <span class="n">masses</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">mean_tolerance</span><span class="o">=</span><span class="n">mean_tolerance</span><span class="p">,</span>
+                <span class="n">std_tolerance</span><span class="o">=</span><span class="n">std_tolerance</span><span class="p">,</span>
+                <span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span>
+                <span class="n">baseline</span><span class="o">=</span><span class="n">baseline</span><span class="p">)</span>
+            
+        <span class="bp">self</span><span class="o">.</span><span class="n">fitted_params</span> <span class="o">=</span> <span class="n">popt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fitted_data</span> <span class="o">=</span> <span class="n">fit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fitted_params_errors</span> <span class="o">=</span> <span class="n">fit_errors</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">baseline</span> <span class="o">=</span> <span class="n">baseline</span>  <span class="c1"># Store the baseline used for fitting</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">masses_fitted</span> <span class="o">=</span> <span class="n">use_masses</span>
+
+        <span class="c1"># Log the operation with detailed results</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_log_operation</span><span class="p">(</span>
+            <span class="s1">&#39;fit_histogram&#39;</span><span class="p">,</span>
+            <span class="n">parameters</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;peaks_guess&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">peaks_guess</span><span class="p">),</span>
+                <span class="s1">&#39;mean_tolerance&#39;</span><span class="p">:</span> <span class="n">mean_tolerance</span><span class="p">,</span>
+                <span class="s1">&#39;std_tolerance&#39;</span><span class="p">:</span> <span class="n">std_tolerance</span><span class="p">,</span>
+                <span class="s1">&#39;threshold&#39;</span><span class="p">:</span> <span class="n">threshold</span><span class="p">,</span>
+                <span class="s1">&#39;baseline&#39;</span><span class="p">:</span> <span class="n">baseline</span><span class="p">,</span>
+                <span class="s1">&#39;data_type_detected&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">hist_data_type</span>
+            <span class="p">},</span>
+            <span class="n">result_summary</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;n_peaks_fitted&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">peaks_guess</span><span class="p">),</span>
+                <span class="s1">&#39;data_type&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">hist_data_type</span><span class="p">,</span>
+                <span class="s1">&#39;fit_quality&#39;</span><span class="p">:</span> <span class="s1">&#39;Parameters fitted successfully&#39;</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Automatic creation of fit table after fitting</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_fit_table</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="PyPhotoMol.create_fit_table">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.PyPhotoMol.create_fit_table">[docs]</a>
+    <span class="nd">@log_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_fit_table</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a fit table from the fitted parameters</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fitted_params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Fitted parameters not found. Please fit the histogram first.&quot;</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">histogram_centers</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Histogram centers not found. Please create a histogram first.&quot;</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nbinding</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">count_binding_events</span><span class="p">()</span>
+        
+        <span class="n">fit_table</span> <span class="o">=</span> <span class="n">create_fit_table</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fitted_params</span><span class="p">,</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">fitted_params_errors</span><span class="p">,</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">fitted_data</span><span class="p">,</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">nbinding</span><span class="p">,</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">nunbinding</span><span class="p">,</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">histogram_centers</span><span class="p">,</span>
+            <span class="n">masses</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">masses_fitted</span><span class="p">,</span>
+            <span class="n">include_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">fit_table</span> <span class="o">=</span> <span class="n">fit_table</span>
+
+        <span class="c1"># Log the operation with detailed results</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_log_operation</span><span class="p">(</span>
+            <span class="s1">&#39;create_fit_table&#39;</span><span class="p">,</span>
+            <span class="n">result_summary</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;n_peaks&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">fit_table</span><span class="p">),</span>
+                <span class="s1">&#39;table_columns&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">fit_table</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span>
+                <span class="s1">&#39;data_type&#39;</span><span class="p">:</span> <span class="s1">&#39;masses&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">masses_fitted</span> <span class="k">else</span> <span class="s1">&#39;contrasts&#39;</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+    
+<div class="viewcode-block" id="PyPhotoMol.calibrate">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.PyPhotoMol.calibrate">[docs]</a>
+    <span class="nd">@log_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">calibrate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">calibration_standards</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Obtain a calibration of the type f(mass) = slope * contrast + intercept</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        calibration_standards : list</span>
+<span class="sd">            List with the known masses</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit_table</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Fit table not found. Please create a fit table first.&quot;</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">contrasts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Contrasts data not found. Please import contrasts data first.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">calibration_dic</span> <span class="o">=</span> <span class="n">calibrate</span><span class="p">(</span>
+            <span class="n">calibration_standards</span><span class="p">,</span> 
+            <span class="bp">self</span><span class="o">.</span><span class="n">fit_table</span><span class="p">)</span>
+
+        <span class="c1"># Log the operation with detailed results</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_log_operation</span><span class="p">(</span>
+            <span class="s1">&#39;calibrate&#39;</span><span class="p">,</span>
+            <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;calibration_standards&#39;</span><span class="p">:</span> <span class="n">calibration_standards</span><span class="p">},</span>
+            <span class="n">result_summary</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;calibration_results&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">calibration_dic</span><span class="p">,</span>
+                <span class="s1">&#39;n_standards&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">calibration_standards</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="kc">None</span></div>
+</div>
+
+
+<div class="viewcode-block" id="MPAnalyzer">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.MPAnalyzer">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">MPAnalyzer</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to handle multiple PyPhotoMol instances.</span>
+<span class="sd">    This is useful for batch processing of multiple files.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+<div class="viewcode-block" id="MPAnalyzer.__init__">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.MPAnalyzer.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">models</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1"># Logbook for batch operations</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_logbook</span> <span class="o">=</span> <span class="p">[]</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_log_batch_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method_name</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">result_summary</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">notes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Internal method to log batch operations.&quot;&quot;&quot;</span>
+        <span class="n">log_entry</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
+            <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="n">method_name</span><span class="p">,</span>
+            <span class="s1">&#39;parameters&#39;</span><span class="p">:</span> <span class="n">parameters</span> <span class="ow">or</span> <span class="p">{},</span>
+            <span class="s1">&#39;result_summary&#39;</span><span class="p">:</span> <span class="n">result_summary</span> <span class="ow">or</span> <span class="p">{},</span>
+            <span class="s1">&#39;notes&#39;</span><span class="p">:</span> <span class="n">notes</span><span class="p">,</span>
+            <span class="s1">&#39;success&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s1">&#39;operation_type&#39;</span><span class="p">:</span> <span class="s1">&#39;batch&#39;</span>
+        <span class="p">}</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_logbook</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">log_entry</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_log_batch_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method_name</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">error_message</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Internal method to log batch operation errors.&quot;&quot;&quot;</span>
+        <span class="n">log_entry</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
+            <span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="n">method_name</span><span class="p">,</span>
+            <span class="s1">&#39;parameters&#39;</span><span class="p">:</span> <span class="n">parameters</span> <span class="ow">or</span> <span class="p">{},</span>
+            <span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="n">error_message</span><span class="p">,</span>
+            <span class="s1">&#39;success&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s1">&#39;operation_type&#39;</span><span class="p">:</span> <span class="s1">&#39;batch&#39;</span>
+        <span class="p">}</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_logbook</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">log_entry</span><span class="p">)</span>
+
+<div class="viewcode-block" id="MPAnalyzer.get_batch_logbook">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.MPAnalyzer.get_batch_logbook">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_batch_logbook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save_to_file</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieve the batch logbook of all operations performed.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        as_dataframe : bool, default True</span>
+<span class="sd">            If True, return as pandas DataFrame, else as list of dicts</span>
+<span class="sd">        save_to_file : str, optional</span>
+<span class="sd">            Optional file path to save logbook as JSON</span>
+<span class="sd">            </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pandas.DataFrame or list</span>
+<span class="sd">            Batch logbook entries</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">save_to_file</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_to_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_logbook</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">as_dataframe</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_logbook</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">,</span> <span class="s1">&#39;method&#39;</span><span class="p">,</span> <span class="s1">&#39;parameters&#39;</span><span class="p">,</span> <span class="s1">&#39;result_summary&#39;</span><span class="p">,</span> <span class="s1">&#39;notes&#39;</span><span class="p">,</span> <span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="s1">&#39;operation_type&#39;</span><span class="p">])</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_logbook</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_logbook</span></div>
+
+
+<div class="viewcode-block" id="MPAnalyzer.get_all_logbooks">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.MPAnalyzer.get_all_logbooks">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_all_logbooks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_to_file</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get combined logbooks from all models plus batch operations.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        save_to_file : str, optional</span>
+<span class="sd">            Optional file path to save combined logbook as JSON</span>
+<span class="sd">            </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict</span>
+<span class="sd">            Combined logbooks with batch and individual model logs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">combined_logbook</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;batch_operations&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_logbook</span><span class="p">,</span>
+            <span class="s1">&#39;individual_models&#39;</span><span class="p">:</span> <span class="p">{}</span>
+        <span class="p">}</span>
+        
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">combined_logbook</span><span class="p">[</span><span class="s1">&#39;individual_models&#39;</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">logbook</span>
+        
+        <span class="k">if</span> <span class="n">save_to_file</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_to_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">combined_logbook</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">combined_logbook</span></div>
+
+
+<div class="viewcode-block" id="MPAnalyzer.import_files">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.MPAnalyzer.import_files">[docs]</a>
+    <span class="nd">@log_batch_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">import_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">files</span><span class="p">,</span><span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load multiple files into PyPhotoMol instances.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        files : list</span>
+<span class="sd">            List of file paths to load.</span>
+<span class="sd">        names : list, optional</span>
+<span class="sd">            List of names for the PyPhotoMol instances.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Convert string to list if a single string is provided</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">files</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">names</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Extract only the file name without extension</span>
+            <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">file</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">names</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">file</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">PyPhotoMol</span><span class="p">()</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">import_file</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span>
+
+        <span class="c1"># Log the batch operation with detailed results</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_log_batch_operation</span><span class="p">(</span>
+            <span class="s1">&#39;import_files&#39;</span><span class="p">,</span>
+            <span class="n">parameters</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;files&#39;</span><span class="p">:</span> <span class="n">files</span><span class="p">,</span>
+                <span class="s1">&#39;names&#39;</span><span class="p">:</span> <span class="n">names</span><span class="p">,</span>
+                <span class="s1">&#39;n_files&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+            <span class="p">},</span>
+            <span class="n">result_summary</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;models_created&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">),</span>
+                <span class="s1">&#39;model_names&#39;</span><span class="p">:</span> <span class="n">names</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="MPAnalyzer.apply_to_all">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.MPAnalyzer.apply_to_all">[docs]</a>
+    <span class="nd">@log_batch_method</span> 
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply_to_all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method_name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply a method to all or selected PyPhotoMol instances.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        method_name : str</span>
+<span class="sd">            Name of the method to apply to instances</span>
+<span class="sd">        *args : tuple</span>
+<span class="sd">            Positional arguments to pass to the method</span>
+<span class="sd">        names : list or str, optional</span>
+<span class="sd">            Names of specific models to apply method to.</span>
+<span class="sd">            If None (default), applies to all models.</span>
+<span class="sd">        **kwargs : dict</span>
+<span class="sd">            Keyword arguments to pass to the method</span>
+<span class="sd">            </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Count binding events for all models:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; pms.apply_to_all(&#39;count_binding_events&#39;)</span>
+<span class="sd">        </span>
+<span class="sd">        Create histograms for specific models only:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; pms.apply_to_all(&#39;create_histogram&#39;, names=[&#39;model1&#39;, &#39;model2&#39;], </span>
+<span class="sd">        ...                  use_masses=True, window=[0, 2000], bin_width=10)</span>
+<span class="sd">        </span>
+<span class="sd">        Guess peaks for a single model:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; pms.apply_to_all(&#39;guess_peaks&#39;, names=&#39;model1&#39;, </span>
+<span class="sd">        ...                  min_height=10, min_distance=4, prominence=4)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Determine which models to process</span>
+        <span class="k">if</span> <span class="n">names</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Apply to all models</span>
+            <span class="n">target_models</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="n">target_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Apply to selected models</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">names</span><span class="p">]</span>
+            
+            <span class="n">target_models</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">:</span>
+                    <span class="n">target_models</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="n">name</span><span class="p">]))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; not found in models&quot;</span><span class="p">)</span>
+            <span class="n">target_names</span> <span class="o">=</span> <span class="n">names</span>
+        
+        <span class="c1"># Apply method to target models</span>
+        <span class="n">successful_models</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">failed_models</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">target_models</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">method_name</span><span class="p">):</span>
+                <span class="n">method</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">method_name</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">method</span><span class="p">):</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">method</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                        <span class="n">successful_models</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+                    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                        <span class="n">failed_models</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+                        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error applying </span><span class="si">{</span><span class="n">method_name</span><span class="si">}</span><span class="s2"> to model </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">method_name</span><span class="si">}</span><span class="s2"> is not callable for model </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> does not have method </span><span class="si">{</span><span class="n">method_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Log the batch operation with detailed results</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_log_batch_operation</span><span class="p">(</span>
+            <span class="s1">&#39;apply_to_all&#39;</span><span class="p">,</span>
+            <span class="n">parameters</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;method_name&#39;</span><span class="p">:</span> <span class="n">method_name</span><span class="p">,</span>
+                <span class="s1">&#39;target_models&#39;</span><span class="p">:</span> <span class="n">target_names</span><span class="p">,</span>
+                <span class="s1">&#39;args&#39;</span><span class="p">:</span> <span class="n">args</span><span class="p">,</span>
+                <span class="s1">&#39;kwargs&#39;</span><span class="p">:</span> <span class="n">kwargs</span>
+            <span class="p">},</span>
+            <span class="n">result_summary</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;successful_models&#39;</span><span class="p">:</span> <span class="n">successful_models</span><span class="p">,</span>
+                <span class="s1">&#39;failed_models&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">failed_models</span><span class="p">],</span>
+                <span class="s1">&#39;total_models_processed&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">target_names</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+        
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="MPAnalyzer.get_properties">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.MPAnalyzer.get_properties">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_properties</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">variable</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get properties from all PyPhotoMol instances.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        variable : str</span>
+<span class="sd">            The property to get from each instance.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        list</span>
+<span class="sd">            List of the specified property from each instance.</span>
+<span class="sd">            </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Get masses from all models:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; masses_list = pms.get_properties(&#39;masses&#39;)</span>
+<span class="sd">        </span>
+<span class="sd">        Get fit tables from all models:</span>
+<span class="sd">        </span>
+<span class="sd">        &gt;&gt;&gt; fit_tables = pms.get_properties(&#39;fit_table&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">variable</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span></div>
+
+
+<div class="viewcode-block" id="MPAnalyzer.create_plotting_config">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.MPAnalyzer.create_plotting_config">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_plotting_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">repeat_colors</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create configuration dataframes for plotting multiple PhotoMol models.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        repeat_colors : bool, default True</span>
+<span class="sd">            If True, repeat the same color scheme for each model&#39;s peaks.</span>
+<span class="sd">            If False, use sequential colors across all peaks from all models.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            tuple: (legends_df, colors_hist_df, legends_all, color_palette_all, sels_all, colors_hist)</span>
+<span class="sd">                - legends_df: DataFrame with legends, colors, and selection flags for Gaussian traces</span>
+<span class="sd">                - colors_hist_df: DataFrame with histogram colors for each model</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">legends_all</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">gaussian_sum_idx</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">fit_tables</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">cnt1</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">cnt2</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">color_palette_all</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="c1"># Process each model to generate legends</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+            <span class="c1"># Skip if no fit data available</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;fit_table&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">model</span><span class="o">.</span><span class="n">fit_table</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">continue</span>
+            
+            <span class="c1"># Get number of peaks from fit table</span>
+            <span class="n">num_peaks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">fit_table</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">num_peaks</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">continue</span>
+                
+            <span class="c1"># Create legends for this model&#39;s peaks</span>
+            <span class="n">legends</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;Peak #</span><span class="si">{</span><span class="n">cnt2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_peaks</span><span class="p">)]</span>
+            
+            <span class="c1"># Handle colors based on repeat_colors setting</span>
+            <span class="k">if</span> <span class="n">repeat_colors</span><span class="p">:</span>
+                <span class="c1"># Reset color index for each model</span>
+                <span class="n">model_color_palette</span> <span class="o">=</span> <span class="n">COLOR_PALETTE_9</span>  <span class="c1"># Use standard palette for each model</span>
+                <span class="n">model_colors</span> <span class="o">=</span> <span class="n">model_color_palette</span><span class="p">[:</span><span class="n">num_peaks</span><span class="p">]</span>
+                
+                <span class="c1"># Add Gaussian sum color if multiple peaks</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">legends</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">legends</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;Gaussian sum (</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">legends</span>
+                    <span class="n">gaussian_sum_idx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">legends_all</span><span class="p">))</span>
+                    <span class="c1"># Use light gray color for Gaussian sum to distinguish from individual peaks</span>
+                    <span class="n">sum_color</span> <span class="o">=</span> <span class="s1">&#39;#808080&#39;</span>  <span class="c1"># Light gray for Gaussian sum</span>
+                    <span class="n">model_colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">sum_color</span><span class="p">]</span> <span class="o">+</span> <span class="n">model_colors</span>
+                
+                <span class="n">color_palette_all</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">model_colors</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Sequential colors across all models</span>
+                <span class="c1"># Add Gaussian sum if multiple peaks</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">legends</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">legends</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;Gaussian sum (</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">legends</span>
+                    <span class="n">gaussian_sum_idx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">legends_all</span><span class="p">))</span>
+            
+            <span class="n">cnt2</span> <span class="o">+=</span> <span class="n">num_peaks</span>
+            <span class="n">legends_all</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">legends</span><span class="p">)</span>
+            
+            <span class="c1"># Store fit table info</span>
+            <span class="n">table</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit_table</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">table</span><span class="p">[</span><span class="s1">&#39;File&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+            
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">table</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">cnt1</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">fit_tables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+        
+        <span class="c1"># Create legends dataframe</span>
+        <span class="n">numberOfLegends</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">legends_all</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">numberOfLegends</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">legends_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+                <span class="s1">&#39;legends&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;No fits&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;#000000&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;select&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span>
+            <span class="p">})</span>
+            <span class="n">color_palette_all</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#000000&#39;</span><span class="p">]</span>
+            <span class="n">sels_all</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Handle sequential coloring if not repeat_colors</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">repeat_colors</span><span class="p">:</span>
+                <span class="c1"># Select appropriate color palette based on total number of legends</span>
+                <span class="k">if</span> <span class="n">numberOfLegends</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+                    <span class="n">color_palette</span> <span class="o">=</span> <span class="n">COLOR_PALETTE_9</span>
+                <span class="k">elif</span> <span class="n">numberOfLegends</span> <span class="o">&lt;</span> <span class="mi">13</span><span class="p">:</span>
+                    <span class="n">color_palette</span> <span class="o">=</span> <span class="n">COLOR_PALETTE_12</span>
+                <span class="k">elif</span> <span class="n">numberOfLegends</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">:</span>
+                    <span class="n">color_palette</span> <span class="o">=</span> <span class="n">COLOR_PALETTE_40</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Fallback to only one colour - lightblue</span>
+                    <span class="n">color_palette</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#ADD8E6&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">numberOfLegends</span>
+                
+                <span class="c1"># Ensure we have enough colors</span>
+                <span class="n">color_palette_all</span> <span class="o">=</span> <span class="p">(</span><span class="n">color_palette</span> <span class="o">*</span> <span class="p">((</span><span class="n">numberOfLegends</span> <span class="o">//</span> <span class="nb">len</span><span class="p">(</span><span class="n">color_palette</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))[:</span><span class="n">numberOfLegends</span><span class="p">]</span>
+            
+            <span class="n">sels_all</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">*</span> <span class="n">numberOfLegends</span>
+            
+            <span class="n">legends_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+                <span class="s1">&#39;legends&#39;</span><span class="p">:</span> <span class="n">legends_all</span><span class="p">,</span>
+                <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="n">color_palette_all</span><span class="p">,</span>
+                <span class="s1">&#39;select&#39;</span><span class="p">:</span> <span class="n">sels_all</span>
+            <span class="p">})</span>
+        
+        <span class="c1"># Create histogram colors dataframe</span>
+        <span class="n">model_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        
+        <span class="k">if</span> <span class="n">repeat_colors</span><span class="p">:</span>
+            <span class="c1"># Use the same histogram color for all models</span>
+            <span class="n">histogram_color</span> <span class="o">=</span> <span class="s1">&#39;#1f77b4&#39;</span>  <span class="c1"># Standard blue</span>
+            <span class="n">colors_hist</span> <span class="o">=</span> <span class="p">[</span><span class="n">histogram_color</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">model_names</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Use different colors for each model&#39;s histogram</span>
+            <span class="n">histogram_palette</span> <span class="o">=</span> <span class="n">HISTOGRAM_PALETTE</span>
+            <span class="n">colors_hist</span> <span class="o">=</span> <span class="p">(</span><span class="n">histogram_palette</span> <span class="o">*</span> <span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">model_names</span><span class="p">)</span> <span class="o">//</span> <span class="nb">len</span><span class="p">(</span><span class="n">histogram_palette</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))[:</span><span class="nb">len</span><span class="p">(</span><span class="n">model_names</span><span class="p">)]</span>
+        
+        <span class="n">colors_hist_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+            <span class="s1">&#39;legends&#39;</span><span class="p">:</span> <span class="n">model_names</span><span class="p">,</span>
+            <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="n">colors_hist</span>
+        <span class="p">})</span>
+        
+        <span class="k">return</span> <span class="n">legends_df</span><span class="p">,</span> <span class="n">colors_hist_df</span></div>
+
+
+<div class="viewcode-block" id="MPAnalyzer.master_calibration">
+<a class="viewcode-back" href="../../pyphotomol.html#pyphotomol.main.MPAnalyzer.master_calibration">[docs]</a>
+    <span class="nd">@log_batch_method</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">master_calibration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">calibration_standards</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Perform master calibration using known masses.</span>
+<span class="sd">        It uses information from the fit table of each model to create a master calibration.</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        calibration_standards : list</span>
+<span class="sd">            List of known masses for calibration.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Extract fit tables from all models</span>
+        <span class="n">fit_tables</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_properties</span><span class="p">(</span><span class="s1">&#39;fit_table&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Check if fit tables are not None and contain data</span>
+        <span class="n">fit_tables</span> <span class="o">=</span> <span class="p">[</span><span class="n">ft</span> <span class="k">for</span> <span class="n">ft</span> <span class="ow">in</span> <span class="n">fit_tables</span> <span class="k">if</span> <span class="n">ft</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">ft</span><span class="o">.</span><span class="n">empty</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">fit_tables</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No fit tables found in any model. Please create fit tables first.&quot;</span><span class="p">)</span>
+        
+        <span class="n">combined_fit_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">fit_tables</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">calibration_dic</span> <span class="o">=</span> <span class="n">calibrate</span><span class="p">(</span>
+            <span class="n">calibration_standards</span><span class="p">,</span> 
+            <span class="n">combined_fit_table</span><span class="p">)</span>
+        
+        <span class="c1"># Log the operation with detailed results</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_log_batch_operation</span><span class="p">(</span>
+            <span class="s1">&#39;master_calibration&#39;</span><span class="p">,</span>
+            <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;calibration_standards&#39;</span><span class="p">:</span> <span class="n">calibration_standards</span><span class="p">},</span>
+            <span class="n">result_summary</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;calibration_results&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">calibration_dic</span><span class="p">,</span>
+                <span class="s1">&#39;n_standards&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">calibration_standards</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="kc">None</span></div>
+</div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, osvalB.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -17,10 +17,34 @@ Welcome to PyPhotoMol, a python-package to analyse mass photometry data.
 
 ## Installation
 
-Install PyPhotoMol with pip:
+PyPhotoMol requires Python 3.12 or later.
+
+Install PyPhotoMol from PyPI with pip:
 
 ```bash
 pip install pyphotomol
+```
+
+Verify the installation:
+
+```python
+import pyphotomol
+print(pyphotomol.__version__)
+```
+
+For development, clone the repository and install with `uv`:
+
+```bash
+git clone https://github.com/osvalB/pyphotomol.git
+cd pyphotomol
+uv sync --extra dev
+```
+
+Run tests and build the documentation:
+
+```bash
+uv run pytest
+uv run build_docs.py
 ```
 
 ## Quick Start
@@ -55,6 +79,5 @@ print(model.fit_table)
 PyPhotoMol is derived from PhotoMol, an online tool presented in the following publication: 
 
 Niebling, Stephan, et al. "Biophysical Screening Pipeline for Cryo-EM Grid Preparation of Membrane Proteins." Frontiers in Molecular Biosciences 9 (2022): 903148.
-
 
 
