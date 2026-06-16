@@ -10,6 +10,7 @@ Welcome to PyPhotoMol, a Python package for Mass Photometry (MP) data analysis
 
    installation
    description
+   examples
    modules
 
 Indices and tables

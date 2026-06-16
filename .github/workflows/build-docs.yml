@@ -52,6 +52,11 @@ jobs:
           ${{ runner.os }}-uv-3.13-
           ${{ runner.os }}-uv-
 
+    - name: Install Pandoc
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y pandoc
+
     - name: Build documentation
       run: |
         uv sync --extra docs

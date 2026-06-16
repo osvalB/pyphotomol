@@ -14,7 +14,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'src'))
 project = 'PyPhotoMol'
 copyright = '2026, Osvaldo Burastero'
 author = 'Osvaldo Burastero'
-release = '1.0.0'
+release = '1.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -25,6 +25,7 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.autosummary',
     'numpydoc',
+    'nbsphinx',
     'sphinx_copybutton',
     'sphinx_design',
 ]
@@ -43,6 +44,9 @@ autosummary_imported_members = True
 napoleon_google_docstring = True
 napoleon_numpy_docstring = True
 numpydoc_show_class_members = False
+nbsphinx_execute = 'never'
+nbsphinx_allow_errors = False
+nbsphinx_codecell_lexer = 'python'
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']

@@ -62,6 +62,19 @@ Verify the development installation by running the test suite:
 Build Documentation
 -------------------
 
+Building the notebook examples requires Pandoc because the documentation uses
+``nbsphinx`` to render Jupyter notebooks. On macOS, install it with:
+
+.. code-block:: bash
+
+   brew install pandoc
+
+On Ubuntu, install it with:
+
+.. code-block:: bash
+
+   sudo apt-get install pandoc
+
 Create the local documentation build with:
 
 .. code-block:: bash

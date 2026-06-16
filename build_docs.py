@@ -21,6 +21,8 @@ def build_docs():
             sys.executable,
             "-m",
             "sphinx",
+            "-E",
+            "-a",
             "-b",
             "html",
             str(source_dir),

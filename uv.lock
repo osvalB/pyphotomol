@@ -1533,6 +1533,23 @@ wheels = [
 ]
 
 [[package]]
+name = "nbsphinx"
+version = "0.9.8"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "docutils" },
+    { name = "jinja2" },
+    { name = "nbconvert" },
+    { name = "nbformat" },
+    { name = "sphinx" },
+    { name = "traitlets" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/e7/d1/82081750f8a78ad0399c6ed831d42623b891904e8e7b8a75878225cf1dce/nbsphinx-0.9.8.tar.gz", hash = "sha256:d0765908399a8ee2b57be7ae881cf2ea58d66db3af7bbf33e6eb48f83bea5495", size = 417469, upload-time = "2025-11-28T17:41:02.336Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/03/78/843bcf0cf31f88d2f8a9a063d2d80817b1901657d83d65b89b3aa835732e/nbsphinx-0.9.8-py3-none-any.whl", hash = "sha256:92d95ee91784e56bc633b60b767a6b6f23a0445f891e24641ce3c3f004759ccf", size = 31961, upload-time = "2025-11-28T17:41:00.796Z" },
+]
+
+[[package]]
 name = "nest-asyncio2"
 version = "1.7.2"
 source = { registry = "https://pypi.org/simple" }
@@ -2009,7 +2026,7 @@ wheels = [
 
 [[package]]
 name = "pyphotomol"
-version = "0.1.5"
+version = "1.0"
 source = { editable = "." }
 dependencies = [
     { name = "h5py" },
@@ -2029,6 +2046,7 @@ dev = [
     { name = "flake8" },
     { name = "ipykernel" },
     { name = "jupyter" },
+    { name = "nbsphinx" },
     { name = "notebook" },
     { name = "numpydoc" },
     { name = "pytest" },
@@ -2040,6 +2058,7 @@ dev = [
     { name = "sphinx-tabs" },
 ]
 docs = [
+    { name = "nbsphinx" },
     { name = "numpydoc" },
     { name = "sphinx" },
     { name = "sphinx-copybutton" },
@@ -2062,6 +2081,8 @@ requires-dist = [
     { name = "jupyter", marker = "extra == 'dev'", specifier = ">=1.0.0" },
     { name = "kaleido", specifier = ">=1.0.0" },
     { name = "matplotlib", specifier = ">=3.7.0" },
+    { name = "nbsphinx", marker = "extra == 'dev'", specifier = ">=0.9.7" },
+    { name = "nbsphinx", marker = "extra == 'docs'", specifier = ">=0.9.7" },
     { name = "notebook", marker = "extra == 'dev'", specifier = ">=6.0.0" },
     { name = "numpy", specifier = ">=2.0.2" },
     { name = "numpydoc", marker = "extra == 'dev'", specifier = ">=1.10.0" },

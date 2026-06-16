@@ -93,7 +93,7 @@ __all__ = [
 ]
 
 # Package metadata
-__version__ = '0.1.0'
+__version__ = '1.0'
 __author__ = 'osvalB'
 __email__ = 'oburastero@gmail.com' 
 __description__ = 'A Python package for mass photometry data analysis'
