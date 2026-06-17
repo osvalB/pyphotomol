@@ -25,6 +25,11 @@ on:
       - '.github/workflows/build-docs.yml'
       - 'pyproject.toml'
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  
 env:
   UV_CACHE_DIR: ${{ github.workspace }}/.cache/uv
 
