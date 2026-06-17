@@ -20,8 +20,9 @@ dependencies = [
 
 [project.optional-dependencies]
 test = [
-    "pytest>=7.0.0",
-    "pytest-cov>=4.0.0",
+    "pytest>=8.0",
+    "pytest-cov>=6.0",
+    "coverage>=7.0",
 ]
 docs = [
     "sphinx>=9.1.0",
