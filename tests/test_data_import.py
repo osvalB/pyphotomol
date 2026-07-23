@@ -194,3 +194,17 @@ def test_import_file_h5_edge_cases():
     # This reveals a bug in the original code where empty arrays cause concatenation to fail
     with pytest.raises(ValueError, match="need at least one array to concatenate"):
         import_file_h5("test_files/demo_empty_arrays.h5")
+
+def test_import_recursive_h5():
+    """Test that import_file_h5 can find contrasts in a recursive search."""
+    contrasts, masses_kda = import_file_h5("test_files/example_recursive.h5")
+    
+    assert isinstance(contrasts, np.ndarray)
+    assert masses_kda is None  # No masses_kDa in this file
+    assert len(contrasts) == 1000  # Should have 1000 contrast values
+    assert not np.any(np.isnan(contrasts))  # Ensure NaN values are filtered
+
+def test_import_h5_error_without_data():
+    """Test that import_file_h5 raises an error when no valid data is found."""
+    with pytest.raises(ValueError, match="No valid data found in the HDF5 file"):
+        import_file_h5("test_files/data_in_wrong_category.h5")

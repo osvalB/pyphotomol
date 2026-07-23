@@ -1,6 +1,6 @@
 [project]
 name = "pyphotomol"
-version = "1.0"
+version = "1.0.1"
 description = "Python package to analyse mass photometry data"
 readme = "README.md"
 authors = [

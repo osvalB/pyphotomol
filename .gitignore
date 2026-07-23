@@ -50,3 +50,5 @@ masses_monomer_*nM.csv
 masses_A_B_*nM.csv
 
 .pytest_cache/
+
+temp.py

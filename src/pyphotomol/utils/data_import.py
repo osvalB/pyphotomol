@@ -86,6 +86,7 @@ def import_file_h5(filename):
     data_keys = data.keys()
 
     masses_kDa = None
+    contrasts = None
 
     # Check if contrasts are present and load them
     if 'contrasts' in data_keys:
@@ -122,6 +123,24 @@ def import_file_h5(filename):
         
         masses_kDa = np.concatenate([arr for arr in all_masses])
         contrasts  = np.concatenate([arr for arr in all_contrasts])
+
+    # Do recursive search inside the h5 file
+    if contrasts is None:
+
+        with h5py.File(filename, "r") as f:
+
+            def search(name, obj):
+
+                if "contrast" in name.lower():
+                    nonlocal contrasts
+                    contrasts = np.array(obj[:]).squeeze()
+                    contrasts = contrasts[~np.isnan(contrasts)]
+
+            f.visititems(search)
+
+    # Raise an error if both contrasts and masses_kDa are None
+    if contrasts is None and masses_kDa is None:
+        raise ValueError("No valid data found in the HDF5 file. Ensure 'contrasts' or 'masses_kDa' datasets are present.")
 
     masses_kDa = verify_masses(masses_kDa)
 
